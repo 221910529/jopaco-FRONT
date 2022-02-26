@@ -16,7 +16,7 @@ function NavBar() {
     </div>
   );
 }
-
+ 
 function BotonOut(props) {
   return <button className="btn_Out">{props.name}</button>;
 }

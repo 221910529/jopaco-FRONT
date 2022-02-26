@@ -1,6 +1,9 @@
 .btn_Out{
     color: aquamarine;
     background-color: black;
+    width: auto;
+    height: auto;
+    align-items: right;
 }
 
 .nav{
