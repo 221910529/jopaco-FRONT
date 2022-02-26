@@ -1,17 +1,20 @@
 import "../Css/Botones.css";
+import ImagenLogo from "../logo.svg";
 
 function NavBar() {
   return (
     <div>
-      <div class="nav">
+      <div className="nav">
         <Inicio name="Inicio" />
         <Logo />
         <BotonEx name="Registrarse" />
         <BotonEx name="Registrarse" />
         <BotonEx name="Registrarse" />
         <BotonEx name="Registrarse" />
-        <BotonOut name="Iniciar Sesion" />
-        <BotonOut name="Registrarse" />
+        <div className="Left">
+          <BotonOut name="Iniciar Sesion" />
+          <BotonOut name="Registrarse" />
+        </div>
       </div>
     </div>
   );
@@ -30,7 +33,14 @@ function Inicio(props) {
 }
 
 function Logo(props) {
-  return "Logo";
+  return (
+    <img
+      src={ImagenLogo}
+      width="50"
+      height="50"
+      alt="insertar SVG con la etiqueta image"
+    ></img>
+  );
 }
 
 export default NavBar;
