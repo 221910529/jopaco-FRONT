@@ -4,7 +4,7 @@ import React from "react";
 function altaUsuarios() {
   return (
     <div>
-      <h1>Buenos</h1>
+      <h1>Registro de usuarios</h1>
       <form>
         <div>
           Ingrese el campo Nombre
