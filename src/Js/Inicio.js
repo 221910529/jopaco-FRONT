@@ -1,19 +1,23 @@
+import "../Css/Inicio.css";
 import NavBar from "./NavBar";
-import { BrowserRouter , Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Dogs from "../pages/Dogs"
-
-
+import Dogs from "../pages/Dogs";
+import Cats from "../pages/Cats";
 
 function Inicio() {
   return (
     <div>
-      <NavBar></NavBar>
       <BrowserRouter>
+        <NavBar></NavBar>
+
+        <div className="hola">
           <Routes>
-            <Route path='/Dogs' exact component={Dogs} />
+            <Route exact path="/" component={Dogs} />
+            <Route path="/Cats" element={<Cats />} />
+            <Route path="*" component={() => <div>404</div>} />
           </Routes>
-       
+        </div>
       </BrowserRouter>
     </div>
   );

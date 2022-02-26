@@ -1,6 +1,6 @@
 import "../Css/Botones.css";
 import ImagenLogo from "../logo.svg";
-
+import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
@@ -8,20 +8,12 @@ function NavBar() {
       <div className="nav">
         <Inicio name="Inicio" />
         <Logo />
-        
-        <BotonEx name="Dogs"/>
-        <BotonEx name="Proveedores" />
-        <BotonEx name="Usuarios" />
-        <BotonEx name="Catalogo" />
-        <div className="Left">
-          <BotonOut name="Iniciar Sesion" />
-          <BotonOut name="Registrarse" />
-        </div>
+        <Link to="/Cats">Expenses</Link>
       </div>
     </div>
   );
 }
- 
+
 function BotonOut(props) {
   return <button className="btn_Out">{props.name}</button>;
 }
@@ -35,14 +27,7 @@ function Inicio(props) {
 }
 
 function Logo(props) {
-  return (
-    <img
-      src={ImagenLogo}
-      width="50"
-      height="50"
-      alt="insertar SVG con la etiqueta image"
-    ></img>
-  );
+  return <img src={ImagenLogo} width="50" height="50"></img>;
 }
 
 export default NavBar;

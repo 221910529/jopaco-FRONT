@@ -1,5 +1,6 @@
-import React from 'react';
-const Dogs = () =>{
+import React from "react";
+
+function Dogs() {
   return (
     <div>
       <h3>Dogs</h3>
@@ -10,5 +11,3 @@ const Dogs = () =>{
   );
 }
 export default Dogs;
-
-Dogs.js

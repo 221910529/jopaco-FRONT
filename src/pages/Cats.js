@@ -1,5 +1,5 @@
-import React from 'react';
-const Cats = () =>{
+import React from "react";
+function Cats() {
   return (
     <div>
       <h3>Cats</h3>
@@ -10,5 +10,3 @@ const Cats = () =>{
   );
 }
 export default Cats;
-
-Cats.js
