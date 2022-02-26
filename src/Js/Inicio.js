@@ -2,8 +2,8 @@ import "../Css/Inicio.css";
 import NavBar from "./NavBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Dogs from "../pages/Dogs";
-import Cats from "../pages/Cats";
+import AltaUsuarios from "../Js/Usuarios/altaUsuario";
+import VerUsuario from "../Js/Usuarios/verUsuario";
 
 function Inicio() {
   return (
@@ -13,9 +13,9 @@ function Inicio() {
 
         <div className="hola">
           <Routes>
-            <Route exact path="/" element={<Dogs />} />
-            <Route path="/Cats" element={<Cats />} />
-            <Route path="/Dogs" element={<Dogs />} />
+            <Route exact path="/" element={<AltaUsuarios />} />
+            <Route path="/AltaUsuarios" element={<AltaUsuarios />} />
+            <Route path="/VerUsuario" element={<VerUsuario />} />
             <Route path="*" component={() => <div>404</div>} />
           </Routes>
         </div>

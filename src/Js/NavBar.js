@@ -8,8 +8,8 @@ function NavBar() {
       <div className="nav">
         <Inicio name="Inicio" />
         <Logo />
-        <Link to="/Cats">Expenses</Link>
-        <Link to="/Dogs">Expenses</Link>
+        <Link to="/AltaUsuarios">Alta Usuarios</Link>
+        <Link to="/VerUsuarios">Ver Usuarios</Link>
       </div>
     </div>
   );

@@ -1,50 +1,41 @@
-import NavBar from "./NavBar";
+import NavBar from "../NavBar";
+import React from "react";
 
 function altaUsuarios() {
   return (
     <div>
-      <form action="">
-        <Campo name="Nombre" nombre="nombre"></Campo>
-        <Campo name="Apellido Paterno" nombre="app"></Campo>
-        <Campo name="Apellido Materno" nombre="apm"></Campo>
-        <CampoDate name="Fecha de nacimiento" nombre="fn"></CampoDate>
-        <Campo name="Correo" nombre="correo"></Campo>
-        <CampoPass name="Pashb word" nombre="pass"></CampoPass>
-        <Campo name="Tipo de usuario" nombre="tipo_usuario"></Campo>
+      <h1>Buenos</h1>
+      <form>
+        <div>
+          Ingrese el campo Nombre
+          <input type="text" name="name" />
+        </div>
+        <div>
+          Ingrese el campo Apellido Paterno
+          <input type="text" name="name" />
+        </div>
+        <div>
+          Ingrese el campo Apellido Materno
+          <input type="text" name="name" />
+        </div>
+        <div>
+          Ingrese el campo Fecha de Nacimiento
+          <input type="text" name="name" />
+        </div>
+        <div>
+          Ingrese el campo Correo Electronico
+          <input type="text" name="name" />
+        </div>
+        <div>
+          Ingrese el campo Password
+          <input type="text" name="name" />
+        </div>
+        <div>
+          Ingrese el campo Tipo de Usuario
+          <input type="text" name="name" />
+        </div>
+        <input type="submit" value="Submit" />
       </form>
-    </div>
-  );
-}
-
-function Campo(props) {
-  return (
-    <div>
-      Ingrese el campo {props.name}
-      <input type="text" name={props.nombre} id="">
-        {props.name}
-      </input>
-    </div>
-  );
-}
-
-function CampoDate(props) {
-  return (
-    <div>
-      Ingrese el campo {props.name}
-      <input type="date" name={props.nombre} id="">
-        {props.name}
-      </input>
-    </div>
-  );
-}
-
-function CampoPass(props) {
-  return (
-    <div>
-      Ingrese el campo {props.name}
-      <input type="password" name={props.nombre} id="">
-        {props.name}
-      </input>
     </div>
   );
 }

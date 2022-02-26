@@ -1,5 +1,3 @@
-import NavBar from "./NavBar";
-
 function VerUsuarios() {
   return (
     <div>
@@ -13,7 +11,6 @@ function VerUsuarios() {
           <Dato name="correo"></Dato>
           <Dato name="pass"></Dato>
           <Dato name="tipo_usuario"></Dato>
-
         </th>
         <td>
           <tr>ciclo para agarrar los datos del back</tr>
