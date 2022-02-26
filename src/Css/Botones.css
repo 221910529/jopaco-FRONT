@@ -6,6 +6,15 @@
     align-items: right;
 }
 
+.Left{
+    display: flex;
+    flex-direction: row;
+
+}
+
 .nav{
     background-color: #343A40;
+    display: flex;
+    flex-direction: row-reverse;
+    
 }
