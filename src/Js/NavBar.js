@@ -9,6 +9,7 @@ function NavBar() {
         <Inicio name="Inicio" />
         <Logo />
         <Link to="/Cats">Expenses</Link>
+        <Link to="/Dogs">Expenses</Link>
       </div>
     </div>
   );

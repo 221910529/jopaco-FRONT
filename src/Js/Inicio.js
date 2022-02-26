@@ -13,8 +13,9 @@ function Inicio() {
 
         <div className="hola">
           <Routes>
-            <Route exact path="/" component={Dogs} />
+            <Route exact path="/" element={<Dogs />} />
             <Route path="/Cats" element={<Cats />} />
+            <Route path="/Dogs" element={<Dogs />} />
             <Route path="*" component={() => <div>404</div>} />
           </Routes>
         </div>
