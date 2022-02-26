@@ -1,16 +1,18 @@
 import "../Css/Botones.css";
 import ImagenLogo from "../logo.svg";
 
+
 function NavBar() {
   return (
     <div>
       <div className="nav">
         <Inicio name="Inicio" />
         <Logo />
-        <BotonEx name="Registrarse" />
-        <BotonEx name="Registrarse" />
-        <BotonEx name="Registrarse" />
-        <BotonEx name="Registrarse" />
+        
+        <BotonEx name="Dogs"/>
+        <BotonEx name="Proveedores" />
+        <BotonEx name="Usuarios" />
+        <BotonEx name="Catalogo" />
         <div className="Left">
           <BotonOut name="Iniciar Sesion" />
           <BotonOut name="Registrarse" />

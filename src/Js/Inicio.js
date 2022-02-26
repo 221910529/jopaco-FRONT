@@ -1,23 +1,20 @@
 import NavBar from "./NavBar";
+import { BrowserRouter , Router, Route, Routes } from "react-router-dom";
+
+import Dogs from "../pages/Dogs"
+
+
 
 function Inicio() {
   return (
     <div>
-      <form action="">
-        <Campo nombre="Nombre" name="nombre"></Campo>
-        <Campo nombre="Apellido Paterno" name="app"></Campo>
-      </form>
-    </div>
-  );
-}
-
-function Campo(props) {
-  return (
-    <div>
-      "Ingrese su "{props.nombre}
-      <input type="text" name={props.name} id="">
-        {props.nombre}
-      </input>
+      <NavBar></NavBar>
+      <BrowserRouter>
+          <Routes>
+            <Route path='/Dogs' exact component={Dogs} />
+          </Routes>
+       
+      </BrowserRouter>
     </div>
   );
 }
