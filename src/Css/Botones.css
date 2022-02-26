@@ -1,20 +1,26 @@
 .btn_Out{
+    list-style-type: none;
+    font-family:sans-serif;
+    font-size: 1rem;
     color: aquamarine;
-    background-color: black;
-    width: auto;
-    height: auto;
-    align-items: right;
+    
+    font-weight: 400;
+    background-color: #343A40;
+    
 }
 
 .Left{
-    display: flex;
-    flex-direction: row;
+    position: relative;
+    left: 50%;
+    width: 300px;
+    border: #343A40;
+    padding: 10px;
 
 }
 
 .nav{
     background-color: #343A40;
     display: flex;
-    flex-direction: row-reverse;
+    
     
 }
