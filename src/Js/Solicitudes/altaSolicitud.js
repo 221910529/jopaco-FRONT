@@ -1,29 +1,37 @@
 import NavBar from "./NavBar";
+import React from "react";
 
 function altaSolicitudes() {
   return (
     <div>
-      <form action="">
-        <Campo name="Total" nombre="total"></Campo>
-        <Campo name="Horario" nombre="horario"></Campo>
-
-        <Campo name="ID usuario" nombre="usuario_id"></Campo>
-        <Campo name="ID servicio" nombre="servicio_id"></Campo>
-        <Campo name="ID negocio" nombre="negocio_id"></Campo>
+      <form>
+        <h1>Registro de solicitudes</h1>
+          <div>
+            Ingrese el total de solicitudes
+            <input type="text" name="name" />
+          </div>
+          <div>
+            Ingrese la hora de la solcitud
+            <input type="text" name="name" />
+          </div>
+          <div>
+            Ingrese el usuario que realiza la solicitud
+            <input type="text" name="name" />
+          </div>
+          <div>
+            Ingrese el negocio con el que se hace la solicitud
+            <input type="text" name="name" />
+          </div>
+          <div>
+            Seleccione el servicio al cual se hace la solicitud
+            <input type="text" name="name" />
+          </div>
+          <input type="submit" value="Submit" />
       </form>
-    </div>
+  </div>
   );
 }
 
-function Campo(props) {
-  return (
-    <div>
-      Ingrese el campo {props.name}
-      <input type="text" name={props.nombre} id="">
-        {props.name}
-      </input>
-    </div>
-  );
-}
+
 
 export default altaSolicitudes;

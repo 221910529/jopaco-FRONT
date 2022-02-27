@@ -1,30 +1,37 @@
 import NavBar from "./NavBar";
+import React from "react";
 
 function altaNegocios() {
   return (
     <div>
-      <form action="">
-        <Campo name="Nombre" nombre="nombre"></Campo>
-        <Campo name="Dirección" nombre="direccion"></Campo>
-        <Campo name="Horario de Servicio" nombre="horario"></Campo>
-        <Campo name="Días de servicio" nombre="dias"></Campo>
-        <Campo name="Descripción" nombre="descripcion"></Campo>
-
-        <Campo name="Id del usuario" nombre="usuario_id"></Campo>
-      </form>
+      <form>
+        <h1>Registro de negocios</h1>
+          <div>
+            Ingrese el nombre
+            <input type="text" name="name" />
+          </div>
+          <div>
+            Ingrese la dirección
+            <input type="text" name="name" />
+          </div>
+          <div>
+            Ingrese el horario de servicio
+            <input type="text" name="name" />
+          </div>
+          <div>
+            Seleccione los días de servicio
+            <input type="text" name="name" />
+          </div>
+          <div>
+            Ingrese la descripción del negocio
+            <input type="text" name="name" />
+          </div>
+          <input type="submit" value="Submit" />
+        </form>
     </div>
   );
 }
 
-function Campo(props) {
-  return (
-    <div>
-      Ingrese el campo {props.name}
-      <input type="text" name={props.nombre} id="">
-        {props.name}
-      </input>
-    </div>
-  );
-}
+
 
 export default altaNegocios;
