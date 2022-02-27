@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import AltaUsuarios from "../Js/Usuarios/altaUsuario";
 import VerUsuario from "../Js/Usuarios/verUsuario";
+import Base from "./Base";
 
 function Inicio() {
   return (
@@ -13,7 +14,7 @@ function Inicio() {
 
         <div className="hola">
           <Routes>
-            <Route exact path="/" element={<AltaUsuarios />} />
+            <Route exact path="/" element={<Base />} />
             <Route path="/AltaUsuarios" element={<AltaUsuarios />} />
             <Route path="/VerUsuario" element={<VerUsuario />} />
             <Route path="*" component={() => <div>404</div>} />

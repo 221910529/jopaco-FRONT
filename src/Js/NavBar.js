@@ -6,29 +6,32 @@ function NavBar() {
   return (
     <div>
       <div className="nav">
-        <Inicio name="Inicio" />
-        <Logo />
-        <Link to="/AltaUsuarios">Alta Usuarios</Link>
-        <Link to="/VerUsuarios">Ver Usuarios</Link>
+        <div className="Right">
+          <Boton To="/" name="Jopaco" btn="btn_in"></Boton>
+          <Logo />
+          <Boton To="/AltaUsuarios" name="Alta Usuarios" btn="btn_in"></Boton>
+          <Boton To="/VerUsuarios" name="Ver Usuarios" btn="btn_in"></Boton>
+        </div>
+
+        <div className="Left">
+          <Boton To="/AltaUsuarios" name="Iniciar Sesion" btn="btn_out"></Boton>
+          <Boton To="/VerUsuarios" name="Cerrar Sesion" btn="btn_out"></Boton>
+        </div>
       </div>
     </div>
   );
 }
 
-function BotonOut(props) {
-  return <button className="btn_Out">{props.name}</button>;
-}
-
-function BotonEx(props) {
-  return <button className="btn_Ex">{props.name}</button>;
-}
-
-function Inicio(props) {
-  return <button className="btn_Out">{props.name}</button>;
+function Boton(props) {
+  return (
+    <button className={props.btn}>
+      <Link to={props.To}>{props.name}</Link>
+    </button>
+  );
 }
 
 function Logo(props) {
-  return <img src={ImagenLogo} width="50" height="50"></img>;
+  return <img src={ImagenLogo}></img>;
 }
 
 export default NavBar;

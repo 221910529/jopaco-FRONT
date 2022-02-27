@@ -1,26 +1,60 @@
-.btn_Out{
-    list-style-type: none;
-    font-family:sans-serif;
-    font-size: 1rem;
-    color: aquamarine;
-    
-    font-weight: 400;
-    background-color: #343A40;
-    
+.btn_out{
+  margin: 2%;
+  border: 2px solid #17A2B8;
+  border-radius: 2px;
+  background-color: #343A40;
 }
 
-.Left{
-    position: relative;
-    left: 50%;
-    width: 300px;
-    border: #343A40;
-    padding: 10px;
+.btn_in{
+    margin: 2%;
+    border: none;
+    background-color: #343A40;
+  }
 
+  a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+
+.btn_in a {
+    color: #007BFF;
+}
+
+.btn_in a:visited {
+    color: #007BFF;
+}
+
+.btn_out a {
+    color: #17A2B8;
+}
+
+.btn_out a:visited {
+    color: #17A2B8;
+}
+
+.Right{
+width: 50%;
+
+}
+
+.Right img{
+    width:70px;
+    vertical-align:middle;
+}
+
+
+.Left{
+    width: 15%;
 }
 
 .nav{
+    height: 20%;
     background-color: #343A40;
-    display: flex;
-    
+    display: flex;   
+    align-items: center;
+    justify-content: space-between;
     
 }
