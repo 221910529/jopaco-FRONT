@@ -81,12 +81,12 @@ class altaSolicitudes extends Component {
           </div>
           <div>
             Ingrese el usuario que realiza la solicitud
-            <input type="text" name="Usuario_Id" onChange={this.handleChange} />
+            <input type="number" name="Usuario_Id" onChange={this.handleChange} />
           </div>
           <div>
             Ingrese el servicio con el que se hace la solicitud
             <input
-              type="text"
+              type="number"
               name="Servicio_Id"
               onChange={this.handleChange}
             />

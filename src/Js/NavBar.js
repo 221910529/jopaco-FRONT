@@ -26,19 +26,20 @@ class NavBar extends Component {
               <Boton To="/AltaNegocios" name="Negocios" btn="btn_in"></Boton>
               <Boton
                 To="/AltaServicios"
-                name="Solicitudes"
+                name="Servicios"
                 btn="btn_in"
               ></Boton>
               <Boton
                 To="/AltaSolicitudes"
-                name="Servicios"
+                name="Solicitudes"
                 btn="btn_in"
               ></Boton>
+              
             </div>
 
             <div className="Left">
               <Boton To="/Login" name="Iniciar Sesion" btn="btn_out"></Boton>
-              <Boton To="/VerUsuarios" name="Registrarse" btn="btn_out"></Boton>
+              <Boton To="/AltaUsuarios" name="Registrarse" btn="btn_out"></Boton>
             </div>
           </div>
         </div>
@@ -53,12 +54,17 @@ class NavBar extends Component {
               <Boton To="/AltaNegocios" name="Negocios" btn="btn_in"></Boton>
               <Boton
                 To="/AltaServicios"
-                name="Solicitudes"
+                name="Servicios"
                 btn="btn_in"
               ></Boton>
               <Boton
                 To="/AltaSolicitudes"
-                name="Servicios"
+                name="Solicitudes"
+                btn="btn_in"
+              ></Boton>
+              <Boton
+                To="/AltaUsuarios"
+                name="Registrar Usuario"
                 btn="btn_in"
               ></Boton>
             </div>

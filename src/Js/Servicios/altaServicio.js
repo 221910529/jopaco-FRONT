@@ -3,11 +3,13 @@ import "../../Css/Formularios.css";
 import axios from "axios";
 import Cookies from "universal-cookie";
 
+//------ tener el url a mano
 let url = "http://127.0.0.1:8000/api/servicios";
 const cookies = new Cookies();
 
 const token = cookies.get("token");
 
+//---- desclarando la variables que ocupando
 class altaServicios extends Component {
   state = {
     Nombre_Servicio: "",
@@ -23,12 +25,12 @@ class altaServicios extends Component {
     });
     console.log(this.state);
   };
-
+//--- validamos si hay token
   RegistrarServicio = async () => {
     if (token == undefined) {
       alert("Necesita Iniciar sesion para crear un servicio");
     } else {
-      await axios
+      await axios //---- mandamos solicitud post al backend 
         .post(
           url,
           {
@@ -65,7 +67,7 @@ class altaServicios extends Component {
     return (
       <div className="formulario">
         <div>
-          <h1>Registro de solicitudes</h1>
+          <h1>Registro de Servicios</h1>
           <div>
             Ingrese el nombre
             <input

@@ -8,6 +8,7 @@ import Base from "./Base";
 import AltaNegocios from "../Js/Negocios/altaNegocio";
 import AltaServicios from "../Js/Servicios/altaServicio";
 import AltaSolicitudes from "../Js/Solicitudes/altaSolicitud";
+import AltaUsuarios from "./Usuarios/altaUsuario";
 
 function Inicio() {
   return (
@@ -19,6 +20,7 @@ function Inicio() {
           <Routes>
             <Route exact path="/" element={<Base />} />
             <Route path="/Login" element={<Login />} />
+            <Route path="/AltaUsuarios" element={<AltaUsuarios />} />
             <Route path="*" component={() => <div>404</div>} />
 
             <Route path="/AltaNegocios" element={<AltaNegocios />} />

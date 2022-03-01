@@ -47,7 +47,7 @@ class Login extends Component {
           alert("Usuario o contraseña incorrectos");
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error.data));
   };
 
   render() {
