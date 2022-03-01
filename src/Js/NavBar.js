@@ -30,7 +30,7 @@ function Boton(props) {
   );
 }
 
-function Logo(props) {
+function Logo() {
   return <img src={ImagenLogo}></img>;
 }
 

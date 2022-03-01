@@ -1,3 +1,10 @@
-.hola{
-    background-color: rgb(255, 255, 255);
+.Inicio{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Bienvenido{
+    font-family: "Alex Brush", Helvetica, sans-serif;
+    font-size:14vw;
 }
