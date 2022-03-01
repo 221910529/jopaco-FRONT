@@ -5,6 +5,20 @@
   background-color: #343A40;
 }
 
+.btn_w{
+  margin: 2%;
+  border: none;
+  background-color: #343A40;
+}
+
+.btn_w a{
+  color: white;
+}
+
+.btn_w a:visited{
+  color: white;
+}
+
 .btn_in{
     margin: 2%;
     border: none;

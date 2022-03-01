@@ -21,14 +21,19 @@ class NavBar extends Component {
         <div>
           <div className="nav">
             <div className="Right">
-              <Boton To="/" name="Jopaco" btn="btn_in"></Boton>
+              <Boton To="/" name="Jopaco" btn="btn_w"></Boton>
               <Logo />
+              <Boton To="/AltaNegocios" name="Negocios" btn="btn_in"></Boton>
               <Boton
-                To="/AltaUsuarios"
-                name="Alta Usuarios"
+                To="/AltaServicios"
+                name="Solicitudes"
                 btn="btn_in"
               ></Boton>
-              <Boton To="/VerUsuarios" name="Ver Usuarios" btn="btn_in"></Boton>
+              <Boton
+                To="/AltaSolicitudes"
+                name="Servicios"
+                btn="btn_in"
+              ></Boton>
             </div>
 
             <div className="Left">
@@ -45,12 +50,17 @@ class NavBar extends Component {
             <div className="Right">
               <Boton To="/" name="Jopaco" btn="btn_in"></Boton>
               <Logo />
+              <Boton To="/AltaNegocios" name="Negocios" btn="btn_in"></Boton>
               <Boton
-                To="/AltaUsuarios"
-                name="Alta Usuarios"
+                To="/AltaServicios"
+                name="Solicitudes"
                 btn="btn_in"
               ></Boton>
-              <Boton To="/VerUsuarios" name="Ver Usuarios" btn="btn_in"></Boton>
+              <Boton
+                To="/AltaSolicitudes"
+                name="Servicios"
+                btn="btn_in"
+              ></Boton>
             </div>
 
             <div className="Left">

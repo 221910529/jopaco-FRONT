@@ -1,22 +1,22 @@
-import NavBar from "./NavBar";
 import React from "react";
+import "../../Css/Formularios.css";
 
 function altaServicios() {
   return (
-    <div>
+    <div className="formulario">
       <form>
-      <h1>Registro de solicitudes</h1>
+        <h1>Registro de solicitudes</h1>
         <div>
           Ingrese el nombre
-          <input type="text" name="name" />
+          <input type="text" name="Nombre_Servicio" />
         </div>
         <div>
           Ingrese el costo estandar del servicio
-          <input type="text" name="name" />
+          <input type="text" name="Costo" />
         </div>
         <div>
           Ingrese el tiempo estimado para realizar el servicio
-          <input type="text" name="name" />
+          <input type="text" name="Tiempo_Estimado" />
         </div>
         <input type="submit" value="Submit" />
       </form>
