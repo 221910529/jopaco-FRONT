@@ -8,3 +8,10 @@
     font-family: "Alex Brush", Helvetica, sans-serif;
     font-size:14vw;
 }
+.hola{
+    background-color: rgb(255, 255, 255);
+}
+
+#root{
+    font-family: 'Alata', Courier, monospace;
+}
