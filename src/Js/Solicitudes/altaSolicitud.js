@@ -14,9 +14,7 @@ class altaSolicitudes extends Component {
     Horario_Renta: "",
     Usuario_Id: "",
     Servicio_Id: "",
-  }
-
-  
+  };
 
   //----------------------- Actualiza las estancias en la consola
   handleChange = async (e) => {
@@ -42,7 +40,7 @@ class altaSolicitudes extends Component {
           },
           {
             headers: {
-              Authorization: 'Bearer ${token}',
+              Authorization: `Bearer ${token}`,
             },
           }
         )
@@ -54,43 +52,48 @@ class altaSolicitudes extends Component {
         .catch(function (error) {
           if (error.response.data != null) {
             alert(error.response.data.message);
-            
 
             alert(error.response.data.errors.Total);
-            alert(error.response.data.errors.Horario_Renta,);
+            alert(error.response.data.errors.Horario_Renta);
             alert(error.response.data.errors.Usuario_Id);
             alert(error.response.data.errors.Servicio_Id);
           }
         });
     }
   };
-    
 
-  render(){
+  render() {
     return (
       <div className="formulario">
         <div>
           <h1>Registro de solicitudes</h1>
           <div>
             Ingrese el total de solicitudes
-            <input type="text" name="Total" onChange={this.handleChange}/>
+            <input type="text" name="Total" onChange={this.handleChange} />
           </div>
           <div>
             Ingrese la hora de la solcitud
-            <input type="text" name="Horario_Renta" onChange={this.handleChange}/>
+            <input
+              type="text"
+              name="Horario_Renta"
+              onChange={this.handleChange}
+            />
           </div>
           <div>
             Ingrese el usuario que realiza la solicitud
-            <input type="text" name="Usuario_Id" onChange={this.handleChange}/>
+            <input type="text" name="Usuario_Id" onChange={this.handleChange} />
           </div>
           <div>
             Ingrese el servicio con el que se hace la solicitud
-            <input type="text" name="Servicio_Id" onChange={this.handleChange}/>
+            <input
+              type="text"
+              name="Servicio_Id"
+              onChange={this.handleChange}
+            />
           </div>
-          <input type="submit" value="Submit" onClick/>
           <button
             className="btn btn-primary"
-            onClick={() => this.IniciarSesion()}
+            onClick={() => this.RegistrarSolicitud()}
           >
             Entrar
           </button>
@@ -99,6 +102,5 @@ class altaSolicitudes extends Component {
     );
   }
 }
-
 
 export default altaSolicitudes;
