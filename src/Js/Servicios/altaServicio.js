@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../../Css/Formularios.css";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import { Link } from "react-router-dom";
 
 //------ tener el url a mano
 let url = "http://127.0.0.1:8000/api/servicios";
@@ -25,12 +26,13 @@ class altaServicios extends Component {
     });
     console.log(this.state);
   };
-//--- validamos si hay token
+
+  //--- validamos si hay token
   RegistrarServicio = async () => {
     if (token == undefined) {
       alert("Necesita Iniciar sesion para crear un servicio");
     } else {
-      await axios //---- mandamos solicitud post al backend 
+      await axios //---- mandamos solicitud post al backend
         .post(
           url,
           {
@@ -68,26 +70,36 @@ class altaServicios extends Component {
       <div className="formulario">
         <div>
           <h1>Registro de Servicios</h1>
-          <div>
-            Ingrese el nombre
-            <input
-              type="text"
-              name="Nombre_Servicio"
-              onChange={this.handleChange}
-            />
-          </div>
-          <div>
-            Ingrese el costo estandar del servicio
-            <input type="text" name="Costo" onChange={this.handleChange} />
-          </div>
-          <div>
-            Ingrese el tiempo estimado para realizar el servicio
-            <input
-              type="text"
-              name="Tiempo_Estimado"
-              onChange={this.handleChange}
-            />
-          </div>
+          <table>
+            <tr>
+              <td>Ingrese el nombre</td>
+              <td>
+                {" "}
+                <input
+                  type="text"
+                  name="Nombre_Servicio"
+                  onChange={this.handleChange}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Ingrese el costo estandar del servicio</td>
+              <td>
+                {" "}
+                <input type="text" name="Costo" onChange={this.handleChange} />
+              </td>
+            </tr>
+            <tr>
+              <td>Ingrese el tiempo estimado para realizar el servicio</td>
+              <td>
+                <input
+                  type="text"
+                  name="Tiempo_Estimado"
+                  onChange={this.handleChange}
+                />
+              </td>
+            </tr>
+          </table>
           <button onClick={() => this.RegistrarServicio()}>
             Crear Servicio
           </button>

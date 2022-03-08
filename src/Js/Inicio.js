@@ -5,8 +5,10 @@ import NavBar from "./NavBar";
 import Login from "./Login";
 import Base from "./Base";
 
-import AltaNegocios from "../Js/Negocios/altaNegocio";
 import AltaServicios from "../Js/Servicios/altaServicio";
+import VerServicios from "../Js/Servicios/verServicios";
+
+import AltaNegocios from "../Js/Negocios/altaNegocio";
 import AltaSolicitudes from "../Js/Solicitudes/altaSolicitud";
 import AltaUsuarios from "./Usuarios/altaUsuario";
 
@@ -23,8 +25,10 @@ function Inicio() {
             <Route path="/AltaUsuarios" element={<AltaUsuarios />} />
             <Route path="*" component={() => <div>404</div>} />
 
-            <Route path="/AltaNegocios" element={<AltaNegocios />} />
             <Route path="/AltaServicios" element={<AltaServicios />} />
+            <Route path="/VerServicios" element={<VerServicios />} />
+
+            <Route path="/AltaNegocios" element={<AltaNegocios />} />
             <Route path="/AltaSolicitudes" element={<AltaSolicitudes />} />
           </Routes>
         </div>
