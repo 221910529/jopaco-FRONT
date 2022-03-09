@@ -7,6 +7,7 @@ import Base from "./Base";
 
 import AltaServicios from "../Js/Servicios/altaServicio";
 import VerServicios from "../Js/Servicios/verServicios";
+import ModificarServicios from "../Js/Servicios/modificarServicio";
 
 import AltaNegocios from "../Js/Negocios/altaNegocio";
 import AltaSolicitudes from "../Js/Solicitudes/altaSolicitud";
@@ -27,6 +28,10 @@ function Inicio() {
 
             <Route path="/AltaServicios" element={<AltaServicios />} />
             <Route path="/VerServicios" element={<VerServicios />} />
+            <Route
+              path="/ModificarServicios"
+              element={<ModificarServicios />}
+            />
 
             <Route path="/AltaNegocios" element={<AltaNegocios />} />
             <Route path="/AltaSolicitudes" element={<AltaSolicitudes />} />

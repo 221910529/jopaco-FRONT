@@ -23,11 +23,35 @@ class VerServicios extends Component {
         },
       })
       .then((res) => {
-        const usuariosGet = res.data.data;
+        const serviciosGet = res.data.data;
         this.setState({
-          data: usuariosGet,
+          data: serviciosGet,
         });
-        console.log(usuariosGet);
+        console.log(serviciosGet);
+      });
+  }
+
+  Eliminar(props) {
+    axios
+      .delete(
+        url,
+        {
+          data: {
+            id: 1,
+          },
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((res) => {
+        const serviciosGet = res.data.data;
+        this.setState({
+          data: serviciosGet,
+        });
+        console.log(serviciosGet);
       });
   }
 
@@ -56,7 +80,9 @@ class VerServicios extends Component {
                     <button>Modificar</button>
                   </td>
                   <td>
-                    <button>Eliminar</button>
+                    <button onClick={this.Eliminar(servicio.id)}>
+                      Eliminar
+                    </button>
                   </td>
                 </tr>
               );

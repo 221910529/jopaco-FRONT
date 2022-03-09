@@ -58,6 +58,9 @@ class NavBar extends Component {
               <button>
                 <Link to="/VerServicios">Ver Servicios</Link>
               </button>
+              <button>
+                <Link to="/ModificarServicios">Modificar Servicios</Link>
+              </button>
             </div>
 
             <div className="Left">
