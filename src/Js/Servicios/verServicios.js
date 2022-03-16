@@ -3,16 +3,15 @@ import React from "react";
 
 import axios from "axios";
 import Cookies from "universal-cookie";
-import { Component } from "react";
+import { Link } from "react-router-dom";
 
 let url = "http://127.0.0.1:8000/api/servicios";
 const cookies = new Cookies();
-
 const token = cookies.get("token");
 
-class VerServicios extends Component {
+class VerServicios extends React.Component {
   state = {
-    data: [],
+    servicios: [],
   };
 
   componentDidMount() {
@@ -23,45 +22,23 @@ class VerServicios extends Component {
         },
       })
       .then((res) => {
-        const serviciosGet = res.data.data;
+        const info = res.data.data;
+        console.log(info);
         this.setState({
-          data: serviciosGet,
+          servicios: info,
         });
-        console.log(serviciosGet);
-      });
-  }
-
-  Eliminar(props) {
-    axios
-      .delete(
-        url,
-        {
-          data: {
-            id: 1,
-          },
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
-      .then((res) => {
-        const serviciosGet = res.data.data;
-        this.setState({
-          data: serviciosGet,
-        });
-        console.log(serviciosGet);
       });
   }
 
   render() {
+    const { servicios } = this.state;
     return (
       <div className="crud">
         <h1>Ver todos los servicios</h1>
         <table>
           <thead>
             <tr>
+              <th>ID</th>
               <th>Nombre</th>
               <th>Costo</th>
               <th>Tiempo</th>
@@ -70,23 +47,27 @@ class VerServicios extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.data.map((servicio) => {
-              return (
-                <tr>
-                  <td>{servicio.Nombre_Servicio}</td>
-                  <td>{servicio.Costo}</td>
-                  <td>{servicio.Tiempo_Estimado}</td>
-                  <td>
+            {servicios.map((servicio, i) => (
+              <tr key={i}>
+                <td>{i + 1}</td>
+                <td>{servicio.Nombre_Servicio}</td>
+                <td>{servicio.Costo}</td>
+                <td>{servicio.Tiempo_Estimado}</td>
+                <td>
+                  <Link
+                    to={{
+                      pathname: "/ModificarServicios",
+                      state: { id: servicio.id },
+                    }}
+                  >
                     <button>Modificar</button>
-                  </td>
-                  <td>
-                    <button onClick={this.Eliminar(servicio.id)}>
-                      Eliminar
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
+                  </Link>
+                </td>
+                <td>
+                  <button>Eliminar</button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

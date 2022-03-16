@@ -1,5 +1,5 @@
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "../Css/Inicio.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import NavBar from "./NavBar";
 import Login from "./Login";
@@ -13,33 +13,22 @@ import AltaNegocios from "../Js/Negocios/altaNegocio";
 import AltaSolicitudes from "../Js/Solicitudes/altaSolicitud";
 import AltaUsuarios from "./Usuarios/altaUsuario";
 
-function Inicio() {
+export default function App() {
   return (
-    <div>
-      <BrowserRouter>
-        <NavBar></NavBar>
+    <BrowserRouter>
+      <NavBar />
+      <Switch>
+        <Route exact path="/" component={Base} />
+        <Route path="/Login" component={Login} />
+        <Route path="/AltaUsuarios" component={AltaUsuarios} />
 
-        <div className="hola">
-          <Routes>
-            <Route exact path="/" element={<Base />} />
-            <Route path="/Login" element={<Login />} />
-            <Route path="/AltaUsuarios" element={<AltaUsuarios />} />
-            <Route path="*" component={() => <div>404</div>} />
+        <Route path="/AltaServicios" component={AltaServicios} />
+        <Route path="/VerServicios" component={VerServicios} />
+        <Route path="/ModificarServicios" component={ModificarServicios} />
 
-            <Route path="/AltaServicios" element={<AltaServicios />} />
-            <Route path="/VerServicios" element={<VerServicios />} />
-            <Route
-              path="/ModificarServicios"
-              element={<ModificarServicios />}
-            />
-
-            <Route path="/AltaNegocios" element={<AltaNegocios />} />
-            <Route path="/AltaSolicitudes" element={<AltaSolicitudes />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </div>
+        <Route path="/AltaNegocios" component={AltaNegocios} />
+        <Route path="/AltaSolicitudes" component={AltaSolicitudes} />
+      </Switch>
+    </BrowserRouter>
   );
 }
-
-export default Inicio;
