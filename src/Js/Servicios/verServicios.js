@@ -13,7 +13,11 @@ class VerServicios extends React.Component {
   state = {
     servicios: [],
   };
-
+  confirm = (e) => {
+    if (!window.confirm("Seguro que quieres borrarlo?")) {
+      e.preventDefault();
+    }
+  };
   componentDidMount() {
     axios //---- mandamos solicitud post al backend
       .get(url, {
@@ -42,6 +46,7 @@ class VerServicios extends React.Component {
               <th>Nombre</th>
               <th>Costo</th>
               <th>Tiempo</th>
+              <th>Ver detalle</th>
               <th>Modificar</th>
               <th>Eliminar</th>
             </tr>
@@ -60,11 +65,28 @@ class VerServicios extends React.Component {
                       state: { id: servicio.id },
                     }}
                   >
+                    <button>Ver detalle</button>
+                  </Link>
+                </td>
+                <td>
+                  <Link
+                    to={{
+                      pathname: "/ModificarServicios",
+                      state: { id: servicio.id },
+                    }}
+                  >
                     <button>Modificar</button>
                   </Link>
                 </td>
                 <td>
-                  <button>Eliminar</button>
+                  <Link
+                    to={{
+                      pathname: "/EliminarServicios",
+                      state: { id: servicio.id },
+                    }}
+                  >
+                    <button onClick={this.confirm}>Eliminar</button>
+                  </Link>
                 </td>
               </tr>
             ))}

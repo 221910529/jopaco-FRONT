@@ -8,6 +8,7 @@ import Base from "./Base";
 import AltaServicios from "../Js/Servicios/altaServicio";
 import VerServicios from "../Js/Servicios/verServicios";
 import ModificarServicios from "../Js/Servicios/modificarServicio";
+import EliminarServicios from "../Js/Servicios/eliminarServicio";
 
 import AltaNegocios from "../Js/Negocios/altaNegocio";
 import AltaSolicitudes from "../Js/Solicitudes/altaSolicitud";
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/AltaServicios" component={AltaServicios} />
         <Route path="/VerServicios" component={VerServicios} />
         <Route path="/ModificarServicios" component={ModificarServicios} />
+        <Route path="/EliminarServicios" component={EliminarServicios} />
 
         <Route path="/AltaNegocios" component={AltaNegocios} />
         <Route path="/AltaSolicitudes" component={AltaSolicitudes} />

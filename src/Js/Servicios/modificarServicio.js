@@ -20,6 +20,8 @@ class ModificarServicios extends React.Component {
   //-----------Va actulizando las estancias en la consola
   handleChange = (e) => {
     this.setState({
+      // podemos encerrar esto en la variable servicio peor como no tenemos otras variables no
+      // es necesario por ahora
       ...this.state.servicio,
       [e.target.name]: e.target.value,
     });
