@@ -86,7 +86,7 @@ class ModificarServicios extends React.Component {
     return (
       <div className="formulario">
         <div>
-          <h1>Registro de Servicios</h1>
+          <h1>Modificar Servicio {servicio.Nombre_Servicio}</h1>
 
           {mensaje ? <h3>{mensaje}</h3> : <div></div>}
 
@@ -131,7 +131,7 @@ class ModificarServicios extends React.Component {
               </tbody>
             </table>
 
-            <button type="submit">Crear Servicio</button>
+            <button type="submit">Modificar Servicio</button>
           </form>
         </div>
       </div>

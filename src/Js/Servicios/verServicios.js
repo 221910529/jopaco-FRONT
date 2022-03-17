@@ -61,7 +61,7 @@ class VerServicios extends React.Component {
                 <td>
                   <Link
                     to={{
-                      pathname: "/ModificarServicios",
+                      pathname: "/DetalleServicios",
                       state: { id: servicio.id },
                     }}
                   >

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../../Css/Formularios.css";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
@@ -9,10 +10,10 @@ const cookies = new Cookies();
 
 const token = cookies.get("token");
 
-class EliminarServicios extends React.Component {
+//---- desclarando la variables que ocupando
+class detalleServicios extends React.Component {
   state = {
     servicio: [],
-    mensaje: "",
   };
 
   componentDidMount() {
@@ -30,51 +31,37 @@ class EliminarServicios extends React.Component {
           servicio: info,
         });
       });
-    axios //---- mandamos solicitud post al backend
-      .delete(url + this.props.location.state.id, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => {
-        var respuesta = res.data.success;
-        console.log(respuesta);
-        alert(respuesta);
-
-        setTimeout(function () {
-          window.location = "/VerServicios";
-        }, 1000);
-      });
   }
+
   render() {
-    const { servicio, mensaje } = this.state;
+    const { servicio } = this.state;
     return (
       <div className="formulario">
         <div>
-          <h1>El servicio {servicio.Nombre_Servicio} se eliminara</h1>
-
-          {mensaje ? <h3>{mensaje}</h3> : <div></div>}
-
+          <h1>Detalle servicio {servicio.Nombre_Servicio}</h1>
           <table>
             <tbody>
               <tr>
-                <td>Nombre de servicio</td>
-                <td>{servicio.Nombre_Servicio}</td>
-              </tr>
-              <tr>
-                <td>Costo estandar del servicio</td>
+                <td>Ingrese el costo estandar del servicio</td>
                 <td>{servicio.Costo}</td>
               </tr>
               <tr>
-                <td>Tiempo estimado para realizar el servicio</td>
+                <td>Ingrese el tiempo estimado para realizar el servicio</td>
                 <td>{servicio.Tiempo_Estimado}</td>
               </tr>
             </tbody>
           </table>
+          <Link
+            to={{
+              pathname: "/VerServicios",
+            }}
+          >
+            <button>Regresar</button>
+          </Link>
         </div>
       </div>
     );
   }
 }
 
-export default EliminarServicios;
+export default detalleServicios;

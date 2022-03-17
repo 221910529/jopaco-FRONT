@@ -52,6 +52,9 @@ class altaServicios extends Component {
           if (response.data.success != null) {
             alert(response.data.success);
           }
+          setTimeout(function () {
+            window.location = "/VerServicios";
+          }, 1000);
         })
         .catch(function (error) {
           if (error.response.data != null) {
@@ -71,34 +74,40 @@ class altaServicios extends Component {
         <div>
           <h1>Registro de Servicios</h1>
           <table>
-            <tr>
-              <td>Ingrese el nombre</td>
-              <td>
-                {" "}
-                <input
-                  type="text"
-                  name="Nombre_Servicio"
-                  onChange={this.handleChange}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>Ingrese el costo estandar del servicio</td>
-              <td>
-                {" "}
-                <input type="text" name="Costo" onChange={this.handleChange} />
-              </td>
-            </tr>
-            <tr>
-              <td>Ingrese el tiempo estimado para realizar el servicio</td>
-              <td>
-                <input
-                  type="text"
-                  name="Tiempo_Estimado"
-                  onChange={this.handleChange}
-                />
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>Ingrese el nombre</td>
+                <td>
+                  {" "}
+                  <input
+                    type="text"
+                    name="Nombre_Servicio"
+                    onChange={this.handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Ingrese el costo estandar del servicio</td>
+                <td>
+                  {" "}
+                  <input
+                    type="text"
+                    name="Costo"
+                    onChange={this.handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Ingrese el tiempo estimado para realizar el servicio</td>
+                <td>
+                  <input
+                    type="text"
+                    name="Tiempo_Estimado"
+                    onChange={this.handleChange}
+                  />
+                </td>
+              </tr>
+            </tbody>
           </table>
           <button onClick={() => this.RegistrarServicio()}>
             Crear Servicio
