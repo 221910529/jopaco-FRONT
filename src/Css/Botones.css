@@ -1,74 +1,76 @@
-.btn_out{
+.btn_out {
   margin: 2%;
-  border: 2px solid #17A2B8;
+  border: 2px solid #17a2b8;
   border-radius: 2px;
-  background-color: #343A40;
+  background-color: #343a40;
 }
 
-.btn_w{
+.btn_w {
   margin: 2%;
   border: none;
-  background-color: #343A40;
+  background-color: #343a40;
 }
 
-.btn_w a{
+.btn_w a {
   color: white;
 }
 
-.btn_w a:visited{
+.btn_w a:visited {
   color: white;
 }
 
-.btn_in{
-    margin: 2%;
-    border: none;
-    background-color: #343A40;
-  }
+.btn_in {
+  margin: 2%;
+  border: none;
+  background-color: #343a40;
+}
 
-  a:link {
-    text-decoration: none;
-  }
-  
-  a:visited {
-    text-decoration: none;
-  }
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
 
 .btn_in a {
-    color: #007BFF;
+  color: #007bff;
 }
 
 .btn_in a:visited {
-    color: #007BFF;
+  color: #007bff;
 }
 
 .btn_out a {
-    color: #17A2B8;
+  color: #17a2b8;
 }
 
 .btn_out a:visited {
-    color: #17A2B8;
+  color: #17a2b8;
 }
 
-.Right{
-width: 80%;
-
+.Right {
+  width: 80%;
 }
 
-.Right img{
-    width:70px;
-    vertical-align:middle;
+.Right img {
+  vertical-align: middle;
 }
 
-
-.Left{
-    width: 15%;
+.Left {
+  display: flex;
+  padding: 1%;
+  justify-content: space-between;
 }
 
-.nav{
-    height: 20%;
-    background-color: #343A40;
-    display: flex;   
-    align-items: center;
-    justify-content: space-between;
-    
+.Left div {
+  padding: 1%;
+}
+
+.nav {
+  height: 20%;
+  background-color: #343a40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

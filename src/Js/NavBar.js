@@ -1,5 +1,5 @@
 import "../Css/Botones.css";
-import ImagenLogo from "../logo.svg";
+import ImagenLogo from "../logo.png";
 import { Link } from "react-router-dom";
 
 import Cookies from "universal-cookie";
@@ -43,28 +43,15 @@ class NavBar extends Component {
             <div className="Right">
               <Boton To="/" name="Jopaco" btn="btn_in"></Boton>
               <Logo />
-              <Boton To="/AltaNegocios" name="Negocios" btn="btn_in"></Boton>
-              <Boton To="/AltaServicios" name="Servicios" btn="btn_in"></Boton>
-              <Boton
-                To="/AltaSolicitudes"
-                name="Solicitudes"
-                btn="btn_in"
-              ></Boton>
-              <Boton
-                To="/AltaUsuarios"
-                name="Registrar Usuario"
-                btn="btn_in"
-              ></Boton>
-              <button>
-                <Link to="/VerServicios">Ver Servicios</Link>
-              </button>
-              <button>
-                <Link to="/ModificarServicios">Modificar Servicios</Link>
-              </button>
             </div>
 
             <div className="Left">
-              Hola Usuario
+              <div>
+                <Link to="/Administracion">
+                  <button>Administracion</button>
+                </Link>
+              </div>
+              <div>Hola Usuario</div>
               <button onClick={() => this.CerrarSesion()}>Cerrar Sesion</button>
             </div>
           </div>
@@ -83,7 +70,7 @@ function Boton(props) {
 }
 
 function Logo() {
-  return <img src={ImagenLogo}></img>;
+  return <img src={ImagenLogo} width="30" height="50"></img>;
 }
 
 export default NavBar;

@@ -3,6 +3,7 @@ import "../Css/Inicio.css";
 
 import NavBar from "./NavBar";
 import Login from "./Login";
+import Administracion from "./Administracion";
 import Base from "./Base";
 
 import AltaServicios from "../Js/Servicios/altaServicio";
@@ -23,6 +24,7 @@ export default function App() {
         <Route exact path="/" component={Base} />
         <Route path="/Login" component={Login} />
         <Route path="/AltaUsuarios" component={AltaUsuarios} />
+        <Route path="/Administracion" component={Administracion} />
 
         <Route path="/AltaServicios" component={AltaServicios} />
         <Route path="/VerServicios" component={VerServicios} />
