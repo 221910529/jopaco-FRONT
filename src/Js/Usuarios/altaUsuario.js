@@ -17,8 +17,23 @@ class AltaUsuarios extends Component {
     Tipo_Usuario: "",
     Email: "",
     Password: "",
-  }
-//----------------------- Actualiza las estancias en la consola
+    Foto: "",
+    URLFoto: "",
+  };
+  //----------------------- Actualiza las estancias en la consola
+  subirArchivos = async (e) => {
+    const file = e.target.files[0];
+
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onload = () => {
+      this.setState({ URLFoto: reader.result });
+      this.setState({ Foto: file });
+    };
+    console.log(this.state);
+  };
+
   handleChange = async (e) => {
     this.setState({
       ...this.state,
@@ -26,34 +41,40 @@ class AltaUsuarios extends Component {
     });
     console.log(this.state);
   };
-RegistrarUsuario = async () => {
+
+  RegistrarUsuario = async () => {
     if (token == undefined) {
       alert("Necesita Iniciar sesion para registrar un usuario");
     } else {
+      const form = new FormData();
+
+      form.append("Nombre", this.state.Nombre);
+      form.append("Apellido_Paterno", this.state.Apellido_Paterno);
+      form.append("Apellido_Materno", this.state.Apellido_Materno);
+      form.append("Fecha_Nacimiento", this.state.Fecha_Nacimiento);
+      form.append("Tipo_Usuario", this.state.Tipo_Usuario);
+      form.append("Email", this.state.Email);
+      form.append("Password", this.state.Password);
+      form.append("Foto", this.state.Foto);
+
       await axios
-        .post(
-          url,
-          {
-            Nombre: this.state.Nombre,
-            Apellido_Paterno: this.state.Apellido_Paterno,
-            Apellido_Materno: this.state.Apellido_Materno,
-            Fecha_Nacimiento: this.state.Fecha_Nacimiento,
-            Tipo_Usuario: this.state.Tipo_Usuario,
-            Email: this.state.Email,
-            Password: this.state.Password
+        .post(url, form, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
           },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
+        })
         .then((response) => {
+          console.log(response);
           if (response.data.success != null) {
             alert(response.data.success);
           }
+          setTimeout(function () {
+            window.location = "/Usuarios";
+          }, 1000);
         })
         .catch(function (error) {
+          console.log(error);
           if (error.response.data != null) {
             alert(error.response.data.message);
             console.log(error.response.data);
@@ -69,47 +90,69 @@ RegistrarUsuario = async () => {
         });
     }
   };
-render(){
+  render() {
     return (
       <div className="formulario">
         <div>
-        <h1>Registro de usuarios</h1>
-      <div>
-        <div>
-          Ingrese el campo Nombre
-          <input type="text" name="Nombre" onChange={this.handleChange} />
-        </div>
-        <div>
-          Ingrese el campo Apellido Paterno
-          <input type="text" name="Apellido_Paterno" onChange={this.handleChange} />
-        </div>
-        <div>
-          Ingrese el campo Apellido Materno
-          <input type="text" name="Apellido_Materno" onChange={this.handleChange} />
-        </div>
-        <div>
-          Ingrese el campo Fecha de Nacimiento
-          <input type="date" name="Fecha_Nacimiento" onChange={this.handleChange} />
-        </div>
-        <div>
-          Ingrese el campo Correo Electronico
-          <input type="text" name="Email" onChange={this.handleChange} />
-        </div>
-        <div>
-          Ingrese el campo Password
-          <input type="text" name="Password" onChange={this.handleChange} />
-        </div>
-        <div>
-          Ingrese el campo Tipo de Usuario
-          <input type="text" name="Tipo_Usuario" onChange={this.handleChange} />
-        </div>
-        <button
-            className="btn btn-primary"
-            onClick={() => this.RegistrarUsuario()}
-          >
-            Crear usuario
-          </button>
-      </div>
+          <h1>Registro de usuarios</h1>
+          <div>
+            <div>
+              Ingrese el campo Nombre
+              <input type="text" name="Nombre" onChange={this.handleChange} />
+            </div>
+            <div>
+              Ingrese el campo Apellido Paterno
+              <input
+                type="text"
+                name="Apellido_Paterno"
+                onChange={this.handleChange}
+              />
+            </div>
+            <div>
+              Ingrese el campo Apellido Materno
+              <input
+                type="text"
+                name="Apellido_Materno"
+                onChange={this.handleChange}
+              />
+            </div>
+            <div>
+              Ingrese el campo Fecha de Nacimiento
+              <input
+                type="date"
+                name="Fecha_Nacimiento"
+                onChange={this.handleChange}
+              />
+            </div>
+            <div>
+              Ingrese el campo Correo Electronico
+              <input type="text" name="Email" onChange={this.handleChange} />
+            </div>
+            <div>
+              Ingrese el campo Password
+              <input type="text" name="Password" onChange={this.handleChange} />
+            </div>
+            <div>
+              Ingrese el campo Tipo de Usuario
+              <select onChange={this.handleChange} name="Tipo_Usuario">
+                <option value="Administrador">Administrador</option>
+                <option value="Usuario">Usuario</option>
+                <option value="Usuario_Privilegiado">
+                  Usuario Privilegiado
+                </option>
+              </select>
+            </div>
+            <div>
+              Cargue la imagen del usuarios
+              <input type="file" name="Foto" onChange={this.subirArchivos} />
+            </div>
+            <button
+              className="btn btn-primary"
+              onClick={() => this.RegistrarUsuario()}
+            >
+              Crear usuario
+            </button>
+          </div>
         </div>
       </div>
     );

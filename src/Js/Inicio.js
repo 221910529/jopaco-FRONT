@@ -14,7 +14,9 @@ import DetalleServicios from "../Js/Servicios/detalleServicio";
 
 import AltaNegocios from "../Js/Negocios/altaNegocio";
 import AltaSolicitudes from "../Js/Solicitudes/altaSolicitud";
+
 import AltaUsuarios from "./Usuarios/altaUsuario";
+import Usuarios from "./Usuarios/verUsuario";
 
 export default function App() {
   return (
@@ -24,6 +26,7 @@ export default function App() {
         <Route exact path="/" component={Base} />
         <Route path="/Login" component={Login} />
         <Route path="/AltaUsuarios" component={AltaUsuarios} />
+        <Route path="/Usuarios" component={Usuarios} />
         <Route path="/Administracion" component={Administracion} />
 
         <Route path="/AltaServicios" component={AltaServicios} />

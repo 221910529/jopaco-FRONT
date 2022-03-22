@@ -35,6 +35,7 @@ export default function Administracion() {
                 name="Registrar Usuario"
                 btn="boton"
               ></Boton>
+              <Boton To="/Usuarios" name="Usuarios" btn="boton"></Boton>
             </td>
             <td></td>
           </tr>
