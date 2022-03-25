@@ -43,9 +43,17 @@ class NavBar extends Component {
             <div className="Right">
               <Boton To="/" name="Jopaco" btn="btn_in"></Boton>
               <Logo />
+              <Boton To="/BuscarNegocio" name="Negocios" btn="btn_in"></Boton>
+              <Boton To="/" name="Mision y Vision" btn="btn_in"></Boton>
+              <Boton To="/" name="Favoritos" btn="btn_in"></Boton>
             </div>
 
             <div className="Left">
+              {/* <img
+                src={"http://127.0.0.1:8000/img/" + usuario.Foto}
+                width="50"
+                heigth="50"
+              /> */}
               <div>
                 <Link to="/Administracion">
                   <button>Administracion</button>

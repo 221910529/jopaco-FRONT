@@ -1,5 +1,5 @@
 import React from "react";
-import "../Css/Inicio.css";
+import "../../Css/Inicio.css";
 import { Link } from "react-router-dom";
 
 export default function Administracion() {

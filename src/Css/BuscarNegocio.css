@@ -1,0 +1,65 @@
+.margen {
+  padding: 2%;
+}
+
+.Busqueda {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.columnas {
+  display: flex;
+  flex-direction: column;
+}
+.contenedor {
+  padding-top: 2%;
+}
+
+.tarjeta {
+  display: flex;
+
+  width: 92vw;
+  border-radius: 20px;
+  background-color: red;
+  padding: 2%;
+  justify-content: space-between;
+}
+.centrar {
+  display: flex;
+  align-items: center;
+}
+
+.marg {
+  display: flex;
+  flex-direction: column;
+  margin: 5%;
+}
+
+.contener {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.centrado {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.column {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.text-centrar {
+  margin: 1%;
+}
+
+.fila {
+  display: flex;
+  flex-direction: column;
+}

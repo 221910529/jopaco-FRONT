@@ -1,7 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import axios from "axios";
-import "../Css/Login.css";
+import "../../Css/Login.css";
 import Cookies from "universal-cookie";
 
 let url = "http://127.0.0.1:8000/api/tokens/create";
