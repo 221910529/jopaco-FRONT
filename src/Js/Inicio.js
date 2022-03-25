@@ -7,9 +7,6 @@ import Administracion from "./Vista/Administracion";
 import Base from "./Vista/Base";
 import BuscarNegocio from "./Vista/BuscarNegocios";
 import VerNegocio from "../Js/Vista/VerNegocio";
-import Login from "./Login";
-import Administracion from "./Administracion";
-import Base from "./Base";
 import Carousel from "./Carousel";
 
 import AltaServicios from "../Js/Servicios/altaServicio";
