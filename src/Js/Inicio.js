@@ -7,6 +7,10 @@ import Administracion from "./Vista/Administracion";
 import Base from "./Vista/Base";
 import BuscarNegocio from "./Vista/BuscarNegocios";
 import VerNegocio from "../Js/Vista/VerNegocio";
+import Login from "./Login";
+import Administracion from "./Administracion";
+import Base from "./Base";
+import Carousel from "./Carousel";
 
 import AltaServicios from "../Js/Servicios/altaServicio";
 import VerServicios from "../Js/Servicios/verServicios";
@@ -32,6 +36,7 @@ export default function App() {
         <Route path="/Administracion" component={Administracion} />
         <Route path="/BuscarNegocio" component={BuscarNegocio} />
         <Route path="/VerNegocio" component={VerNegocio} />
+        <Route path="/Carousel" component={Carousel} />
 
         <Route path="/AltaServicios" component={AltaServicios} />
         <Route path="/VerServicios" component={VerServicios} />
