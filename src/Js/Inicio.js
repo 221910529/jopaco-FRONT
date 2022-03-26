@@ -2,6 +2,11 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "../Css/Inicio.css";
 
 import NavBar from "./NavBar";
+import Login from "./Vista/Login";
+import Administracion from "./Vista/Administracion";
+import Base from "./Vista/Base";
+import BuscarNegocio from "./Vista/BuscarNegocios";
+import VerNegocio from "../Js/Vista/VerNegocio";
 import Login from "./Login";
 import Administracion from "./Administracion";
 import Base from "./Base";
@@ -19,8 +24,6 @@ import AltaSolicitudes from "../Js/Solicitudes/altaSolicitud";
 import AltaUsuarios from "./Usuarios/altaUsuario";
 import Usuarios from "./Usuarios/verUsuario";
 
-
-
 export default function App() {
   return (
     <BrowserRouter>
@@ -31,6 +34,8 @@ export default function App() {
         <Route path="/AltaUsuarios" component={AltaUsuarios} />
         <Route path="/Usuarios" component={Usuarios} />
         <Route path="/Administracion" component={Administracion} />
+        <Route path="/BuscarNegocio" component={BuscarNegocio} />
+        <Route path="/VerNegocio" component={VerNegocio} />
         <Route path="/Carousel" component={Carousel} />
 
         <Route path="/AltaServicios" component={AltaServicios} />

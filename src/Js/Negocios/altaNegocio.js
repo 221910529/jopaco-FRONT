@@ -26,35 +26,41 @@ class altaNegocios extends Component {
     console.log(this.state);
   };
 
+            
+
   RegistrarNegocio = async () => {
     if (token == undefined) {
       alert("Necesita Iniciar sesion para crear un negocio");
     } else {
+
+      const form = new FormData();
+      form.append("Nombre_Negocio",  this.state.Nombre_Negocio);
+      form.append("Direccion",  this.state.Direccion);
+      form.append("Horario_Servicio",  this.state.Horario_Servicio);
+      form.append("Dias_Servicio",  this.state.Dias_Servicio);
+      form.append("Descripcion_Del_Negocio",  this.state.Descripcion_Del_Negocio);
+      form.append("Usuario_Id",  this.state.Usuario_Id);
+      
       await axios
-        .post(
-          url,
-          {
-            Nombre_Negocio: this.state.Nombre_Negocio,
-            Direccion: this.state.Direccion,
-            Horario_Servicio: this.state.Horario_Servicio,
-            Dias_Servicio: this.state.Dias_Servicio,
-            Descripcion_Del_Negocio: this.state.Descripcion_Del_Negocio,
-            Usuario_Id: this.state.Usuario_Id,
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
-        .then((response) => {
-          if (response.data.success != null) {
-            alert(response.data.success);
-          }
-        })
+      .post(url, form, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        if (response.data.success != null) {
+          alert(response.data.success);
+        }
+        setTimeout(function () {
+          window.location = "/Usuarios";
+        }, 1000);
+      })
         .catch(function (error) {
           if (error.response.data != null) {
             alert(error.response.data.message);
+            //console.log(error.response.data);
 
             alert(error.response.data.errors.Nombre_Negocio);
             alert(error.response.data.errors.Direccion);
@@ -73,7 +79,7 @@ class altaNegocios extends Component {
         <div>
           <h1>Registro de negocios</h1>
           <div>
-            Ingrese el nombre
+            Ingrese el nombre del negocio
             <input
               type="text"
               name="Nombre_Negocio"
