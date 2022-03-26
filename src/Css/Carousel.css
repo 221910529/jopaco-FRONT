@@ -1,6 +1,7 @@
 .carousel .thumbs {
 
     text-align: center;
+    display:none !important;
 }
 .carousel .slider-wrapper img{
     width: 100%;
