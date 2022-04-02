@@ -16,6 +16,22 @@ class altaNegocios extends Component {
     Dias_Servicio: "",
     Descripcion_Del_Negocio: "",
     Usuario_Id: "",
+    Foto: "",
+    URLFoto: "",
+  };
+
+  //----------------------- Actualiza las estancias en la consola
+  subirArchivos = async (e) => {
+    const file = e.target.files[0];
+
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onload = () => {
+      this.setState({ URLFoto: reader.result });
+      this.setState({ Foto: file });
+    };
+    console.log(this.state);
   };
 
   handleChange = async (e) => {
@@ -40,6 +56,7 @@ class altaNegocios extends Component {
       form.append("Dias_Servicio",  this.state.Dias_Servicio);
       form.append("Descripcion_Del_Negocio",  this.state.Descripcion_Del_Negocio);
       form.append("Usuario_Id",  this.state.Usuario_Id);
+      form.append("Foto", this.state.Foto);
       
       await axios
       .post(url, form, {
@@ -54,20 +71,16 @@ class altaNegocios extends Component {
           alert(response.data.success);
         }
         setTimeout(function () {
-          window.location = "/Usuarios";
+          window.location = "/Negocios";
         }, 1000);
       })
         .catch(function (error) {
           if (error.response.data != null) {
             alert(error.response.data.message);
-            //console.log(error.response.data);
+            console.log(error.response.data);
 
-            alert(error.response.data.errors.Nombre_Negocio);
-            alert(error.response.data.errors.Direccion);
-            alert(error.response.data.errors.Horario_Servicio);
-            alert(error.response.data.errors.Dias_Servicio);
-            alert(error.response.data.errors.Descripcion_Del_Negocio);
-            alert(error.response.data.errors.Usuario_Id);
+            
+            
           }
         });
     }
@@ -122,6 +135,10 @@ class altaNegocios extends Component {
               onChange={this.handleChange}
             />
           </div>
+          <div>
+              Cargue la imagen del negocio
+              <input type="file" name="Foto" onChange={this.subirArchivos} />
+            </div>
           <button onClick={() => this.RegistrarNegocio()}>Crear Negocio</button>
         </div>
       </div>

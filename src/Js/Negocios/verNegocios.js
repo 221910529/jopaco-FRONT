@@ -13,11 +13,13 @@ class VerNegocios extends React.Component {
   state = {
     negocios: [],
   };
+
   confirm = (e) => {
     if (!window.confirm("Confirmar eliminación")) {
       e.preventDefault();
     }
   };
+
   componentDidMount() {
     axios //---- mandamos solicitud post al backend
       .get(url, {
@@ -50,7 +52,7 @@ class VerNegocios extends React.Component {
               <th>Días de servicio</th>
               <th>Descripción</th>
               <th>Usuario asociado</th>
-
+              <th>Foto</th>
               <th>Ver detalle</th>
               <th>Modificar</th>
               <th>Eliminar</th>
@@ -66,12 +68,19 @@ class VerNegocios extends React.Component {
                 <td>{negocio.Dias_Servicio}</td>
                 <td>{negocio.Descripcion_Del_Negocio}</td>
                 <td>{negocio.Usuario_Id}</td>
-                
-                {/* <td>
+
+                <td>
+                  <img
+                    src={"http://127.0.0.1:8000/img/" + negocio.Foto}
+                    width="75"
+                    heigth="75"
+                  />
+                </td>
+                <td>
                   <Link
                     to={{
-                      pathname: "/DetalleServicios",
-                      state: { id: servicio.id },
+                      pathname: "/DetalleNegocios",
+                      state: { id: negocio.id },
                     }}
                   >
                     <button>Ver detalle</button>
@@ -80,8 +89,8 @@ class VerNegocios extends React.Component {
                 <td>
                   <Link
                     to={{
-                      pathname: "/ModificarServicios",
-                      state: { id: servicio.id },
+                      pathname: "/ModificarNegocios",
+                      state: { id: negocio.id },
                     }}
                   >
                     <button>Modificar</button>
@@ -90,13 +99,13 @@ class VerNegocios extends React.Component {
                 <td>
                   <Link
                     to={{
-                      pathname: "/EliminarServicios",
-                      state: { id: servicio.id },
+                      pathname: "/EliminarNegocios",
+                      state: { id: negocio.id },
                     }}
                   >
                     <button onClick={this.confirm}>Eliminar</button>
                   </Link>
-                </td> */}
+                </td>
               </tr>
             ))}
           </tbody>

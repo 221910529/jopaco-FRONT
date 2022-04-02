@@ -3,18 +3,17 @@ import "../../Css/Formularios.css";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
-import "../../Css/Tablas.css"
 
 //------ tener el url a mano
-let url = "http://127.0.0.1:8000/api/servicios/";
+let url = "http://127.0.0.1:8000/api/negocio/";
 const cookies = new Cookies();
 
 const token = cookies.get("token");
 
 //---- desclarando la variables que ocupando
-class detalleServicios extends React.Component {
+class detalleNegocio extends React.Component {
   state = {
-    servicio: [],
+    negocio: [],
   };
 
   componentDidMount() {
@@ -29,46 +28,45 @@ class detalleServicios extends React.Component {
         const info = res.data;
         // console.log(info);
         this.setState({
-          servicio: info,
+          negocio: info,
         });
       });
   }
 
   render() {
-    const { servicio } = this.state;
+    const { negocio } = this.state;
     return (
       <div className="formulario">
         <div>
-          <h1>Detalle servicio {servicio.Nombre_Servicio}</h1>
-          <table className="table2">
+          <h1>Detalle negocio {negocio.Nombre_negocio}</h1>
+          <table>
             <tbody>
               <tr>
-                <th>Campo</th>
-                <th>Dato</th>
+                <td>Nombre del negocio</td>
+                <td>{negocio.Apellido_Paterno} {negocio.Apellido_Materno} {negocio.Nombre} </td>
               </tr>
               <tr>
-                <td>El costo estandar del servicio</td>
-                <td>{servicio.Costo}</td>
+                <td>Fecha de Nacimiento</td>
+                <td>{negocio.Fecha_Nacimiento}</td>
               </tr>
               <tr>
-                <td>El tiempo estimado para realizar el servicio</td>
-                <td>{servicio.Tiempo_Estimado}</td>
+                <td>negocio asociado</td>
+                <td>{negocio.Tipo_negocio}</td>
               </tr>
               <tr>
-                <td>Foto</td>
-                <td>
-                  <img
-                    src={"http://127.0.0.1:8000/img/" + servicio.Foto}
-                    width="150"
-                    heigth="150"
-                  />
-                </td>
+                <td>Correo electronico</td>
+                <td>{negocio.Email}</td>
               </tr>
+              {/* revisar la sintaxis para consultar una foto */}
+              {/* <tr>
+                <td>Fecha de Nacimiento</td>
+                <td>{negocio.Foto}</td>
+              </tr> */}
             </tbody>
           </table>
           <Link
             to={{
-              pathname: "/VerServicios",
+              pathname: "/VerNegocios",
             }}
           >
             <button>Regresar</button>
@@ -79,4 +77,4 @@ class detalleServicios extends React.Component {
   }
 }
 
-export default detalleServicios;
+export default detalleNegocio;

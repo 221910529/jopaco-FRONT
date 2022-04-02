@@ -4,6 +4,7 @@ import React from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
+import "../../Css/Tablas.css"
 
 let url = "http://127.0.0.1:8000/api/usuarios";
 const cookies = new Cookies();
@@ -39,7 +40,7 @@ class VerUsuarios extends React.Component {
     return (
       <div className="crud">
         <h1>Ver todos los usuarios</h1>
-        <table>
+        <table className="table2">
           <thead>
             <tr>
               <th>ID</th>
@@ -50,7 +51,7 @@ class VerUsuarios extends React.Component {
               <th>Fecha Nacimiento</th>
               <th>Tipo Usuario</th>
               <th>Email</th>
-
+              <th>Foto</th>
               <th>Ver detalle</th>
               <th>Modificar</th>
               <th>Eliminar</th>
@@ -66,44 +67,43 @@ class VerUsuarios extends React.Component {
                 <td>{usuario.Fecha_Nacimiento}</td>
                 <td>{usuario.Tipo_Usuario}</td>
                 <td>{usuario.Email}</td>
-                <td>{usuario.Foto}</td>
                 <td>
                   <img
                     src={"http://127.0.0.1:8000/img/" + usuario.Foto}
-                    width="50"
-                    heigth="50"
+                    width="150"
+                    heigth="150"
                   />
                 </td>
-                {/* <td>
+                <td>
                   <Link
                     to={{
-                      pathname: "/DetalleServicios",
-                      state: { id: servicio.id },
+                      pathname: "/DetalleUsuarios",
+                      state: { id: usuario.id },
                     }}
                   >
-                    <button>Ver detalle</button>
+                    <button className = "buttontables1">Ver detalle</button>
                   </Link>
                 </td>
                 <td>
                   <Link
                     to={{
-                      pathname: "/ModificarServicios",
-                      state: { id: servicio.id },
+                      pathname: "/ModificarUsuarios",
+                      state: { id: usuario.id },
                     }}
                   >
-                    <button>Modificar</button>
+                    <button className = "buttontables3">Modificar</button>
                   </Link>
                 </td>
                 <td>
                   <Link
                     to={{
-                      pathname: "/EliminarServicios",
-                      state: { id: servicio.id },
+                      pathname: "/EliminarUsuarios",
+                      state: { id: usuario.id },
                     }}
                   >
-                    <button onClick={this.confirm}>Eliminar</button>
+                    <button className = "buttontables2" onClick={this.confirm}>Eliminar</button>
                   </Link>
-                </td> */}
+                </td>
               </tr>
             ))}
           </tbody>

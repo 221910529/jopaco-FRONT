@@ -5,13 +5,15 @@ import { Link } from "react-router-dom";
 import Cookies from "universal-cookie";
 import { Component } from "react";
 
-let url = "http://127.0.0.1:8000/api/tokens/create";
-
 const cookies = new Cookies();
+
+const nombre = cookies.get("nombre");
 
 class NavBar extends Component {
   CerrarSesion = () => {
     cookies.remove("token", { path: "/" });
+    cookies.remove("id", { path: "/" });
+    cookies.remove("nombre", { path: "/" });
     window.location.href = "./";
   };
 
@@ -45,7 +47,11 @@ class NavBar extends Component {
               <Logo />
               <Boton To="/BuscarNegocio" name="Negocios" btn="btn_in"></Boton>
               <Boton To="/" name="Mision y Vision" btn="btn_in"></Boton>
-              <Boton To="/" name="Favoritos" btn="btn_in"></Boton>
+              <Boton
+                To="/Carrito"
+                name="Carrito de Compras"
+                btn="btn_in"
+              ></Boton>
             </div>
 
             <div className="Left">
@@ -59,7 +65,7 @@ class NavBar extends Component {
                   <button>Administracion</button>
                 </Link>
               </div>
-              <div>Hola Usuario</div>
+              <div>Hola {nombre}</div>
               <button onClick={() => this.CerrarSesion()}>Cerrar Sesion</button>
             </div>
           </div>
