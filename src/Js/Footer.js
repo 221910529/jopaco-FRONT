@@ -47,7 +47,7 @@ export default function Footer() {
             <FaMap size="40" color="#fff"/>
           </a>
         </div>
-        <p className="copyright">Made with by <FaHeart color="#B51942"/> Speak up Tech</p>
+        <p className="copyright">Derechos de Autor reservados <FaHeart color="#B51942"/> Contacto: Jopaco@jpc.com.mx</p>
       </footer>
     )
   }

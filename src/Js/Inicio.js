@@ -9,6 +9,7 @@ import BuscarNegocio from "./Vista/BuscarNegocios";
 import VerNegocio from "../Js/Vista/VerNegocio";
 import Carousel from "./Carousel";
 import Footer from "./Footer";
+import Tarjeta from "./Card";
 
 import AltaServicios from "../Js/Servicios/altaServicio";
 import VerServicios from "../Js/Servicios/verServicios";
@@ -36,6 +37,8 @@ export default function App() {
         <Route path="/VerNegocio" component={VerNegocio} />
         <Route path="/Carousel" component={Carousel} />
         <Route path="/Footer" component={Footer}/>
+        <Route path="/Tarjeta" component={Tarjeta}/>
+        
 
         <Route path="/AltaServicios" component={AltaServicios} />
         <Route path="/VerServicios" component={VerServicios} />
@@ -46,6 +49,7 @@ export default function App() {
         <Route path="/AltaNegocios" component={AltaNegocios} />
         <Route path="/AltaSolicitudes" component={AltaSolicitudes} />
       </Switch>
+      
       <Footer />
     </BrowserRouter>
   );

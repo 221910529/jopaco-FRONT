@@ -8,7 +8,7 @@ export default function CarouselComponent() {
         <div class="carousel-wrapper">
             <Carousel infiniteLoop useKeyboardArrows autoPlay>
                 <div>
-                
+                    <p >Somos una empresa dedicada a la promocion de servicios cercanos a tu comunidad</p>
                     <img src="https://st2.depositphotos.com/6672578/10090/i/600/depositphotos_100906810-stock-photo-craftsman-cutting-plank-with-circular.jpg"  />
                 </div>
                 <div>
