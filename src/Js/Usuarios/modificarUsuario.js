@@ -17,6 +17,20 @@ class ModificarUsuarios extends React.Component {
     mensaje: "",
   };
 
+  //----------------------- Actualiza las estancias en la consola
+  subirArchivos = async (e) => {
+    const file = e.target.files[0];
+
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onload = () => {
+      this.setState({ URLFoto: reader.result });
+      this.setState({ Foto: file });
+    };
+    console.log(this.state);
+  };
+
   //-----------Va actulizando las estancias en la consola
   handleChange = (e) => {
     this.setState({
@@ -94,52 +108,147 @@ class ModificarUsuarios extends React.Component {
     return (
       <div className="formulario">
         <div>
-          <h1>Modificar usuario {usuario.Nombre_usuario}</h1>
+          <h1>Modificar usuario {usuario.Nombre}</h1>
 
           {mensaje ? <h3>{mensaje}</h3> : <div></div>}
 
           <form onSubmit={this.subForm}>
             <table>
               <tbody>
-
-
                 <tr>
-                  <td>Ingrese el nombre</td>
+                  <td>Ingrese su nombre</td>
                   <td>
-                    {" "}
+                  {" "}
                     <input
                       type="text"
-                      name="Nombre_usuario"
+                      name="Nombre"
                       onChange={this.handleChange}
-                      defaultValue={usuario.Nombre_usuario}
+                      defaultValue={usuario.Nombre}
                     />
                   </td>
                 </tr>
                 <tr>
-                  <td>Ingrese el costo estandar del usuario</td>
+                {" "}
+                  <td>Ingrese su apellido paterno</td>
                   <td>
-                    {" "}
                     <input
                       type="text"
-                      name="Costo"
+                      name="Apellido_Paterno"
                       onChange={this.handleChange}
-                      defaultValue={usuario.Costo}
+                      defaultValue={usuario.Apellido_Paterno}
                     />
                   </td>
                 </tr>
                 <tr>
-                  <td>Ingrese el tiempo estimado para realizar el usuario</td>
+                  <td>Ingrese el apellido materno</td>
                   <td>
                     <input
                       type="text"
-                      name="Tiempo_Estimado"
+                      name="Apellido_Materno"
                       onChange={this.handleChange}
-                      defaultValue={usuario.Tiempo_Estimado}
+                      defaultValue={usuario.Apellido_Materno}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ingrese la fecha de nacimiento</td>
+                  <td>
+                  {" "}
+                    <input
+                      type="text"
+                      name="Fecha_Nacimiento"
+                      onChange={this.handleChange}
+                      defaultValue={usuario.Fecha_Nacimiento}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ingrese el usuario asociado(numero)</td>
+                  <td>
+                  {" "}
+                    <input
+                      type="text"
+                      name="Tipo_Usuario"
+                      onChange={this.handleChange}
+                      defaultValue={usuario.Tipo_Usuario}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ingrese el correo electronico</td>
+                  <td>
+                  {" "}
+                    <input
+                      type="text"
+                      name="Email"
+                      onChange={this.handleChange}
+                      defaultValue={usuario.Email}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ingrese la contraseña</td>
+                  <td>
+                  {" "}
+                    <input
+                      type="text"
+                      name="Fecha_Nacimiento"
+                      onChange={this.handleChange}
+                      defaultValue={usuario.Fecha_Nacimiento}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ingrese el correo electrónico</td>
+                  <td>
+                  {" "}
+                    <input
+                      type="text"
+                      name="Email"
+                      onChange={this.handleChange}
+                      defaultValue={usuario.Email}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ingrese la contraseña</td>
+                  <td>
+                  {" "}
+                    <input
+                      type="text"
+                      name="Password"
+                      onChange={this.handleChange}
+                      defaultValue={usuario.Password}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ingrese la contraseña</td>
+                  <td>
+                    {" "}
+                    <select onChange={this.handleChange} name="Tipo_Usuario">
+                      <option value="Administrador">Administrador</option>
+                      <option value="Usuario">Usuario</option>
+                      <option value="Usuario_Privilegiado">
+                        Usuario Privilegiado
+                      </option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ingrese la imagen del usuario</td>
+                  <td>
+                  {" "}
+                    <input
+                      type="file"
+                      name="Foto"
+                      //onChange={this.handleChange}
+                      onChange={this.subirArchivos}
+                      //defaultValue={usuario.Foto}
                     />
                   </td>
                 </tr>
                 
-
               </tbody>
             </table>
 
@@ -151,4 +260,4 @@ class ModificarUsuarios extends React.Component {
   }
 }
 
-export default Modificarusuarios;
+export default ModificarUsuarios;

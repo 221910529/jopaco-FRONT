@@ -46,6 +46,7 @@ class VerServicios extends React.Component {
               <th>Nombre</th>
               <th>Costo</th>
               <th>Tiempo</th>
+              <th>Foto</th>
               <th>Ver detalle</th>
               <th>Modificar</th>
               <th>Eliminar</th>
@@ -58,6 +59,13 @@ class VerServicios extends React.Component {
                 <td>{servicio.Nombre_Servicio}</td>
                 <td>{servicio.Costo}</td>
                 <td>{servicio.Tiempo_Estimado}</td>
+                <td>
+                  <img
+                    src={"http://127.0.0.1:8000/img/" + servicio.Foto}
+                    width="75"
+                    heigth="75"
+                  />
+                </td>
                 <td>
                   <Link
                     to={{

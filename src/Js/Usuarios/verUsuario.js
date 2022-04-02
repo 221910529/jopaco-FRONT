@@ -50,7 +50,7 @@ class VerUsuarios extends React.Component {
               <th>Fecha Nacimiento</th>
               <th>Tipo Usuario</th>
               <th>Email</th>
-
+              <th>Foto</th>
               <th>Ver detalle</th>
               <th>Modificar</th>
               <th>Eliminar</th>
@@ -66,19 +66,18 @@ class VerUsuarios extends React.Component {
                 <td>{usuario.Fecha_Nacimiento}</td>
                 <td>{usuario.Tipo_Usuario}</td>
                 <td>{usuario.Email}</td>
-                <td>{usuario.Foto}</td>
                 <td>
                   <img
                     src={"http://127.0.0.1:8000/img/" + usuario.Foto}
-                    width="50"
-                    heigth="50"
+                    width="75"
+                    heigth="75"
                   />
                 </td>
-                {/* <td>
+                <td>
                   <Link
                     to={{
-                      pathname: "/DetalleServicios",
-                      state: { id: servicio.id },
+                      pathname: "/DetalleUsuarios",
+                      state: { id: usuario.id },
                     }}
                   >
                     <button>Ver detalle</button>
@@ -87,8 +86,8 @@ class VerUsuarios extends React.Component {
                 <td>
                   <Link
                     to={{
-                      pathname: "/ModificarServicios",
-                      state: { id: servicio.id },
+                      pathname: "/ModificarUsuarios",
+                      state: { id: usuario.id },
                     }}
                   >
                     <button>Modificar</button>
@@ -97,13 +96,13 @@ class VerUsuarios extends React.Component {
                 <td>
                   <Link
                     to={{
-                      pathname: "/EliminarServicios",
-                      state: { id: servicio.id },
+                      pathname: "/EliminarUsuarios",
+                      state: { id: usuario.id },
                     }}
                   >
                     <button onClick={this.confirm}>Eliminar</button>
                   </Link>
-                </td> */}
+                </td>
               </tr>
             ))}
           </tbody>

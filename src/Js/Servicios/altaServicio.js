@@ -16,6 +16,22 @@ class altaServicios extends Component {
     Nombre_Servicio: "",
     Costo: "",
     Tiempo_Estimado: "",
+    Foto: "",
+    URLFoto: "",
+  };
+
+  //----------------------- Actualiza las estancias en la consola
+  subirArchivos = async (e) => {
+    const file = e.target.files[0];
+
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onload = () => {
+      this.setState({ URLFoto: reader.result });
+      this.setState({ Foto: file });
+    };
+    console.log(this.state);
   };
 
   //-----------Va actulizando las estancias en la consola
@@ -32,23 +48,22 @@ class altaServicios extends Component {
     if (token == undefined) {
       alert("Necesita Iniciar sesion para crear un servicio");
     } else {
+      const form = new FormData();
+
+      form.append("Nombre_Servicio", this.state.Nombre_Servicio);
+      form.append("Costo", this.state.Costo);
+      form.append("Tiempo_Estimado", this.state.Tiempo_Estimado);
+      form.append("Foto", this.state.Foto);
+
       await axios //---- mandamos solicitud post al backend
-        .post(
-          url,
-          {
-            Nombre_Servicio: this.state.Nombre_Servicio,
-            Costo: this.state.Costo,
-            Tiempo_Estimado: this.state.Tiempo_Estimado,
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
+      .post(url, form, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      })
         .then((response) => {
           console.log(response);
-
           if (response.data.success != null) {
             alert(response.data.success);
           }
@@ -63,6 +78,7 @@ class altaServicios extends Component {
             alert(error.response.data.errors.Nombre_Servicio);
             alert(error.response.data.errors.Costo);
             alert(error.response.data.errors.Tiempo_Estimado);
+            alert(error.response.data.errors.Foto);
           }
         });
     }
@@ -105,6 +121,12 @@ class altaServicios extends Component {
                     name="Tiempo_Estimado"
                     onChange={this.handleChange}
                   />
+                </td>
+              </tr>
+              <tr>
+                <td>Cargue la imagen del usuarios</td>
+                <td>
+                <input type="file" name="Foto" onChange={this.subirArchivos} />
                 </td>
               </tr>
             </tbody>

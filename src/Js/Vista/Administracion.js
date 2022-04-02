@@ -9,7 +9,8 @@ export default function Administracion() {
         <tbody>
           <tr>
             <td>
-              <Boton To="/AltaNegocios" name="Negocios" btn="boton"></Boton>
+              <Boton To="/VerNegocios" name="Ver Negocios" btn="boton"></Boton>
+              <Boton To="/AltaNegocios" name="Registrar Negocios" btn="boton"></Boton>
             </td>
             <td></td>
             <td>
