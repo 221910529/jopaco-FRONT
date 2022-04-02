@@ -18,9 +18,10 @@ class Tarjeta extends Component {
         </div>
         <div className="card-contenido">
               <h2>Nombre: {this.props.Nombre}</h2>
-        
-        </div>
+              <a class="boton" href="#" target="_blank">Ver</a>
       </div>
+        </div>
+        
     );
   }
 }
