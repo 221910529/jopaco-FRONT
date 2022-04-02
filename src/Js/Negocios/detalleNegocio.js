@@ -66,7 +66,7 @@ class detalleNegocio extends React.Component {
           </table>
           <Link
             to={{
-              pathname: "/Vernegocio",
+              pathname: "/VerNegocios",
             }}
           >
             <button>Regresar</button>

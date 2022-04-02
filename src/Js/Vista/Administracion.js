@@ -1,44 +1,49 @@
 import React from "react";
 import "../../Css/Inicio.css";
+import "../../Css/Tablas.css";
 import { Link } from "react-router-dom";
 
 export default function Administracion() {
   return (
     <div className="administracion">
-      <table className="tabla">
+      <table className="table3">
         <tbody>
           <tr>
             <td>
+              <h2 className="espacioabajo">Negocios</h2>
               <Boton To="/VerNegocios" name="Ver Negocios" btn="boton"></Boton>
               <Boton To="/AltaNegocios" name="Registrar Negocios" btn="boton"></Boton>
             </td>
-            <td></td>
             <td>
+            <h2 className="espacioabajo">Servicios</h2>
               <Boton
                 To="/VerServicios"
                 name="Ver Servicios"
                 btn="boton"
               ></Boton>
-              <Boton To="/AltaServicios" name="Servicios" btn="boton"></Boton>
+              <Boton To="/AltaServicios" name="Registrar Servicios" btn="boton"></Boton>
             </td>
           </tr>
           <tr>
             <td>
-              <Boton
-                To="/AltaSolicitudes"
-                name="Solicitudes"
-                btn="boton"
-              ></Boton>
-            </td>
-            <td>
+            <h2 className="espacioabajo">Usuarios</h2>
+            <Boton className="botonesadmin2" To="/Usuarios" name=" Ver Usuarios" btn="boton"></Boton>
               <Boton
                 To="/AltaUsuarios"
                 name="Registrar Usuario"
                 btn="boton"
               ></Boton>
-              <Boton To="/Usuarios" name="Usuarios" btn="boton"></Boton>
             </td>
-            <td></td>
+            <td>
+            <h2 className="espacioabajo">Solicitudes</h2>
+              <Boton
+                To="/AltaSolicitudes"
+                name="Registrar Solicitud"
+                btn="boton"
+              ></Boton>
+            </td>
+            
+            
           </tr>
         </tbody>
       </table>

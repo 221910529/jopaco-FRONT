@@ -4,6 +4,7 @@ import React from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
+import "../../Css/Tablas.css"
 
 let url = "http://127.0.0.1:8000/api/servicios";
 const cookies = new Cookies();
@@ -39,7 +40,7 @@ class VerServicios extends React.Component {
     return (
       <div className="crud">
         <h1>Ver todos los servicios</h1>
-        <table>
+        <table className="table2">
           <thead>
             <tr>
               <th>ID</th>
@@ -62,8 +63,8 @@ class VerServicios extends React.Component {
                 <td>
                   <img
                     src={"http://127.0.0.1:8000/img/" + servicio.Foto}
-                    width="75"
-                    heigth="75"
+                    width="150"
+                    heigth="150"
                   />
                 </td>
                 <td>
@@ -73,7 +74,7 @@ class VerServicios extends React.Component {
                       state: { id: servicio.id },
                     }}
                   >
-                    <button>Ver detalle</button>
+                    <button className = "buttontables1">Ver detalle</button>
                   </Link>
                 </td>
                 <td>
@@ -83,7 +84,7 @@ class VerServicios extends React.Component {
                       state: { id: servicio.id },
                     }}
                   >
-                    <button>Modificar</button>
+                    <button className = "buttontables3">Modificar</button>
                   </Link>
                 </td>
                 <td>
@@ -93,7 +94,7 @@ class VerServicios extends React.Component {
                       state: { id: servicio.id },
                     }}
                   >
-                    <button onClick={this.confirm}>Eliminar</button>
+                    <button className = "buttontables2" onClick={this.confirm}>Eliminar</button>
                   </Link>
                 </td>
               </tr>
