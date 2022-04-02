@@ -13,11 +13,13 @@ class VerNegocios extends React.Component {
   state = {
     negocios: [],
   };
+
   confirm = (e) => {
     if (!window.confirm("Confirmar eliminación")) {
       e.preventDefault();
     }
   };
+
   componentDidMount() {
     axios //---- mandamos solicitud post al backend
       .get(url, {
@@ -66,7 +68,7 @@ class VerNegocios extends React.Component {
                 <td>{negocio.Dias_Servicio}</td>
                 <td>{negocio.Descripcion_Del_Negocio}</td>
                 <td>{negocio.Usuario_Id}</td>
-                
+
                 <td>
                   <img
                     src={"http://127.0.0.1:8000/img/" + negocio.Foto}
