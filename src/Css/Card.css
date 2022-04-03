@@ -10,19 +10,22 @@
     background-image: url("https://corposanjose.com/wp-content/uploads/2021/05/carpintero-tijuana.jpg");
 }
 .card-logo{
-    padding: 10px;
+    padding: 5px;
 }
 .card-contentido{
     color:white
 }
 .boton {
-    border: 1px solid #2e518b; /*anchura, estilo y color borde*/
+    left: 25%;
+    border: 1px solid #232a35; /*anchura, estilo y color borde*/
     padding: 10px; /*espacio alrededor texto*/
-    background-color: #2e518b; /*color botón*/
+    background-color: #222831; /*color botón*/
     color: #ffffff; /*color texto*/
     text-decoration: none; /*decoración texto*/
     text-transform: uppercase; /*capitalización texto*/
     font-family: 'Helvetica', sans-serif; /*tipografía texto*/
     border-radius: 50px; /*bordes redondos*/
     }
+
+
     
