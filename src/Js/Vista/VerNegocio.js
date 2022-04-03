@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import "../../Css/BuscarNegocio.css";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import SubCard from "./SubCard";
 
 let url = "http://127.0.0.1:8000/api/negocios/";
+let url2 = "http://127.0.0.1:8000/api/servicios";
 const cookies = new Cookies();
 
 const token = cookies.get("token");
@@ -11,6 +13,7 @@ const token = cookies.get("token");
 class VerNegocio extends Component {
   state = {
     negocios: [],
+    servicios: [],
   };
 
   componentDidMount() {
@@ -25,6 +28,20 @@ class VerNegocio extends Component {
         console.log(info);
         this.setState({
           negocios: info,
+        });
+      });
+
+    axios //---- mandamos solicitud post al backend
+      .get(url2, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        const info2 = res.data;
+        console.log(info2);
+        this.setState({
+          servicios: info2,
         });
       });
   }
@@ -78,6 +95,7 @@ class VerNegocio extends Component {
             </div>
           </div>
         </div>
+        <SubCard></SubCard>
       </div>
     );
   }
