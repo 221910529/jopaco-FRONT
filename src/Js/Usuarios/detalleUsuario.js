@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../../Css/Formularios.css";
+import "../../Css/detalleU.css";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";

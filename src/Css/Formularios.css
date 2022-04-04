@@ -1,52 +1,38 @@
- .formularioDU {
-  display: flex; 
- justify-content: center;
-   flex-direction: row;
-}
-
-.formularioDU .Informacion {
-  border-radius: 20px;
-    border-spacing: 5px;
-  background:  #000 url(https://storage.googleapis.com/www-paredro-com/uploads/2020/02/6cf01be6-magic.png);;
-  line-height: 2.8
-  
-}
-
-
-/* .formularioDU div{
+.formulario {
   display: flex;
-  flex-direction: row;
-} */
-/*
+  align-items: center;
+  flex-direction: column;
+}
+
 .administracion {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 80vh;
-} */
+}
 
-/* .tabla {
+.tabla {
   width: 80vw;
   height: 30vw;
   padding: 24px;
   border-collapse: collapse;
   text-align: center;
-} */
-
-/* .tabla tbody tr,
-td {
-  border: 2px black solid;
-} */
-
-.formularioDU .Foto img{
-  flex-direction: column;
-  justify-content: start;
-  border-radius: 10px;
 }
 
- .Titulo h1{
+ .tabla tbody tr,
+td {
+  border: 2px black solid;
+}
+
+/* .formularioDU .Foto img{
+  flex-direction: column;
+  justify-content: start;
+  border-radius: ;
+}
+
+.formularioDU .Titulo h1{
   
   margin-left: auto;
   margin-right: auto;
   width: 20%;
-}
+} */
