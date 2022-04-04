@@ -33,6 +33,12 @@ import ModificarUsuarios from "../Js/Usuarios/modificarUsuario";
 import EliminarUsuarios from "../Js/Usuarios/eliminarUsuario";
 import DetalleUsuarios from "../Js/Usuarios/detalleUsuario";
 
+import AltaSubservicios from "../Js/Subservicios/altaSubservicios";
+import VerSubservicios from "../Js/Subservicios/verSubservicios";
+import ModificarSubservicios from "../Js/Subservicios/modificarSubservicios";
+import EliminarSubservicios from "../Js/Subservicios/eliminarSubservicio";
+import DetalleSubservicios from "../Js/Subservicios/detalleSubservicio";
+
 import VerVentas from "./Ventas/verVentas";
 
 import Carrito from "./Vista/Carrito";
@@ -76,6 +82,12 @@ export default function App() {
         <Route path="/DetalleNegocios" component={DetalleNegocios} />
 
         <Route path="/VerVentas" component={VerVentas} />
+
+        <Route path="/AltaSubservicios" component={AltaSubservicios} />
+        <Route path="/VerSubservicios" component={VerSubservicios} />
+        <Route path="/EliminarSubservicios" component={EliminarSubservicios} />
+        <Route path="/ModificarSubservicios" component={ModificarSubservicios} />
+        <Route path="/DetalleSubservicios" component={DetalleSubservicios} />
 
         <Route path="/AltaSolicitudes" component={AltaSolicitudes} />
 

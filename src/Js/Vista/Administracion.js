@@ -35,10 +35,15 @@ export default function Administracion() {
               ></Boton>
             </td>
             <td>
-            <h2 className="espacioabajo">Solicitudes</h2>
+            <h2 className="espacioabajo">SubServicios</h2>
               <Boton
-                To="/AltaSolicitudes"
-                name="Registrar Solicitud"
+                To="/AltaSubservicios"
+                name="Registrar Subservicio"
+                btn="boton"
+              ></Boton>
+              <Boton
+                To="/VerSubservicios"
+                name="Ver Subservicios"
                 btn="boton"
               ></Boton>
             </td>             
