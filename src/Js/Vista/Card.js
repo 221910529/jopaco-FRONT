@@ -2,52 +2,8 @@ import React, { Component } from "react";
 import "../../Css/BuscarNegocio.css";
 import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
-import axios from "axios";
-
-let url = "http://127.0.0.1:8000/api/carrito";
-const cookies = new Cookies();
-
-const token = cookies.get("token");
-
-const usuario = cookies.get("id");
 
 class Card extends Component {
-  //   <div>
-  //   <button onClick={() => this.AgregarACarrito()}>
-  //     Añadir al Carrito de compras
-  //   </button>
-  // </div>
-  // Regresar para hacer esto pero de
-  AgregarACarrito = async () => {
-    if (token == undefined) {
-      alert("Necesita Iniciar sesion para registrar un usuario");
-    } else {
-      const form = new FormData();
-
-      form.append("Servicio_Id", this.props.id);
-      form.append("Usuario_Id", usuario);
-
-      await axios
-        .post(url, form, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((response) => {
-          console.log(response);
-          if (response.data.success != null) {
-            alert(response.data.success);
-          }
-          // setTimeout(function () {
-          //   window.location = "/Usuarios";
-          // }, 1000);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    }
-  };
-
   render() {
     return (
       <div className="contenedor">
