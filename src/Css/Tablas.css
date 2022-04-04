@@ -12,6 +12,7 @@
     
     color: white;
     text-shadow: 1px 1px 1px black;
+    
   }
   
   thead th, tfoot th, tfoot td {
@@ -30,12 +31,12 @@
     border-right: solid #ffffff;
   }
   table colgroup col{
-   
     border: solid #ffffff;
   }
 
   col{
     border: solid #ffffff;
+    
   }
 
   table{
