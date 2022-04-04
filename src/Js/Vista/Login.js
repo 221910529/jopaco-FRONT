@@ -28,7 +28,7 @@ class Login extends Component {
         password: this.state.Password,
       })
       .then((response) => {
-        console.log(response.data);
+        console.log(response);
 
         if (response.data.token) {
           var token = response.data.token;
@@ -55,7 +55,7 @@ class Login extends Component {
           alert("Usuario o contraseña incorrectos");
         }
       })
-      .catch((error) => console.log(error.data));
+      .catch((error) => console.log(error));
   };
 
   render() {

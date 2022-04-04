@@ -14,6 +14,7 @@ class VerNegocio extends Component {
   state = {
     negocios: [],
     servicios: [],
+    newserv: [],
   };
 
   componentDidMount() {
@@ -25,7 +26,6 @@ class VerNegocio extends Component {
       })
       .then((res) => {
         const info = res.data;
-        console.log(info);
         this.setState({
           negocios: info,
         });
@@ -38,8 +38,23 @@ class VerNegocio extends Component {
         },
       })
       .then((res) => {
-        const info2 = res.data;
-        console.log(info2);
+        const info2 = res.data.data;
+        const idnegocio = this.props.location.state.id;
+
+        {
+          info2.map((inf) => {
+            if (inf.Negocio_Id == idnegocio)
+              return this.setState({
+                newserv: info2,
+              });
+            return this.setState({
+              newserv: [],
+            });
+          });
+        }
+
+        console.log(this.state.newserv);
+
         this.setState({
           servicios: info2,
         });
@@ -48,10 +63,17 @@ class VerNegocio extends Component {
 
   render() {
     const { negocios } = this.state;
+    const { newserv } = this.state;
     return (
       <div className="margen">
         <div className="column">
           <div className="contener">
+            {/* <img
+              src={negocios.Foto}
+              width="300"
+              height="300"
+              alt="Imagen"
+            ></img> */}
             <img
               src="https://www.liderdelemprendimiento.com/wp-content/uploads/2021/04/Apertura-del-negocio-3000x2904.png"
               width="300"
@@ -95,7 +117,16 @@ class VerNegocio extends Component {
             </div>
           </div>
         </div>
-        <SubCard></SubCard>
+        <div className="SubCardContenedor">
+          {newserv.map((servicios, i) => (
+            <SubCard
+              key={i}
+              Nombre={servicios.Nombre_Servicio}
+              Costo={servicios.Costo}
+              Tiempo={servicios.Tiempo_Estimado}
+            ></SubCard>
+          ))}
+        </div>
       </div>
     );
   }

@@ -28,8 +28,21 @@
 .centrar {
   display: flex;
   align-items: center;
+  width: 50%;
 }
 
+.centrarIzquierda {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  flex-direction: row-reverse;
+}
+
+.SubCardContenedor {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
 .marg {
   display: flex;
   flex-direction: column;

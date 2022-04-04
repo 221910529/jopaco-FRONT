@@ -66,7 +66,7 @@ class Card extends Component {
             </div>
           </div>
 
-          <div className="centrar">
+          <div className="centrarIzquierda">
             <div>
               <Link
                 to={{

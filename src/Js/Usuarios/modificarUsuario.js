@@ -51,7 +51,7 @@ class ModificarUsuarios extends React.Component {
       .then((res) => {
         // console.log(res);
         const info = res.data;
-        // console.log(info);
+        console.log(info);
         this.setState({
           usuario: info,
         });
@@ -64,14 +64,14 @@ class ModificarUsuarios extends React.Component {
       .put(
         url + this.props.location.state.id,
         {
-            Nombre: this.state.Nombre,
-            Apellido_Paterno: this.state.Apellido_Paterno,
-            Apellido_Matern: this.state.Apellido_Materno,
-            Fecha_Nacimiento: this.state.Fecha_Nacimiento,
-            Tipo_Usuario: this.state.Tipo_Usuario,
-            Email: this.state.Email,
-            Password: this.state.Password,
-            Foto: this.state.Foto,
+          Nombre: this.state.Nombre,
+          Apellido_Paterno: this.state.Apellido_Paterno,
+          Apellido_Materno: this.state.Apellido_Materno,
+          Fecha_Nacimiento: this.state.Fecha_Nacimiento,
+          Tipo_Usuario: this.state.Tipo_Usuario,
+          Email: this.state.Email,
+          Password: this.state.Password,
+          Foto: this.state.Foto,
         },
         {
           headers: {
@@ -87,24 +87,25 @@ class ModificarUsuarios extends React.Component {
         }
 
         setTimeout(function () {
-          window.location = "/Verusuarios";
+          window.location = "/Usuarios";
         }, 1000);
       })
       .catch(function (error) {
         if (error.response.data != null) {
-            alert(error.response.data.errors.Nombre);
-            alert(error.response.data.errors.Apellido_Paterno);
-            alert(error.response.data.errors.Apellido_Materno);
-            alert(error.response.data.errors.Fecha_Nacimiento);
-            alert(error.response.data.errors.Tipo_Usuario);
-            alert(error.response.data.errors.Email);
-            alert(error.response.data.errors.Password);
+          alert(error.response.data.errors.Nombre);
+          alert(error.response.data.errors.Apellido_Paterno);
+          alert(error.response.data.errors.Apellido_Materno);
+          alert(error.response.data.errors.Fecha_Nacimiento);
+          alert(error.response.data.errors.Tipo_Usuario);
+          alert(error.response.data.errors.Email);
+          alert(error.response.data.errors.Password);
         }
       });
   };
 
   render() {
     const { usuario, mensaje } = this.state;
+
     return (
       <div className="formulario">
         <div>
@@ -118,7 +119,7 @@ class ModificarUsuarios extends React.Component {
                 <tr>
                   <td>Ingrese su nombre</td>
                   <td>
-                  {" "}
+                    {" "}
                     <input
                       type="text"
                       name="Nombre"
@@ -128,7 +129,7 @@ class ModificarUsuarios extends React.Component {
                   </td>
                 </tr>
                 <tr>
-                {" "}
+                  {" "}
                   <td>Ingrese su apellido paterno</td>
                   <td>
                     <input
@@ -153,9 +154,9 @@ class ModificarUsuarios extends React.Component {
                 <tr>
                   <td>Ingrese la fecha de nacimiento</td>
                   <td>
-                  {" "}
+                    {" "}
                     <input
-                      type="text"
+                      type="date"
                       name="Fecha_Nacimiento"
                       onChange={this.handleChange}
                       defaultValue={usuario.Fecha_Nacimiento}
@@ -163,62 +164,53 @@ class ModificarUsuarios extends React.Component {
                   </td>
                 </tr>
                 <tr>
-                  <td>Ingrese el usuario asociado(numero)</td>
+                  <td>Select tipo de usuario</td>
                   <td>
-                  {" "}
-                    <input
-                      type="text"
-                      name="Tipo_Usuario"
-                      onChange={this.handleChange}
-                      defaultValue={usuario.Tipo_Usuario}
-                    />
+                    <select onChange={this.handleChange} name="Tipo_Usuario">
+                      <option value="null">Seleccione una opcion</option>
+                      {usuario.Tipo_Usuario == "Administrador" && (
+                        <>
+                          <option value="Administrador" selected>
+                            Administrador
+                          </option>
+                          <option value="Usuario">Usuario</option>
+                          <option value="Usuario_Privilegiado">
+                            Usuario Privilegiado
+                          </option>
+                        </>
+                      )}
+                      {usuario.Tipo_Usuario == "Usuario" && (
+                        <>
+                          <option value="Administrador">Administrador</option>
+                          <option value="Usuario" selected>
+                            Usuario
+                          </option>
+                          <option value="Usuario_Privilegiado">
+                            Usuario Privilegiado
+                          </option>
+                        </>
+                      )}
+                      {usuario.Tipo_Usuario == "Usuario_Privilegiado" && (
+                        <>
+                          <option value="Administrador">Administrador</option>
+                          <option value="Usuario">Usuario</option>
+                          <option value="Usuario_Privilegiado" selected>
+                            Usuario Privilegiado
+                          </option>
+                        </>
+                      )}
+                    </select>
                   </td>
                 </tr>
                 <tr>
                   <td>Ingrese el correo electronico</td>
                   <td>
-                  {" "}
+                    {" "}
                     <input
                       type="text"
                       name="Email"
                       onChange={this.handleChange}
                       defaultValue={usuario.Email}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Ingrese la contraseña</td>
-                  <td>
-                  {" "}
-                    <input
-                      type="text"
-                      name="Fecha_Nacimiento"
-                      onChange={this.handleChange}
-                      defaultValue={usuario.Fecha_Nacimiento}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Ingrese el correo electrónico</td>
-                  <td>
-                  {" "}
-                    <input
-                      type="text"
-                      name="Email"
-                      onChange={this.handleChange}
-                      defaultValue={usuario.Email}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Ingrese la contraseña</td>
-                  <td>
-                  {" "}
-                    <input
-                      type="text"
-                      name="Password"
-                      onChange={this.handleChange}
-                      defaultValue={usuario.Password}
                     />
                   </td>
                 </tr>
@@ -226,29 +218,32 @@ class ModificarUsuarios extends React.Component {
                   <td>Ingrese la contraseña</td>
                   <td>
                     {" "}
-                    <select onChange={this.handleChange} name="Tipo_Usuario">
-                      <option value="Administrador">Administrador</option>
-                      <option value="Usuario">Usuario</option>
-                      <option value="Usuario_Privilegiado">
-                        Usuario Privilegiado
-                      </option>
-                    </select>
+                    <input
+                      type="text"
+                      name="Fecha_Nacimiento"
+                      onChange={this.handleChange}
+                      defaultValue={usuario.Password}
+                    />
                   </td>
                 </tr>
+
                 <tr>
                   <td>Ingrese la imagen del usuario</td>
                   <td>
-                  {" "}
+                    {" "}
                     <input
                       type="file"
                       name="Foto"
                       //onChange={this.handleChange}
                       onChange={this.subirArchivos}
-                      //defaultValue={usuario.Foto}
+                    />
+                    <img
+                      src={"http://127.0.0.1:8000/img/" + usuario.Foto}
+                      width="50"
+                      heigth="50"
                     />
                   </td>
                 </tr>
-                
               </tbody>
             </table>
 
