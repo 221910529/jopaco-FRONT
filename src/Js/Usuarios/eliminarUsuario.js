@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
+import "../../Css/Tablas.css";
 
 //------ tener el url a mano
 let url = "http://127.0.0.1:8000/api/usuarios/";
@@ -55,7 +56,7 @@ class Eliminarusuarios extends React.Component {
 
           {mensaje ? <h3>{mensaje}</h3> : <div></div>}
 
-          <table>
+          <table className="table3">
             <tbody>
               <tr>
                 <td>Nombre de usuario</td>

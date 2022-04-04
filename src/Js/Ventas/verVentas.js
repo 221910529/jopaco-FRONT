@@ -39,7 +39,14 @@ class VerVentas extends React.Component {
     const { ventas } = this.state;
     return (
       <div className="crud">
-        <h1>Ver todos los ventas</h1>
+        <h1>Ver todos los ventas</h1><br></br>
+          <Link
+                    to="/Administracion">
+                    <button><img className="imagenexcel" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Microsoft_Excel_2013-2019_logo.svg/2086px-Microsoft_Excel_2013-2019_logo.svg.png" />
+                    {"  "}Generar Microsoft_Excel_2013
+                    </button>
+          </Link>
+          <br></br>
         <table className="table2">
           <thead>
             <tr>
