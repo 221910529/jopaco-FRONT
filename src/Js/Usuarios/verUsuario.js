@@ -70,8 +70,8 @@ class VerUsuarios extends React.Component {
                 <td>
                   <img
                     src={"http://127.0.0.1:8000/img/" + usuario.Foto}
-                    width="150"
-                    heigth="150"
+                    width="80"
+                    heigth="80"
                   />
                 </td>
                 <td>

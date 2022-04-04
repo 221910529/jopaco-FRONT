@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../../Css/Formularios.css";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import "../../Css/Tablas.css";
 
 let url = "http://127.0.0.1:8000/api/negocios";
 const cookies = new Cookies();
@@ -71,7 +72,7 @@ class altaNegocios extends Component {
           alert(response.data.success);
         }
         setTimeout(function () {
-          window.location = "/Negocios";
+          window.location = "/VerNegocios";
         }, 1000);
       })
         .catch(function (error) {
@@ -90,56 +91,95 @@ class altaNegocios extends Component {
     return (
       <div className="formulario">
         <div>
-          <h1>Registro de negocios</h1>
-          <div>
-            Ingrese el nombre del negocio
-            <input
-              type="text"
-              name="Nombre_Negocio"
-              onChange={this.handleChange}
-            />
-          </div>
-          <div>
-            Ingrese la dirección
-            <input type="text" name="Direccion" onChange={this.handleChange} />
-          </div>
-          <div>
-            Ingrese el horario de servicio
-            <input
-              type="text"
-              name="Horario_Servicio"
-              onChange={this.handleChange}
-            />
-          </div>
-          <div>
-            Seleccione los días de servicio
-            <input
-              type="text"
-              name="Dias_Servicio"
-              onChange={this.handleChange}
-            />
-          </div>
-          <div>
-            Ingrese la descripción del negocio
-            <input
-              type="text"
-              name="Descripcion_Del_Negocio"
-              onChange={this.handleChange}
-            />
-          </div>
-          <div>
-            Seleccione el Usuario Asociado
-            <input
-              type="number"
-              name="Usuario_Id"
-              onChange={this.handleChange}
-            />
-          </div>
-          <div>
-              Cargue la imagen del negocio
-              <input type="file" name="Foto" onChange={this.subirArchivos} />
-            </div>
-          <button onClick={() => this.RegistrarNegocio()}>Crear Negocio</button>
+
+        <table className="formulario1">
+          <tbody>
+            <tr>
+              <td className="trmargen"><h4>Ingrese el nombre del negocio</h4></td>
+            </tr>
+            <tr>
+              <td>
+                <input className="inputs"
+                  type="text"
+                  name="Nombre_Negocio"
+                  onChange={this.handleChange}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td className="trmargen"><h4>Ingrese la dirección</h4></td>
+            </tr>
+            <tr>
+              <td>
+                <input className="inputs" type="text" name="Direccion" onChange={this.handleChange}/>
+              </td>
+            </tr>
+            <tr>
+              <td className="trmargen"><h4>Ingrese el horario de servicio</h4></td>
+            </tr>
+            <tr>
+              <td>
+                <input className="inputs"
+                  type="text"
+                  name="Horario_Servicio"
+                  onChange={this.handleChange}
+                />
+              </td>
+            </tr> 
+            <tr>
+              <td className="trmargen"><h4>Seleccione los días de servicio</h4></td>
+            </tr>
+            <tr>
+              <td>
+                  <input className="inputs" 
+                    type="text"
+                    name="Dias_Servicio"
+                    onChange={this.handleChange}
+                  />
+              </td>
+            </tr> 
+            <tr>
+              <td className="trmargen"><h4>Ingrese la descripción del negocio</h4></td>
+            </tr>
+            <tr>
+              <td>
+                <input className="inputs"
+                  type="text"
+                  name="Descripcion_Del_Negocio"
+                  onChange={this.handleChange}
+                />
+              </td>
+            </tr> 
+            <tr>
+              <td className="trmargen"><h4>Seleccione el Usuario Asociado</h4></td>
+            </tr>
+            <tr>
+              <td>
+                <input className="inputs"
+                  type="number"
+                  name="Usuario_Id"
+                  onChange={this.handleChange}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td className="trmargen"><h4>Cargue la imagen del negocio</h4></td>
+            </tr>
+            <tr>
+              <td><input className="inputs" type="file" name="Foto" onChange={this.subirArchivos} /></td>
+            </tr>
+            <tr>
+              <td className="trmargen">
+                <button 
+                  className="botonesadmin"
+                  onClick={() => this.RegistrarNegocio()}>Crear Negocio
+                </button>      
+              </td>
+            </tr>
+          </tbody>
+          </table>
+
+          
         </div>
       </div>
     );

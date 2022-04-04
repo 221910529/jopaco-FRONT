@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import "../../Css/BuscarNegocio.css";
+import SubCard from "./SubExtra";
 import axios from "axios";
 import Cookies from "universal-cookie";
-import SubCard from "./SubCard";
 
-let url = "http://127.0.0.1:8000/api/negocios/";
-let url2 = "http://127.0.0.1:8000/api/servicios";
+let url = "http://127.0.0.1:8000/api/servicios/";
+let url2 = "http://127.0.0.1:8000/api/subservicios";
 const cookies = new Cookies();
 
 const token = cookies.get("token");
 
-class VerNegocio extends Component {
+class VerServicio extends Component {
   state = {
-    negocios: [],
     servicios: [],
+    subservicio: [],
     newserv: [],
   };
 
@@ -26,8 +26,9 @@ class VerNegocio extends Component {
       })
       .then((res) => {
         const info = res.data;
+        console.log(info);
         this.setState({
-          negocios: info,
+          servicios: info,
         });
       });
 
@@ -38,38 +39,35 @@ class VerNegocio extends Component {
         },
       })
       .then((res) => {
-        const info2 = res.data.data;
-        const idnegocio = this.props.location.state.id;
+        const info = res.data.data;
+        const idservicio = this.props.location.state.id;
 
         {
-          info2.map((inf) => {
-            if (inf.Negocio_Id == idnegocio)
+          info.map((inf) => {
+            if (inf.Servicio_Id == idservicio)
               return this.setState({
-                newserv: info2,
+                newserv: info,
               });
             return this.setState({
               newserv: [],
             });
           });
         }
-
-        console.log(this.state.newserv);
-
         this.setState({
-          servicios: info2,
+          subservicios: info,
         });
       });
   }
 
   render() {
-    const { negocios } = this.state;
+    const { servicios } = this.state;
     const { newserv } = this.state;
     return (
       <div className="margen">
         <div className="column">
           <div className="contener">
             {/* <img
-              src={negocios.Foto}
+              src={servicios.Foto}
               width="300"
               height="300"
               alt="Imagen"
@@ -81,21 +79,15 @@ class VerNegocio extends Component {
               alt="Imagen"
             ></img>
             <div className="centrado">
-              <h1>Negocio: {negocios.Nombre_Negocio}</h1>
+              <h1>Servicio: {servicios.Nombre_Servicio}</h1>
             </div>
           </div>
           <div className="fila">
             <div className="text-centrar">
-              Descripicion del negocio: {negocios.Descripcion_Del_Negocio}
+              Costo del servicio: {servicios.Costo}
             </div>
             <div className="text-centrar">
-              Direcion del negocio: {negocios.Direccion}
-            </div>
-            <div className="text-centrar">
-              Dias que se atiende: {negocios.Dias_Servicio}
-            </div>
-            <div className="text-centrar">
-              Horario de servicio del negocio:{negocios.Horario_Servicio}
+              Tiempo Estimado del servicio: {servicios.Tiempo_Estimado}
             </div>
           </div>
         </div>
@@ -118,14 +110,15 @@ class VerNegocio extends Component {
           </div>
         </div>
         <div className="SubCardContenedor">
-          {newserv.map((servicios, i) => (
+          {newserv.map((subservicios, i) => (
             <SubCard
               key={i}
-              Nombre={servicios.Nombre_Servicio}
-              Costo={servicios.Costo}
-              Tiempo={servicios.Tiempo_Estimado}
-              id={servicios.id}
-              direccion="/VerServicio"
+              Nombre={subservicios.Nombre}
+              Descripcion={subservicios.Descripcion}
+              Calificacion={subservicios.Calificacion}
+              Precio={subservicios.Precio}
+              direccion="/"
+              id={subservicios.id}
             ></SubCard>
           ))}
         </div>
@@ -134,4 +127,4 @@ class VerNegocio extends Component {
   }
 }
 
-export default VerNegocio;
+export default VerServicio;

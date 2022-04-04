@@ -146,8 +146,16 @@ class ModificarServicios extends React.Component {
                 <tr>
                   <td>Cargue la imagen del servicio</td>
                   <td>
-                    <input type="file" name="Foto" onChange={this.subirArchivos} 
-                    defaultValue={servicio.Foto}
+                  <input
+                      type="file"
+                      name="Foto"
+                      //onChange={this.handleChange}
+                      onChange={this.subirArchivos}
+                    />
+                    <img
+                      src={"http://127.0.0.1:8000/img/" + servicio.Foto}
+                      width="50"
+                      heigth="50"
                     />
                   </td>
                 </tr>

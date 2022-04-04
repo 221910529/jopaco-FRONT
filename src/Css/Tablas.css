@@ -12,6 +12,7 @@
     
     color: white;
     text-shadow: 1px 1px 1px black;
+    
   }
   
   thead th, tfoot th, tfoot td {
@@ -30,12 +31,12 @@
     border-right: solid #ffffff;
   }
   table colgroup col{
-   
     border: solid #ffffff;
   }
 
   col{
     border: solid #ffffff;
+    
   }
 
   table{
@@ -106,9 +107,31 @@
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
+	font-family:"Alata";
 	font-size:13px;
 	padding:6px 24px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #154682;
+	color: #fff;
+  
+}
+
+.formulario1{
+  text-align: left;
+}
+
+.inputs{
+  width: 600px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.trmargen{
+  margin: 1ch;
+  padding-top: 1ch;
+  color: #007BFF;
+}
+
+.imagenexcel{
+  width: 40px;
+  height: 40px;
 }

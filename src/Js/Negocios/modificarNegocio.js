@@ -3,6 +3,7 @@ import "../../Css/Formularios.css";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
+import "../../Css/Tablas.css";
 
 //------ tener el url a mano
 let url = "http://127.0.0.1:8000/api/negocios/";
@@ -63,9 +64,12 @@ class ModificarNegocios extends React.Component {
       .put(
         url + this.props.location.state.id,
         {
-          Nombre_negocio: this.state.Nombre_negocio,
-          Costo: this.state.Costo,
-          Tiempo_Estimado: this.state.Tiempo_Estimado,
+          Nombre_Negocio: this.state.Nombre_Negocio,
+          Direccion: this.state.Direccion,
+          Horario_Servicio: this.state.Horario_Servicio,
+          Dias_Servicio: this.state.Dias_Servicio,
+          Descripcion_Del_Negocio: this.state.Descripcion_Del_Negocio,
+          Usuario_Id: this.state.Usuario_Id,
           Foto: this.state.Foto,
         },
         {
@@ -88,9 +92,12 @@ class ModificarNegocios extends React.Component {
       .catch(function (error) {
         if (error.response.data != null) {
           alert(error.response.data.message);
-          alert(error.response.data.errors.Nombre_negocio);
-          alert(error.response.data.errors.Costo);
-          alert(error.response.data.errors.Tiempo_Estimado);
+          alert(error.response.data.errors.Nombre_Negocio);
+          alert(error.response.data.errors.Direccion);
+          alert(error.response.data.errors.Horario_Servicio);
+          alert(error.response.data.errors.Dias_Servicio);
+          alert(error.response.data.errors.Descripcion_Del_Negocio);
+          alert(error.response.data.errors.Usuario_Id);
           alert(error.response.data.errors.Foto);
         }
       });
@@ -101,7 +108,7 @@ class ModificarNegocios extends React.Component {
     return (
       <div className="formulario">
         <div>
-          <h1>Modificar negocio {negocio.Nombre_negocio}</h1>
+          <h1>Modificar negocio {negocio.Nombre_Negocio}</h1>
 
           {mensaje ? <h3>{mensaje}</h3> : <div></div>}
 
@@ -109,45 +116,103 @@ class ModificarNegocios extends React.Component {
             <table>
               <tbody>
                 <tr>
-                  <td>Ingrese el nombre</td>
+                  <td>Ingrese el nombre del negocio</td>
+                </tr>
+                <tr>  
                   <td>
-                    {" "}
                     <input
                       type="text"
-                      name="Nombre_negocio"
+                      name="Nombre_Negocio"
                       onChange={this.handleChange}
-                      defaultValue={negocio.Nombre_negocio}
+                      defaultValue={negocio.Nombre_Negocio}
                     />
                   </td>
                 </tr>
                 <tr>
-                  <td>Ingrese el costo estandar del negocio</td>
+                  <td>Ingrese la dirección del establecimiento</td>
+                </tr>
+                <tr>   
                   <td>
                     {" "}
                     <input
                       type="text"
-                      name="Costo"
+                      name="Direccion"
                       onChange={this.handleChange}
-                      defaultValue={negocio.Costo}
+                      defaultValue={negocio.Direccion}
                     />
                   </td>
                 </tr>
                 <tr>
-                  <td>Ingrese el tiempo estimado para realizar el negocio</td>
+                  <td>Ingrese el horario de servicio</td>
+                </tr>
+                <tr>   
                   <td>
                     <input
                       type="text"
-                      name="Tiempo_Estimado"
+                      name="Horario_Servicio"
                       onChange={this.handleChange}
-                      defaultValue={negocio.Tiempo_Estimado}
+                      defaultValue={negocio.Horario_Servicio}
                     />
                   </td>
                 </tr>
+
+                <tr>
+                  <td>Ingrese los días de servicio</td>
+                </tr>
+                <tr> 
+                  <td>
+                    <input
+                      type="text"
+                      name="Dias_Servicio"
+                      onChange={this.handleChange}
+                      defaultValue={negocio.Dias_Servicio}
+                    />
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Ingrese la descripción del negocio</td>
+                </tr>
+                <tr>   
+                  <td>
+                    <input
+                      type="text"
+                      name="Descripcion_Del_Negocio"
+                      onChange={this.handleChange}
+                      defaultValue={negocio.Descripcion_Del_Negocio}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ingrese el usuario asociado</td>
+                </tr>
+                <tr>   
+                  <td>
+                    <input
+                      type="number"
+                      name="Usuario_Id"
+                      onChange={this.handleChange}
+                      defaultValue={negocio.Usuario_Id}
+                    />
+                  </td>
+                </tr>
+
+
                 <tr>
                   <td>Cargue la imagen del negocio</td>
+                </tr>
+                <tr> 
                   <td>
-                    <input type="file" name="Foto" onChange={this.subirArchivos} 
-                    defaultValue={negocio.Foto}
+                    <input
+                      type="file"
+                      name="Foto"
+                      //onChange={this.handleChange}
+                      onChange={this.subirArchivos}
+                    />
+                    <img
+                      src={"http://127.0.0.1:8000/img/" + negocio.Foto}
+                      width="50"
+                      heigth="50"
                     />
                   </td>
                 </tr>

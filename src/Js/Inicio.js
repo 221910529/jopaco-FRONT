@@ -7,6 +7,8 @@ import Administracion from "./Vista/Administracion";
 import Base from "./Vista/Base";
 import BuscarNegocio from "./Vista/BuscarNegocios";
 import VerNegocio from "../Js/Vista/VerNegocio";
+import VerServicio from "../Js/Vista/VerServicio";
+
 import Carousel from "./Carousel";
 import Footer from "./Footer";
 import Tarjeta from "./Card";
@@ -31,6 +33,8 @@ import ModificarUsuarios from "../Js/Usuarios/modificarUsuario";
 import EliminarUsuarios from "../Js/Usuarios/eliminarUsuario";
 import DetalleUsuarios from "../Js/Usuarios/detalleUsuario";
 
+import VerVentas from "./Ventas/verVentas";
+
 import Carrito from "./Vista/Carrito";
 import AgregarCarrito from "./Vista/Carrito";
 
@@ -45,10 +49,12 @@ export default function App() {
         <Route path="/Administracion" component={Administracion} />
         <Route path="/BuscarNegocio" component={BuscarNegocio} />
         <Route path="/VerNegocio" component={VerNegocio} />
+        <Route path="/VerServicio" component={VerServicio} />
+
         <Route path="/Carousel" component={Carousel} />
-        <Route path="/Footer" component={Footer}/>
-        <Route path="/Tarjeta" component={Tarjeta}/>
-        
+        <Route path="/Footer" component={Footer} />
+        <Route path="/Tarjeta" component={Tarjeta} />
+
         <Route path="/Footer" component={Footer} />
 
         <Route path="/AltaUsuarios" component={AltaUsuarios} />
@@ -69,12 +75,14 @@ export default function App() {
         <Route path="/ModificarNegocios" component={ModificarNegocios} />
         <Route path="/DetalleNegocios" component={DetalleNegocios} />
 
+        <Route path="/VerVentas" component={VerVentas} />
+
         <Route path="/AltaSolicitudes" component={AltaSolicitudes} />
 
         <Route path="/Carrito" component={Carrito} />
         <Route path="/AgregarCarrito" component={AgregarCarrito} />
       </Switch>
-      
+
       <Footer />
     </BrowserRouter>
   );
