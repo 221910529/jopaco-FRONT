@@ -3,6 +3,7 @@ import "../../Css/Formularios.css";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
+import "../../Css/Tablas.css";
 
 //------ tener el url a mano
 let url = "http://127.0.0.1:8000/api/servicios";
@@ -89,13 +90,14 @@ class altaServicios extends Component {
       <div className="formulario">
         <div>
           <h1>Registro de Servicios</h1>
-          <table>
+          <table className="formulario1">
             <tbody>
               <tr>
-                <td>Ingrese el nombre</td>
+                <td className="trmargen"><h4>Ingrese el nombre</h4></td>       
+              </tr>
+              <tr>
                 <td>
-                  {" "}
-                  <input
+                  <input className="inputs"
                     type="text"
                     name="Nombre_Servicio"
                     onChange={this.handleChange}
@@ -103,10 +105,12 @@ class altaServicios extends Component {
                 </td>
               </tr>
               <tr>
-                <td>Ingrese el costo estandar del servicio</td>
+                <td className="trmargen"><h4>Ingrese el costo estandar del servicio</h4></td>
+              </tr>
+              <tr>  
                 <td>
                   {" "}
-                  <input
+                  <input className="inputs"
                     type="text"
                     name="Costo"
                     onChange={this.handleChange}
@@ -114,9 +118,11 @@ class altaServicios extends Component {
                 </td>
               </tr>
               <tr>
-                <td>Ingrese el tiempo estimado para realizar el servicio</td>
+                <td className="trmargen"><h4>Ingrese el tiempo estimado para realizar el servicio</h4></td>
+              </tr>
+              <tr>    
                 <td>
-                  <input
+                  <input className="inputs"
                     type="text"
                     name="Tiempo_Estimado"
                     onChange={this.handleChange}
@@ -124,16 +130,23 @@ class altaServicios extends Component {
                 </td>
               </tr>
               <tr>
-                <td>Cargue la imagen del usuarios</td>
+                <td className="trmargen"><h4>Cargue la imagen del usuarios</h4></td>
+              </tr>
+              <tr>    
                 <td>
-                <input type="file" name="Foto" onChange={this.subirArchivos} />
+                  <input className="inputs" type="file" name="Foto" onChange={this.subirArchivos} />
+                </td>
+              </tr>
+              <tr>
+                <td className="trmargen">
+                <button className="botonesadmin" onClick={() => this.RegistrarServicio()}>
+                  Crear Servicio
+                </button>
                 </td>
               </tr>
             </tbody>
           </table>
-          <button onClick={() => this.RegistrarServicio()}>
-            Crear Servicio
-          </button>
+          
         </div>
       </div>
     );

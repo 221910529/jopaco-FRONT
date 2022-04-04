@@ -8,8 +8,8 @@
   flex-direction: row;
   background-image: url("https://corposanjose.com/wp-content/uploads/2021/05/carpintero-tijuana.jpg");
 }
-.card-logo {
-  padding: 10px;
+.card-logo{
+    padding: 5px;
 }
 .card-contentido {
   color: white;

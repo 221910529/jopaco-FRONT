@@ -41,9 +41,17 @@ export default function Administracion() {
                 name="Registrar Solicitud"
                 btn="boton"
               ></Boton>
+            </td>             
+          </tr>
+          <tr>
+            <td>
+            <h2 className="espacioabajo">Ventas</h2>
+              <Boton
+                To="/VerVentas"
+                name="Ver Ventas"
+                btn="boton"
+              ></Boton>
             </td>
-            
-            
           </tr>
         </tbody>
       </table>

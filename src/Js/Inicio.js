@@ -31,6 +31,8 @@ import ModificarUsuarios from "../Js/Usuarios/modificarUsuario";
 import EliminarUsuarios from "../Js/Usuarios/eliminarUsuario";
 import DetalleUsuarios from "../Js/Usuarios/detalleUsuario";
 
+import VerVentas from "./Ventas/verVentas";
+
 import Carrito from "./Vista/Carrito";
 import AgregarCarrito from "./Vista/Carrito";
 
@@ -68,6 +70,8 @@ export default function App() {
         <Route path="/EliminarNegocios" component={EliminarNegocios} />
         <Route path="/ModificarNegocios" component={ModificarNegocios} />
         <Route path="/DetalleNegocios" component={DetalleNegocios} />
+
+        <Route path="/VerVentas" component={VerVentas} />
 
         <Route path="/AltaSolicitudes" component={AltaSolicitudes} />
 
