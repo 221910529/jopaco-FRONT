@@ -11,9 +11,19 @@
 .carousel .slider-wrapper p{
     position: absolute;
     color:rgb(27, 26, 27);
-    font-size: 1rem;
+    font-size: 1.5rem;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 8px rgb(255, 255, 255);
+}
+
+.carousel .slider-wrapper h2{
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    color:rgb(27, 26, 27);
+    font-size: 2rem;
     transform: translate(-50%, -50%);
     text-shadow: 0 0 8px rgb(255, 255, 255);
 }
