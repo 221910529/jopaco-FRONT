@@ -36,34 +36,52 @@ class detalleUsuarios extends React.Component {
   render() {
     const { usuario } = this.state;
     return (
-      <div className="formulario">
-        <div>
-          <h1>Detalle usuario {usuario.Nombre_usuario}</h1>
-          <table>
+
+      <><div className="Titulo">
+        <h1>Mi Perfil {usuario.Nombre_usuario}</h1>
+      </div>
+      <div className="formularioDU">
+          <div className="Foto">
+            <tr>
+              {/* <td >Mi foto</td> */}
+              <td>
+                <img
+                  src={"http://127.0.0.1:8000/img/" + usuario.Foto}
+                  width="180"
+                  heigth="180" />
+              </td>
+            </tr>
+          </div>
+
+          <div className="Informacion">
+          <table className="tablaInfor">
             <tbody>
-              <tr>
-                <td>Nombre del usuario</td>
-                <td>{usuario.Apellido_Paterno} {usuario.Apellido_Materno} {usuario.Nombre} </td>
-              </tr>
-              <tr>
-                <td>Fecha de Nacimiento</td>
-                <td>{usuario.Fecha_Nacimiento}</td>
-              </tr>
-              <tr>
-                <td>Usuario asociado</td>
-                <td>{usuario.Tipo_Usuario}</td>
-              </tr>
-              <tr>
-                <td>Correo electronico</td>
-                <td>{usuario.Email}</td>
-              </tr>
-              {/* revisar la sintaxis para consultar una foto */}
-              {/* <tr>
-                <td>Fecha de Nacimiento</td>
-                <td>{usuario.Foto}</td>
-              </tr> */}
+            <tr>
+              <td>Nombre del usuario:</td>
+              <td>{usuario.Apellido_Paterno} {usuario.Apellido_Materno} {usuario.Nombre} </td>
+            </tr>
+            <tr>
+              <td>Fecha de Nacimiento:</td>
+              <td>{usuario.Fecha_Nacimiento}</td>
+            </tr>
+            <tr>
+              <td>Usuario asociado:</td>
+              <td>{usuario.Tipo_Usuario}</td>
+            </tr>
+            <tr>
+              <td>Correo electronico:</td>
+              <td>{usuario.Email}</td>
+            </tr>
             </tbody>
           </table>
+           
+          </div>
+          {/* revisar la sintaxis para consultar una foto */}
+          {/* <tr>
+      <td>Fecha de Nacimiento</td>
+      <td>{usuario.Foto}</td>
+    </tr> */}
+
           <Link
             to={{
               pathname: "/Usuarios",
@@ -71,8 +89,8 @@ class detalleUsuarios extends React.Component {
           >
             <button>Regresar</button>
           </Link>
-        </div>
-      </div>
+        </div></>
+      
     );
   }
 }

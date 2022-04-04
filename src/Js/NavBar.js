@@ -68,11 +68,17 @@ class NavBar extends Component {
                 <Link to="/Administracion">
                   <button className="admin">Administracion</button>
                 </Link>
+                
               </div>
               
+              <div>
               <button className="cerrarS" onClick={() => this.CerrarSesion()}>Cerrar Sesion</button>
+              </div>
+              
             </div>
+            
           </div>
+          
         </div>
       );
     }
