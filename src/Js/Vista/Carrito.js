@@ -77,7 +77,7 @@ class Carrito extends Component {
             id={sub.id}
           ></Card>
         ))}
-        <button>Comprar Todo el Carrito</button>
+        <button className="boton">Comprar Todo el Carrito</button>
       </div>
     );
   }

@@ -30,7 +30,7 @@ class Card extends Component {
                   state: { id: this.props.id },
                 }}
               >
-                <button>Ver Negocio</button>
+                <button className="boton">Ver Negocio</button>
               </Link>
             </div>
           </div>
