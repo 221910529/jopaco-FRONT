@@ -18,7 +18,11 @@ class Venta extends React.Component {
     downloadUrl: "",
   };
 
-  GenerarTicket = () => {
+  render() {
+    return <div id="contenedorVenta"></div>;
+  }
+
+  componentDidMount() {
     axios
       .get(
         url,
@@ -34,19 +38,15 @@ class Venta extends React.Component {
       .then((response) => {
         const url = window.URL.createObjectURL(new Blob([response.data]));
         const link = document.createElement("a");
+        const div = document.getElementById("contenedorVenta");
         link.href = url;
+        link.text = "Descarga el archivo";
         link.setAttribute("download", "Ticket.xlsx");
-        document.body.appendChild(link);
-        link.click();
+        div.appendChild(link);
       })
       .catch((error) => {
         console.log(error);
       });
-  };
-
-  render() {
-    const downloadUrl = this.GenerarTicket();
-    return <a href={downloadUrl}>{url}</a>;
   }
 }
 

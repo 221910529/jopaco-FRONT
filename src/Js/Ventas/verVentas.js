@@ -45,7 +45,7 @@ class VerVentas extends React.Component {
             <tr>
               <th>ID</th>
               <th>Usuario relacionado</th>
-              <th>Subventa relacionado</th>
+              <th>Total</th>
               <th>Fecha de la venta</th>
               {/* <th>Ver detalle</th> */}
             </tr>
@@ -55,7 +55,7 @@ class VerVentas extends React.Component {
               <tr key={i}>
                 <td>{i + 1}</td>
                 <td>{venta.Usuario_Id}</td>
-                <td>{venta.SubServicio_Id}</td>
+                <td>{venta.Total}</td>
                 <td>{venta.Fecha}</td>
                 {/* <td>
                   <Link
