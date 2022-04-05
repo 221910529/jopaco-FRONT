@@ -66,18 +66,18 @@ class VerServicio extends Component {
       <div className="margen">
         <div className="column">
           <div className="contener">
-            {/* <img
-              src={servicios.Foto}
-              width="300"
-              height="300"
-              alt="Imagen"
-            ></img> */}
             <img
-              src="https://www.liderdelemprendimiento.com/wp-content/uploads/2021/04/Apertura-del-negocio-3000x2904.png"
+              src={"http://127.0.0.1:8000/img/" + servicios.Foto}
               width="300"
               height="300"
               alt="Imagen"
             ></img>
+            {/* <img
+              src="https://www.liderdelemprendimiento.com/wp-content/uploads/2021/04/Apertura-del-negocio-3000x2904.png"
+              width="300"
+              height="300"
+              alt="Imagen"
+            ></img> */}
             <div className="centrado">
               <h1>Servicio: {servicios.Nombre_Servicio}</h1>
             </div>
@@ -91,7 +91,7 @@ class VerServicio extends Component {
             </div>
           </div>
         </div>
-        <div className="Busqueda">
+        {/* <div className="Busqueda">
           <div className="columnas">
             Buscar por Categoria
             <div>
@@ -108,7 +108,7 @@ class VerServicio extends Component {
               <input type="radio" name="" id=""></input>Disponible
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="SubCardContenedor">
           {newserv.map((subservicios, i) => (
             <SubCard

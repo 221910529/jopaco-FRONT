@@ -2,8 +2,37 @@ import React, { Component } from "react";
 import "../../Css/BuscarNegocio.css";
 import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
+let url = "http://127.0.0.1:8000/api/carrito/";
+
+const cookies = new Cookies();
+
+const token = cookies.get("token");
 class Card extends Component {
+  EliminarDelCarrito = async () => {
+    if (token == undefined) {
+      alert("Necesita Iniciar sesion para registrar un usuario");
+    } else {
+      axios //---- mandamos solicitud post al backend
+        .delete(url + this.props.id, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          var respuesta = res.data.success;
+          console.log(respuesta);
+          alert(respuesta);
+
+          setTimeout(function () {
+            window.location = "/Carrito";
+          }, 1000);
+        });
+    }
+  };
+
   render() {
     return (
       <div className="contenedor">
@@ -24,14 +53,9 @@ class Card extends Component {
 
           <div className="centrarIzquierda">
             <div>
-              <Link
-                to={{
-                  pathname: "/VerNegocio",
-                  state: { id: this.props.id },
-                }}
-              >
-                <button>Eliminar Del Carrito</button>
-              </Link>
+              <button onClick={() => this.EliminarDelCarrito()}>
+                Eliminar del Carrito de compras
+              </button>
             </div>
           </div>
         </div>

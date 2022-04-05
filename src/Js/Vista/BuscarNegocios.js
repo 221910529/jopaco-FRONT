@@ -35,7 +35,7 @@ class BuscarNegocio extends Component {
     return (
       <div className="margen">
         <div>
-          <h1>Buscar un negocio</h1>
+          <h1>Negocios Disponibles</h1>
         </div>
         {/*
         <div className="Busqueda">

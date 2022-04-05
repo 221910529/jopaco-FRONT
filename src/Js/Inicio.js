@@ -40,6 +40,7 @@ import EliminarSubservicios from "../Js/Subservicios/eliminarSubservicio";
 import DetalleSubservicios from "../Js/Subservicios/detalleSubservicio";
 
 import VerVentas from "./Ventas/verVentas";
+import CrearVentas from "./Ventas/crearVenta";
 
 import Carrito from "./Vista/Carrito";
 import AgregarCarrito from "./Vista/Carrito";
@@ -82,11 +83,15 @@ export default function App() {
         <Route path="/DetalleNegocios" component={DetalleNegocios} />
 
         <Route path="/VerVentas" component={VerVentas} />
+        <Route path="/CrearVentas" component={CrearVentas} />
 
         <Route path="/AltaSubservicios" component={AltaSubservicios} />
         <Route path="/VerSubservicios" component={VerSubservicios} />
         <Route path="/EliminarSubservicios" component={EliminarSubservicios} />
-        <Route path="/ModificarSubservicios" component={ModificarSubservicios} />
+        <Route
+          path="/ModificarSubservicios"
+          component={ModificarSubservicios}
+        />
         <Route path="/DetalleSubservicios" component={DetalleSubservicios} />
 
         <Route path="/AltaSolicitudes" component={AltaSolicitudes} />

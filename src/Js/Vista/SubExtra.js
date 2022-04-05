@@ -32,9 +32,9 @@ class SubCard extends Component {
           if (response.data.success != null) {
             alert(response.data.success);
           }
-          // setTimeout(function () {
-          //   window.location = "/Usuarios";
-          // }, 1000);
+          setTimeout(function () {
+            window.location = "/Carrito";
+          }, 1000);
         })
         .catch(function (error) {
           console.log(error);

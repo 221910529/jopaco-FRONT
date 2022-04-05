@@ -3,15 +3,17 @@ import "../../Css/Carrito.css";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import Card from "./CardCarrito";
+import { Link } from "react-router-dom";
 
 let url = "http://127.0.0.1:8000/api/carrito";
 
-let url2 = "http://127.0.0.1:8000/api/subservicios";
+let url2 = "http://127.0.0.1:8000/api/carrito/";
 
 const cookies = new Cookies();
 
 const token = cookies.get("token");
 
+var ciclo;
 class Carrito extends Component {
   state = {
     carrito: [],
@@ -32,36 +34,37 @@ class Carrito extends Component {
         this.setState({
           carrito: info,
         });
+        ciclo = this.state.carrito;
 
-        axios //---- mandamos solicitud post al backend
-          .get(url2, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          })
-          .then((res) => {
-            const info2 = res.data.data;
-            const f = this.state.carrito;
-
-            f.map((i) => {
-              console.log(i);
-
-              info2.map((inf) => {
-                if (inf.id == i.SubServicio_Id)
-                  return this.setState({
-                    newserv: inf,
-                  });
+        ciclo.map((car) => {
+          axios //---- mandamos solicitud post al backend
+            .put(
+              url2 + car.SubServicio_Id,
+              {
+                id: this.state.Nombre,
+              },
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            )
+            .then((response) => {
+              console.log(response);
+              const info = response.data;
+              this.setState({
+                newserv: info,
               });
+            })
+            .catch(function (error) {
+              console.log(error);
             });
-            //console.log(this.state.newserv);
-          });
-
-        //console.log(this.state.subservicios);
+        });
       });
   }
 
   render() {
-    const { newserv } = this.state;
+    const { newserv, carrito } = this.state;
     return (
       <div className="margen">
         <div>
@@ -69,15 +72,19 @@ class Carrito extends Component {
         </div>
 
         {newserv.map((sub, i) => (
-          <Card
-            key={i}
-            Nombre={sub.Nombre}
-            Descripicion={sub.Descripcion}
-            Proveedor={sub.Usuario_Id}
-            id={sub.id}
-          ></Card>
+          <div>
+            <Card
+              key={i}
+              Nombre={sub.Nombre}
+              Descripicion={sub.Descripcion}
+              Proveedor={sub.Servicio_Id}
+              id={sub.id}
+            ></Card>
+          </div>
         ))}
-        <button>Comprar Todo el Carrito</button>
+        <Link to="/GenerarVenta">
+          <button>Comprar</button>
+        </Link>
       </div>
     );
   }

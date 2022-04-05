@@ -4,7 +4,8 @@ import React from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
-import "../../Css/Tablas.css"
+import "../../Css/Tablas.css";
+import Excel from "./crearVenta";
 
 let url = "http://127.0.0.1:8000/api/ventas";
 const cookies = new Cookies();
@@ -14,11 +15,7 @@ class VerVentas extends React.Component {
   state = {
     ventas: [],
   };
-  confirm = (e) => {
-    if (!window.confirm("Seguro que quieres borrarlo?")) {
-      e.preventDefault();
-    }
-  };
+
   componentDidMount() {
     axios //---- mandamos solicitud post al backend
       .get(url, {
@@ -39,14 +36,10 @@ class VerVentas extends React.Component {
     const { ventas } = this.state;
     return (
       <div className="crud">
-        <h1>Ver todos los ventas</h1><br></br>
-          <Link
-                    to="/Administracion">
-                    <button><img className="imagenexcel" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Microsoft_Excel_2013-2019_logo.svg/2086px-Microsoft_Excel_2013-2019_logo.svg.png" />
-                    {"  "}Generar Microsoft_Excel_2013
-                    </button>
-          </Link>
-          <br></br>
+        <h1>Ver todos los ventas</h1>
+        <br></br>
+        <Excel></Excel>
+        <br></br>
         <table className="table2">
           <thead>
             <tr>
@@ -74,7 +67,6 @@ class VerVentas extends React.Component {
                     <button className = "buttontables1">Ver detalle</button>
                   </Link>
                 </td> */}
-                
               </tr>
             ))}
           </tbody>
