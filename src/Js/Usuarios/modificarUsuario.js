@@ -58,7 +58,7 @@ class ModificarUsuarios extends React.Component {
       .then((res) => {
         // console.log(res);
         const info = res.data;
-        console.log(info);
+        //console.log(info);
         this.setState({
           Nombre: info.Nombre,
           Apellido_Paterno: info.Apellido_Paterno,
