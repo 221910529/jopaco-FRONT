@@ -13,7 +13,14 @@ const token = cookies.get("token");
 //---- desclarando la variables que ocupando
 class ModificarUsuarios extends React.Component {
   state = {
-    usuario: [],
+    Nombre: "",
+    Apellido_Paterno: "",
+    Apellido_Materno: "",
+    Fecha_Nacimiento: "",
+    Tipo_Usuario: "",
+    Email: "",
+    Password: "",
+    Foto: "",
     mensaje: "",
   };
 
@@ -25,8 +32,7 @@ class ModificarUsuarios extends React.Component {
     reader.readAsDataURL(file);
 
     reader.onload = () => {
-      this.setState({ URLFoto: reader.result });
-      this.setState({ Foto: file });
+      this.setState({ Foto: reader.result });
     };
     console.log(this.state);
   };
@@ -36,9 +42,10 @@ class ModificarUsuarios extends React.Component {
     this.setState({
       // podemos encerrar esto en la variable usuario peor como no tenemos otras variables no
       // es necesario por ahora
-      ...this.state.usuario,
+      ...this.state,
       [e.target.name]: e.target.value,
     });
+    console.log(this.state);
   };
 
   componentDidMount() {
@@ -53,15 +60,23 @@ class ModificarUsuarios extends React.Component {
         const info = res.data;
         console.log(info);
         this.setState({
-          usuario: info,
+          Nombre: info.Nombre,
+          Apellido_Paterno: info.Apellido_Paterno,
+          Apellido_Materno: info.Apellido_Materno,
+          Fecha_Nacimiento: info.Fecha_Nacimiento,
+          Tipo_Usuario: info.Tipo_Usuario,
+          Email: info.Email,
+          Password: info.Password,
+          Foto: info.Foto,
         });
       });
   }
 
   subForm = (e) => {
     e.preventDefault();
-    axios //---- mandamos solicitud post al backend
-      .put(
+
+    axios
+      .patch(
         url + this.props.location.state.id,
         {
           Nombre: this.state.Nombre,
@@ -91,29 +106,40 @@ class ModificarUsuarios extends React.Component {
         }, 1000);
       })
       .catch(function (error) {
-        if (error.response.data != null) {
-          alert(error.response.data.errors.Nombre);
-          alert(error.response.data.errors.Apellido_Paterno);
-          alert(error.response.data.errors.Apellido_Materno);
-          alert(error.response.data.errors.Fecha_Nacimiento);
-          alert(error.response.data.errors.Tipo_Usuario);
-          alert(error.response.data.errors.Email);
-          alert(error.response.data.errors.Password);
-        }
+        console.log(error);
+        // if (error.response.data != null) {
+        //   alert(error.response.data.errors.Nombre);
+        //   alert(error.response.data.errors.Apellido_Paterno);
+        //   alert(error.response.data.errors.Apellido_Materno);
+        //   alert(error.response.data.errors.Fecha_Nacimiento);
+        //   alert(error.response.data.errors.Tipo_Usuario);
+        //   alert(error.response.data.errors.Email);
+        //   alert(error.response.data.errors.Password);
+        // }
       });
   };
 
   render() {
-    const { usuario, mensaje } = this.state;
+    const {
+      Nombre,
+      Apellido_Paterno,
+      Apellido_Materno,
+      Fecha_Nacimiento,
+      Tipo_Usuario,
+      Email,
+      Password,
+      Foto,
+      mensaje,
+    } = this.state;
 
     return (
       <div className="formulario">
         <div>
-          <h1>Modificar usuario {usuario.Nombre}</h1>
+          <h1>Modificar usuario {Nombre}</h1>
 
           {mensaje ? <h3>{mensaje}</h3> : <div></div>}
 
-          <form onSubmit={this.subForm}>
+          <form onSubmit={this.subForm} encType="multipart/form-data">
             <table>
               <tbody>
                 <tr>
@@ -124,7 +150,7 @@ class ModificarUsuarios extends React.Component {
                       type="text"
                       name="Nombre"
                       onChange={this.handleChange}
-                      defaultValue={usuario.Nombre}
+                      defaultValue={Nombre}
                     />
                   </td>
                 </tr>
@@ -136,7 +162,7 @@ class ModificarUsuarios extends React.Component {
                       type="text"
                       name="Apellido_Paterno"
                       onChange={this.handleChange}
-                      defaultValue={usuario.Apellido_Paterno}
+                      defaultValue={Apellido_Paterno}
                     />
                   </td>
                 </tr>
@@ -147,7 +173,7 @@ class ModificarUsuarios extends React.Component {
                       type="text"
                       name="Apellido_Materno"
                       onChange={this.handleChange}
-                      defaultValue={usuario.Apellido_Materno}
+                      defaultValue={Apellido_Materno}
                     />
                   </td>
                 </tr>
@@ -159,7 +185,7 @@ class ModificarUsuarios extends React.Component {
                       type="date"
                       name="Fecha_Nacimiento"
                       onChange={this.handleChange}
-                      defaultValue={usuario.Fecha_Nacimiento}
+                      defaultValue={Fecha_Nacimiento}
                     />
                   </td>
                 </tr>
@@ -168,7 +194,7 @@ class ModificarUsuarios extends React.Component {
                   <td>
                     <select onChange={this.handleChange} name="Tipo_Usuario">
                       <option value="null">Seleccione una opcion</option>
-                      {usuario.Tipo_Usuario == "Administrador" && (
+                      {Tipo_Usuario == "Administrador" && (
                         <>
                           <option value="Administrador" selected>
                             Administrador
@@ -179,7 +205,7 @@ class ModificarUsuarios extends React.Component {
                           </option>
                         </>
                       )}
-                      {usuario.Tipo_Usuario == "Usuario" && (
+                      {Tipo_Usuario == "Usuario" && (
                         <>
                           <option value="Administrador">Administrador</option>
                           <option value="Usuario" selected>
@@ -190,7 +216,7 @@ class ModificarUsuarios extends React.Component {
                           </option>
                         </>
                       )}
-                      {usuario.Tipo_Usuario == "Usuario_Privilegiado" && (
+                      {Tipo_Usuario == "Usuario_Privilegiado" && (
                         <>
                           <option value="Administrador">Administrador</option>
                           <option value="Usuario">Usuario</option>
@@ -210,7 +236,7 @@ class ModificarUsuarios extends React.Component {
                       type="text"
                       name="Email"
                       onChange={this.handleChange}
-                      defaultValue={usuario.Email}
+                      defaultValue={Email}
                     />
                   </td>
                 </tr>
@@ -220,9 +246,9 @@ class ModificarUsuarios extends React.Component {
                     {" "}
                     <input
                       type="text"
-                      name="Fecha_Nacimiento"
+                      name="Password"
                       onChange={this.handleChange}
-                      defaultValue={usuario.Password}
+                      defaultValue={Password}
                     />
                   </td>
                 </tr>
@@ -238,7 +264,7 @@ class ModificarUsuarios extends React.Component {
                       onChange={this.subirArchivos}
                     />
                     <img
-                      src={"http://127.0.0.1:8000/img/" + usuario.Foto}
+                      src={"http://127.0.0.1:8000/img/" + Foto}
                       width="50"
                       heigth="50"
                     />
