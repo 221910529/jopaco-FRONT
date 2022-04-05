@@ -147,7 +147,7 @@ class ModificarSubservicios extends React.Component {
                   </td>
                 </tr>
                 <tr>
-                  <td>Ingrese la fecha de nacimiento</td>
+                  <td>Ingrese el precio</td>
                   <td>
                     {" "}
                     <input
@@ -158,84 +158,16 @@ class ModificarSubservicios extends React.Component {
                     />
                   </td>
                 </tr>
+                
                 <tr>
-                  <td>Select tipo de subservicio</td>
-                  <td>
-                    <select onChange={this.handleChange} name="Tipo_subservicio">
-                      <option value="null">Seleccione una opcion</option>
-                      {subservicio.Tipo_subservicio == "Administrador" && (
-                        <>
-                          <option value="Administrador" selected>
-                            Administrador
-                          </option>
-                          <option value="subservicio">subservicio</option>
-                          <option value="subservicio_Privilegiado">
-                            subservicio Privilegiado
-                          </option>
-                        </>
-                      )}
-                      {subservicio.Tipo_subservicio == "subservicio" && (
-                        <>
-                          <option value="Administrador">Administrador</option>
-                          <option value="subservicio" selected>
-                            subservicio
-                          </option>
-                          <option value="subservicio_Privilegiado">
-                            subservicio Privilegiado
-                          </option>
-                        </>
-                      )}
-                      {subservicio.Tipo_subservicio == "subservicio_Privilegiado" && (
-                        <>
-                          <option value="Administrador">Administrador</option>
-                          <option value="subservicio">subservicio</option>
-                          <option value="subservicio_Privilegiado" selected>
-                            subservicio Privilegiado
-                          </option>
-                        </>
-                      )}
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Ingrese el correo electronico</td>
+                  <td>Ingrese subservicio</td>
                   <td>
                     {" "}
                     <input
-                      type="text"
-                      name="Email"
+                      type="number"
+                      name="Servicio_Id"
                       onChange={this.handleChange}
-                      defaultValue={subservicio.Email}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Ingrese la contraseña</td>
-                  <td>
-                    {" "}
-                    <input
-                      type="text"
-                      name="Fecha_Nacimiento"
-                      onChange={this.handleChange}
-                      defaultValue={subservicio.Password}
-                    />
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>Ingrese la imagen del subservicio</td>
-                  <td>
-                    {" "}
-                    <input
-                      type="file"
-                      name="Foto"
-                      //onChange={this.handleChange}
-                      onChange={this.subirArchivos}
-                    />
-                    <img
-                      src={"http://127.0.0.1:8000/img/" + subservicio.Foto}
-                      width="50"
-                      heigth="50"
+                      defaultValue={subservicio.Servicio_Id}
                     />
                   </td>
                 </tr>

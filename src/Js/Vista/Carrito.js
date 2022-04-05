@@ -82,9 +82,7 @@ class Carrito extends Component {
             ></Card>
           </div>
         ))}
-        <Link to="/GenerarVenta">
-          <button>Comprar</button>
-        </Link>
+        <button className="boton">Comprar Todo el Carrito</button>
       </div>
     );
   }
