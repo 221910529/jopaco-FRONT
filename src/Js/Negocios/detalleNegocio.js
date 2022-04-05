@@ -5,7 +5,7 @@ import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
 
 //------ tener el url a mano
-let url = "http://127.0.0.1:8000/api/negocio/";
+let url = "http://127.0.0.1:8000/api/negocios/";
 const cookies = new Cookies();
 
 const token = cookies.get("token");
@@ -24,9 +24,9 @@ class detalleNegocio extends React.Component {
         },
       })
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         const info = res.data;
-        // console.log(info);
+        console.log(info);
         this.setState({
           negocio: info,
         });
@@ -38,24 +38,41 @@ class detalleNegocio extends React.Component {
     return (
       <div className="formulario">
         <div>
-          <h1>Detalle negocio {negocio.Nombre_negocio}</h1>
+          <h1>Detalle negocio {negocio.Nombre_Negocio}</h1>
           <table>
             <tbody>
               <tr>
+                <td>Foto del negocio</td>
+                <td>
+                  <img
+                    src={"http://127.0.0.1:8000/img/" + negocio.Foto}
+                    alt="Negocio"
+                  ></img>
+                </td>
+              </tr>
+              <tr>
                 <td>Nombre del negocio</td>
-                <td>{negocio.Apellido_Paterno} {negocio.Apellido_Materno} {negocio.Nombre} </td>
+                <td>{negocio.Nombre_Negocio}</td>
               </tr>
               <tr>
-                <td>Fecha de Nacimiento</td>
-                <td>{negocio.Fecha_Nacimiento}</td>
+                <td>Horario del servicio del negocio</td>
+                <td>{negocio.Horario_Servicio}</td>
               </tr>
               <tr>
-                <td>negocio asociado</td>
-                <td>{negocio.Tipo_negocio}</td>
+                <td>Dias de servicio del negocio</td>
+                <td>{negocio.Dias_Servicio}</td>
               </tr>
               <tr>
-                <td>Correo electronico</td>
-                <td>{negocio.Email}</td>
+                <td>Descripcion del negocio</td>
+                <td>{negocio.Descripcion_Del_Negocio}</td>
+              </tr>
+              <tr>
+                <td>Direccion asociado</td>
+                <td>{negocio.Direccion}</td>
+              </tr>
+              <tr>
+                <td>Usuario asociado</td>
+                <td>{negocio.Usuario_Id}</td>
               </tr>
               {/* revisar la sintaxis para consultar una foto */}
               {/* <tr>
