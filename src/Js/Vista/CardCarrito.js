@@ -47,6 +47,7 @@ class Card extends Component {
             <div className="marg">
               <h2>Nombre: {this.props.Nombre}</h2>
               <div>Descripcion: {this.props.Descripicion}</div>
+              <div>Precio: {this.props.Precio}</div>
               <div>Proveedor: {this.props.Proveedor}</div>
             </div>
           </div>

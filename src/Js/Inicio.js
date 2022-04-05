@@ -83,7 +83,6 @@ export default function App() {
         <Route path="/DetalleNegocios" component={DetalleNegocios} />
 
         <Route path="/VerVentas" component={VerVentas} />
-        <Route path="/CrearVentas" component={CrearVentas} />
 
         <Route path="/AltaSubservicios" component={AltaSubservicios} />
         <Route path="/VerSubservicios" component={VerSubservicios} />

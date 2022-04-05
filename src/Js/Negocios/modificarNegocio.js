@@ -3,7 +3,7 @@ import "../../Css/Formularios.css";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
-import "../../Css/Tablas.css";
+//import "../../Css/Tablas.css";
 
 //------ tener el url a mano
 let url = "http://127.0.0.1:8000/api/negocios/";
@@ -14,7 +14,13 @@ const token = cookies.get("token");
 //---- desclarando la variables que ocupando
 class ModificarNegocios extends React.Component {
   state = {
-    negocio: [],
+    Nombre_Negocio: "",
+    Direccion: "",
+    Horario_Servicio: "",
+    Dias_Servicio: "",
+    Descripcion_Del_Negocio: "",
+    Usuario_Id: "",
+    Foto: "",
     mensaje: "",
   };
 
@@ -25,8 +31,7 @@ class ModificarNegocios extends React.Component {
     reader.readAsDataURL(file);
 
     reader.onload = () => {
-      this.setState({ URLFoto: reader.result });
-      this.setState({ Foto: file });
+      this.setState({ Foto: reader.result });
     };
     console.log(this.state);
   };
@@ -34,11 +39,12 @@ class ModificarNegocios extends React.Component {
   //-----------Va actulizando las estancias en la consola
   handleChange = (e) => {
     this.setState({
-      // podemos encerrar esto en la variable negocio peor como no tenemos otras variables no
+      // podemos encerrar esto en la variable usuario peor como no tenemos otras variables no
       // es necesario por ahora
-      ...this.state.negocio,
+      ...this.state,
       [e.target.name]: e.target.value,
     });
+    console.log(this.state);
   };
 
   componentDidMount() {
@@ -53,7 +59,13 @@ class ModificarNegocios extends React.Component {
         const info = res.data;
         // console.log(info);
         this.setState({
-          negocio: info,
+          Nombre_Negocio: info.Nombre_Negocio,
+          Direccion: info.Direccion,
+          Horario_Servicio: info.Horario_Servicio,
+          Dias_Servicio: info.Dias_Servicio,
+          Descripcion_Del_Negocio: info.Descripcion_Del_Negocio,
+          Usuario_Id: info.Usuario_Id,
+          Foto: info.Foto,
         });
       });
   }
@@ -61,7 +73,7 @@ class ModificarNegocios extends React.Component {
   subForm = (e) => {
     e.preventDefault();
     axios //---- mandamos solicitud post al backend
-      .put(
+      .patch(
         url + this.props.location.state.id,
         {
           Nombre_Negocio: this.state.Nombre_Negocio,
@@ -90,29 +102,39 @@ class ModificarNegocios extends React.Component {
         }, 1000);
       })
       .catch(function (error) {
-        if (error.response.data != null) {
-          alert(error.response.data.message);
-          alert(error.response.data.errors.Nombre_Negocio);
-          alert(error.response.data.errors.Direccion);
-          alert(error.response.data.errors.Horario_Servicio);
-          alert(error.response.data.errors.Dias_Servicio);
-          alert(error.response.data.errors.Descripcion_Del_Negocio);
-          alert(error.response.data.errors.Usuario_Id);
-          alert(error.response.data.errors.Foto);
-        }
+        console.log(error);
+        //if (error.response.data != null) {
+          // alert(error.response.data.message);
+          // alert(error.response.data.errors.Nombre_Negocio);
+          // alert(error.response.data.errors.Direccion);
+          // alert(error.response.data.errors.Horario_Servicio);
+          // alert(error.response.data.errors.Dias_Servicio);
+          // alert(error.response.data.errors.Descripcion_Del_Negocio);
+          // alert(error.response.data.errors.Usuario_Id);
+          // alert(error.response.data.errors.Foto);
+        //}
       });
   };
 
   render() {
-    const { negocio, mensaje } = this.state;
+    const {
+      Nombre_Negocio,
+      Direccion,
+      Horario_Servicio,
+      Dias_Servicio,
+      Descripcion_Del_Negocio,
+      Usuario_Id,
+      Foto,
+      mensaje,
+    } = this.state;
     return (
       <div className="formulario">
         <div>
-          <h1>Modificar negocio {negocio.Nombre_Negocio}</h1>
+          <h1>Modificar negocio {Nombre_Negocio}</h1>
 
           {mensaje ? <h3>{mensaje}</h3> : <div></div>}
 
-          <form onSubmit={this.subForm}>
+          <form onSubmit={this.subForm} encType="multipart/form-data">
             <table>
               <tbody>
                 <tr>
@@ -124,7 +146,7 @@ class ModificarNegocios extends React.Component {
                       type="text"
                       name="Nombre_Negocio"
                       onChange={this.handleChange}
-                      defaultValue={negocio.Nombre_Negocio}
+                      defaultValue={Nombre_Negocio}
                     />
                   </td>
                 </tr>
@@ -138,7 +160,7 @@ class ModificarNegocios extends React.Component {
                       type="text"
                       name="Direccion"
                       onChange={this.handleChange}
-                      defaultValue={negocio.Direccion}
+                      defaultValue={Direccion}
                     />
                   </td>
                 </tr>
@@ -151,7 +173,7 @@ class ModificarNegocios extends React.Component {
                       type="text"
                       name="Horario_Servicio"
                       onChange={this.handleChange}
-                      defaultValue={negocio.Horario_Servicio}
+                      defaultValue={Horario_Servicio}
                     />
                   </td>
                 </tr>
@@ -165,7 +187,7 @@ class ModificarNegocios extends React.Component {
                       type="text"
                       name="Dias_Servicio"
                       onChange={this.handleChange}
-                      defaultValue={negocio.Dias_Servicio}
+                      defaultValue={Dias_Servicio}
                     />
                   </td>
                 </tr>
@@ -179,7 +201,7 @@ class ModificarNegocios extends React.Component {
                       type="text"
                       name="Descripcion_Del_Negocio"
                       onChange={this.handleChange}
-                      defaultValue={negocio.Descripcion_Del_Negocio}
+                      defaultValue={Descripcion_Del_Negocio}
                     />
                   </td>
                 </tr>
@@ -192,28 +214,28 @@ class ModificarNegocios extends React.Component {
                       type="number"
                       name="Usuario_Id"
                       onChange={this.handleChange}
-                      defaultValue={negocio.Usuario_Id}
+                      defaultValue={Usuario_Id}
                     />
                   </td>
                 </tr>
 
 
                 <tr>
-                  <td>Cargue la imagen del negocio</td>
+                  <td>Ingrese la imagen del negocio</td>
                 </tr>
                 <tr> 
                   <td>
                     <input
-                      type="file"
-                      name="Foto"
-                      //onChange={this.handleChange}
-                      onChange={this.subirArchivos}
-                    />
-                    <img
-                      src={"http://127.0.0.1:8000/img/" + negocio.Foto}
-                      width="50"
-                      heigth="50"
-                    />
+                        type="file"
+                        name="Foto"
+                        //onChange={this.handleChange}
+                        onChange={this.subirArchivos}
+                      />
+                      <img
+                        src={"http://127.0.0.1:8000/img/" + Foto}
+                        width="50"
+                        heigth="50"
+                      />
                   </td>
                 </tr>
               </tbody>
@@ -228,3 +250,5 @@ class ModificarNegocios extends React.Component {
 }
 
 export default ModificarNegocios;
+
+
