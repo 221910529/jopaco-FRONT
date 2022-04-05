@@ -82,6 +82,7 @@ class altaServicios extends Component {
             alert(error.response.data.errors.Costo);
             alert(error.response.data.errors.Tiempo_Estimado);
             alert(error.response.data.errors.Foto);
+            alert(error.response.data.errors.Negocio_Id);
           }
         });
     }

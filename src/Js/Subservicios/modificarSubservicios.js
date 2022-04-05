@@ -65,7 +65,7 @@ class ModificarSubservicios extends React.Component {
         url + this.props.location.state.id,
         {
           Nombre: this.state.Nombre,
-          Descripción: this.state.Descripción,
+          Descripcion: this.state.Descripcion,
           Calificacion: this.state.Calificacion,
           Precio: this.state.Precio,
           Servicio_Id: this.state.Servicio_Id,
@@ -151,7 +151,7 @@ class ModificarSubservicios extends React.Component {
                   <td>
                     {" "}
                     <input
-                      type="date"
+                      type="text"
                       name="Precio"
                       onChange={this.handleChange}
                       defaultValue={subservicio.Precio}

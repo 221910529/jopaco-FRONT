@@ -24,3 +24,24 @@
     margin-right: auto;
     width: 20%;
   }
+
+  
+  .formularioDU2 .botonR {
+    border: 1px solid #2e518b;
+    padding: 10px;
+    background-color: #2e518b;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Helvetica", sans-serif;
+    border-radius: 50px;
+    
+  }
+
+  .formularioDU2 div {
+    
+    display: flex; 
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+  }

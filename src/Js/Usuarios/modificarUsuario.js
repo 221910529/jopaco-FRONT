@@ -170,12 +170,12 @@ class ModificarUsuarios extends React.Component {
                       <option value="null">Seleccione una opcion</option>
                       {usuario.Tipo_Usuario == "Administrador" && (
                         <>
-                          <option value="Administrador" selected>
+                          <option value="1" selected>
                             Administrador
                           </option>
-                          <option value="Usuario">Usuario</option>
-                          <option value="Usuario_Privilegiado">
-                            Usuario Privilegiado
+                          <option value="2">Cliente</option>
+                          <option value="3">
+                            Proveedor
                           </option>
                         </>
                       )}
