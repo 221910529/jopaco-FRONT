@@ -16,7 +16,12 @@
     flex-direction: column;
     justify-content: start;
     border-radius: 10px;
-  }
+    height: 190px;
+    width: 190px;
+    -webkit-box-shadow: -16px 20px 55px -1px rgba(0,0,0,0.79);
+    -moz-box-shadow: -16px 20px 55px -1px rgba(0,0,0,0.79);
+    box-shadow: -16px 20px 55px -1px rgba(0,0,0,0.79);
+    }
   
    .Titulo h1{
     
