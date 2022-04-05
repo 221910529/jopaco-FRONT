@@ -61,37 +61,65 @@ class Login extends Component {
   render() {
     return (
       <div className="container">
-        <div>
-          <div>Direccion de correo de electronico</div>
-          <input
-            type="email"
-            className="form-control"
-            name="Email"
-            onChange={this.handleChange}
-          ></input>
-          <div>No compartas tu credencial, con nadie mas.</div>
-          <div>Contraseña</div>
-          <input
-            type="password"
-            className="form-control"
-            name="Password"
-            onChange={this.handleChange}
-          ></input>
-
-          <div>
-            Recuerdame
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id="exampleCheck1"
-            ></input>
-          </div>
-          <button
-            className="btn btn-primary"
-            onClick={() => this.IniciarSesion()}
-          >
-            Entrar
-          </button>
+        <div className="card1">
+          
+          <table className="formulario1">
+            <tbody>
+              <tr>
+                <td><h2 className="trmargen">Direccion de correo de electronico</h2></td>
+              </tr>
+              <tr>
+                <td>
+                  <input className="inputs"
+                    type="email"
+                    //className="form-control"
+                    name="Email"
+                    onChange={this.handleChange}
+                  ></input>
+                </td>
+              </tr>
+              <tr>
+                <td><h2 className="trmargen">Contraseña</h2></td>
+              </tr>
+              <tr>
+                <td>
+                  <input className="inputs"
+                    type="password"
+                    //className="form-control"
+                    name="Password"
+                    onChange={this.handleChange}
+                  ></input>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  No compartas tu credencial, con nadie mas.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h2 className="trmargen">Recuerdame
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="exampleCheck1"
+                  ></input>
+                  </h2>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button
+                    className="botonesadmin"
+                    onClick={() => this.IniciarSesion()}
+                  >
+                    Entrar
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
         </div>
       </div>
     );
