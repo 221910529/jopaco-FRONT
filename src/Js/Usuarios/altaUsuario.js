@@ -192,6 +192,7 @@ class AltaUsuarios extends Component {
                     onChange={this.handleChange}
                     name="Tipo_Usuario"
                   >
+                    <option value="0">selecciona un usuario</option>
                     <option value="Administrador">Administrador</option>
                     <option value="Usuario">Usuario</option>
                     <option value="Usuario_Privilegiado">

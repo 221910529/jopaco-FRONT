@@ -19,6 +19,7 @@ class altaServicios extends Component {
     Tiempo_Estimado: "",
     Foto: "",
     URLFoto: "",
+    Negocio_Id: "",
   };
 
   //----------------------- Actualiza las estancias en la consola
@@ -55,14 +56,15 @@ class altaServicios extends Component {
       form.append("Costo", this.state.Costo);
       form.append("Tiempo_Estimado", this.state.Tiempo_Estimado);
       form.append("Foto", this.state.Foto);
+      form.append("Negocio_Id", this.state.Negocio_Id);
 
       await axios //---- mandamos solicitud post al backend
-      .post(url, form, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      })
+        .post(url, form, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        })
         .then((response) => {
           console.log(response);
           if (response.data.success != null) {
@@ -93,11 +95,14 @@ class altaServicios extends Component {
           <table className="formulario1">
             <tbody>
               <tr>
-                <td className="trmargen"><h4>Ingrese el nombre</h4></td>       
+                <td className="trmargen">
+                  <h4>Ingrese el nombre</h4>
+                </td>
               </tr>
               <tr>
                 <td>
-                  <input className="inputs"
+                  <input
+                    className="inputs"
                     type="text"
                     name="Nombre_Servicio"
                     onChange={this.handleChange}
@@ -105,12 +110,15 @@ class altaServicios extends Component {
                 </td>
               </tr>
               <tr>
-                <td className="trmargen"><h4>Ingrese el costo estandar del servicio</h4></td>
+                <td className="trmargen">
+                  <h4>Ingrese el costo estandar del servicio</h4>
+                </td>
               </tr>
-              <tr>  
+              <tr>
                 <td>
                   {" "}
-                  <input className="inputs"
+                  <input
+                    className="inputs"
                     type="text"
                     name="Costo"
                     onChange={this.handleChange}
@@ -118,11 +126,14 @@ class altaServicios extends Component {
                 </td>
               </tr>
               <tr>
-                <td className="trmargen"><h4>Ingrese el tiempo estimado para realizar el servicio</h4></td>
+                <td className="trmargen">
+                  <h4>Ingrese el tiempo estimado para realizar el servicio</h4>
+                </td>
               </tr>
-              <tr>    
+              <tr>
                 <td>
-                  <input className="inputs"
+                  <input
+                    className="inputs"
                     type="text"
                     name="Tiempo_Estimado"
                     onChange={this.handleChange}
@@ -130,23 +141,47 @@ class altaServicios extends Component {
                 </td>
               </tr>
               <tr>
-                <td className="trmargen"><h4>Cargue la imagen del usuarios</h4></td>
+                <td className="trmargen">
+                  <h4>Cargue la imagen del usuarios</h4>
+                </td>
               </tr>
-              <tr>    
+              <tr>
                 <td>
-                  <input className="inputs" type="file" name="Foto" onChange={this.subirArchivos} />
+                  <input
+                    className="inputs"
+                    type="file"
+                    name="Foto"
+                    onChange={this.subirArchivos}
+                  />
                 </td>
               </tr>
               <tr>
                 <td className="trmargen">
-                <button className="botonesadmin" onClick={() => this.RegistrarServicio()}>
-                  Crear Servicio
-                </button>
+                  <h4>Seleccione el Negocio Asociado</h4>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    className="inputs"
+                    type="number"
+                    name="Negocio_Id"
+                    onChange={this.handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td className="trmargen">
+                  <button
+                    className="botonesadmin"
+                    onClick={() => this.RegistrarServicio()}
+                  >
+                    Crear Servicio
+                  </button>
                 </td>
               </tr>
             </tbody>
           </table>
-          
         </div>
       </div>
     );
