@@ -1,0 +1,51 @@
+.TituloDN h1{
+    
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+  }
+
+  .formularioDN {
+    display: flex; 
+   justify-content: center;
+     flex-direction: row;
+  }
+
+  .formularioDN .Informacion {
+    border-radius: 20px;
+      border-spacing: 5px;
+    background:  #000 url(https://storage.googleapis.com/www-paredro-com/uploads/2020/02/6cf01be6-magic.png);
+    line-height: 2.8
+    
+  }
+
+  .formularioDN .Foto img{
+    flex-direction: column;
+    justify-content: start;
+    border-radius: 10px;
+    height: 190px;
+    width: 190px;
+    -webkit-box-shadow: -16px 20px 55px -1px rgba(0,0,0,0.79);
+    -moz-box-shadow: -16px 20px 55px -1px rgba(0,0,0,0.79);
+    box-shadow: -16px 20px 55px -1px rgba(0,0,0,0.79);
+    }
+
+    .formularioDN2 .botonR {
+        border: 1px solid #2e518b;
+        padding: 10px;
+        background-color: #2e518b;
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: "Helvetica", sans-serif;
+        border-radius: 50px;
+        
+      }
+    
+      .formularioDN2 div {
+        
+        display: flex; 
+        margin-left: auto;
+        margin-right: auto;
+        width: 5%;
+      }

@@ -10,10 +10,14 @@ const cookies = new Cookies();
 
 const token = cookies.get("token");
 
-//---- desclarando la variables que ocupando
+//---- declarando la variables que ocupo
 class ModificarServicios extends React.Component {
   state = {
-    servicio: [],
+    Nombre_Servicio: "",
+    Costo: "",
+    Tiempo_Estimado: "",
+    Foto: "",
+    Negocio_Id: "",
     mensaje: "",
   };
 
@@ -24,8 +28,7 @@ class ModificarServicios extends React.Component {
     reader.readAsDataURL(file);
 
     reader.onload = () => {
-      this.setState({ URLFoto: reader.result });
-      this.setState({ Foto: file });
+      this.setState({ Foto: reader.result });
     };
     console.log(this.state);
   };
@@ -35,7 +38,7 @@ class ModificarServicios extends React.Component {
     this.setState({
       // podemos encerrar esto en la variable servicio peor como no tenemos otras variables no
       // es necesario por ahora
-      ...this.state.servicio,
+      ...this.state,
       [e.target.name]: e.target.value,
     });
   };
@@ -50,9 +53,13 @@ class ModificarServicios extends React.Component {
       .then((res) => {
         // console.log(res);
         const info = res.data;
-        // console.log(info);
+        console.log(info);
         this.setState({
-          servicio: info,
+          Nombre_Servicio: info.Nombre_Servicio,
+          Costo: info.Costo,
+          Tiempo_Estimado: info.Tiempo_Estimado,
+          Foto: info.Foto,
+          Negocio_Id: info.Negocio_Id,
         });
       });
   }
@@ -60,7 +67,7 @@ class ModificarServicios extends React.Component {
   subForm = (e) => {
     e.preventDefault();
     axios //---- mandamos solicitud post al backend
-      .put(
+      .patch(
         url + this.props.location.state.id,
         {
           Nombre_Servicio: this.state.Nombre_Servicio,
@@ -87,27 +94,36 @@ class ModificarServicios extends React.Component {
         }, 1000);
       })
       .catch(function (error) {
-        if (error.response.data != null) {
-          alert(error.response.data.message);
-          alert(error.response.data.errors.Nombre_Servicio);
-          alert(error.response.data.errors.Costo);
-          alert(error.response.data.errors.Tiempo_Estimado);
-          alert(error.response.data.errors.Foto);
-          alert(error.response.data.errors.Negocio_Id);
-        }
+        console.log(error);
+        // if (error.response.data != null) {
+        //   alert(error.response.data.message);
+        //   alert(error.response.data.errors.Nombre_Servicio);
+        //   alert(error.response.data.errors.Costo);
+        //   alert(error.response.data.errors.Tiempo_Estimado);
+        //   alert(error.response.data.errors.Foto);
+        //   alert(error.response.data.errors.Negocio_Id);
+        // }
       });
   };
 
   render() {
-    const { servicio, mensaje } = this.state;
+    const { 
+      Nombre_Servicio, 
+      Costo,
+      Tiempo_Estimado,
+      Foto,
+      Negocio_Id,
+      mensaje,
+    } = this.state;
+
     return (
       <div className="formulario">
         <div>
-          <h1>Modificar Servicio {servicio.Nombre_Servicio}</h1>
+          <h1>Modificar Servicio {Nombre_Servicio}</h1>
 
           {mensaje ? <h3>{mensaje}</h3> : <div></div>}
 
-          <form onSubmit={this.subForm}>
+          <form onSubmit={this.subForm} encType="multipart/form-data">
             <table>
               <tbody>
                 <tr>
@@ -118,7 +134,7 @@ class ModificarServicios extends React.Component {
                       type="text"
                       name="Nombre_Servicio"
                       onChange={this.handleChange}
-                      defaultValue={servicio.Nombre_Servicio}
+                      defaultValue={Nombre_Servicio}
                     />
                   </td>
                 </tr>
@@ -127,10 +143,10 @@ class ModificarServicios extends React.Component {
                   <td>
                     {" "}
                     <input
-                      type="text"
+                      type="number"
                       name="Costo"
                       onChange={this.handleChange}
-                      defaultValue={servicio.Costo}
+                      defaultValue={Costo}
                     />
                   </td>
                 </tr>
@@ -141,7 +157,7 @@ class ModificarServicios extends React.Component {
                       type="text"
                       name="Tiempo_Estimado"
                       onChange={this.handleChange}
-                      defaultValue={servicio.Tiempo_Estimado}
+                      defaultValue={Tiempo_Estimado}
                     />
                   </td>
                 </tr>
@@ -155,7 +171,7 @@ class ModificarServicios extends React.Component {
                       onChange={this.subirArchivos}
                     />
                     <img
-                      src={"http://127.0.0.1:8000/img/" + servicio.Foto}
+                      src={"http://127.0.0.1:8000/img/" + Foto}
                       width="50"
                       heigth="50"
                     />
@@ -165,10 +181,10 @@ class ModificarServicios extends React.Component {
                   <td>Ingrese el negocio relacionado</td>
                   <td>
                     <input
-                      type="text"
+                      type="number"
                       name="Negocio_Id"
                       onChange={this.handleChange}
-                      defaultValue={servicio.Negocio_Id}
+                      defaultValue={Negocio_Id}
                     />
                   </td>
                 </tr>

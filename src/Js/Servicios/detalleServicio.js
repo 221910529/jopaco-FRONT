@@ -71,7 +71,7 @@ class detalleServicios extends React.Component {
               pathname: "/VerServicios",
             }}
           >
-            <button>Regresar</button>
+            <button className="boton">Regresar</button>
           </Link>
         </div>
       </div>

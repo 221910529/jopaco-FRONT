@@ -65,21 +65,17 @@ class detallesubservicios extends React.Component {
               <td>Servicio relacionado:</td>
               <td>{subservicio.Servicio_Id}</td>
             </tr>
-            <tr>
-              <td>
-              <Link
+            </tbody>
+          </table>
+
+          </div>
+          <Link
                 to={{
                   pathname: "/VerSubservicios",
                 }}
               >
-                <button>Regresar</button>
+                <button className="boton">Regresar</button>
             </Link>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-           
-          </div>
           <div>
           
 

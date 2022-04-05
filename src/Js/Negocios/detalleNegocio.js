@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../../Css/Formularios.css";
+import "../../Css/DetalleN.css";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
@@ -36,20 +36,24 @@ class detalleNegocio extends React.Component {
   render() {
     const { negocio } = this.state;
     return (
-      <div className="formulario">
-        <div>
-          <h1>Detalle negocio {negocio.Nombre_Negocio}</h1>
-          <table>
-            <tbody>
-              <tr>
+      <><div className="TituloDN">
+      <h1>Detalle: {negocio.Nombre_Negocio}</h1>
+      </div>
+      <div className="formularioDN">
+        
+        <div className="Informacion">
+        <div className="Foto2">
                 <td>Foto del negocio</td>
                 <td>
                   <img
                     src={"http://127.0.0.1:8000/img/" + negocio.Foto}
-                    alt="Negocio"
+                    alt="Negocio" width="145px" height="145px"
                   ></img>
                 </td>
-              </tr>
+                </div>
+          <table>
+            <tbody>
+              
               <tr>
                 <td>Nombre del negocio</td>
                 <td>{negocio.Nombre_Negocio}</td>
@@ -76,20 +80,25 @@ class detalleNegocio extends React.Component {
               </tr>
               {/* revisar la sintaxis para consultar una foto */}
               {/* <tr>
-                <td>Fecha de Nacimiento</td>
-                <td>{negocio.Foto}</td>
-              </tr> */}
+      <td>Fecha de Nacimiento</td>
+      <td>{negocio.Foto}</td>
+    </tr> */}
             </tbody>
           </table>
-          <Link
+          
+        </div>
+      </div>
+      <div className="formularioDN2">
+        <div>
+        <Link
             to={{
               pathname: "/VerNegocios",
             }}
           >
-            <button>Regresar</button>
+            <button className="botonR">Regresar</button>
           </Link>
-        </div>
-      </div>
+          </div>
+        </div></>
     );
   }
 }
