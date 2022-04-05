@@ -37,6 +37,7 @@ class BuscarNegocio extends Component {
         <div>
           <h1>Buscar un negocio</h1>
         </div>
+        {/*
         <div className="Busqueda">
           <div className="columnas">
             Buscar por nombre
@@ -56,10 +57,11 @@ class BuscarNegocio extends Component {
               <input type="text" name="" id=""></input>
             </div>
           </div>
-        </div>
+        </div> */}
         {negocios.map((negocio, i) => (
           <Card
             key={i}
+            Foto={negocio.Foto}
             Nombre={negocio.Nombre_Negocio}
             Descripicion={negocio.Descripcion_Del_Negocio}
             Proveedor={negocio.Usuario_Id}

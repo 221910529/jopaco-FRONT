@@ -8,14 +8,8 @@ class Card extends Component {
       <div className="contenedor">
         <div className="subtarjeta">
           <div>
-            {/* <img
-              src={this.props.Nombre}
-              alt="Imagen Negocio"
-              width="80"
-              height="80"
-            ></img> */}
             <img
-              src="https://www.liderdelemprendimiento.com/wp-content/uploads/2021/04/Apertura-del-negocio-3000x2904.png"
+              src={"http://127.0.0.1:8000/img/" + this.props.Foto}
               alt="Imagen Negocio"
               width="80"
               height="80"

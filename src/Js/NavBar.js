@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import Cookies from "universal-cookie";
 import { Component } from "react";
 
-
 const cookies = new Cookies();
 
 const nombre = cookies.get("nombre");
@@ -47,15 +46,15 @@ class NavBar extends Component {
               <Boton To="/" name="Jopaco" btn="btn_in"></Boton>
               <Logo />
               <Boton To="/BuscarNegocio" name="Negocios" btn="btn_in"></Boton>
-              <Boton To="/" name="Mision y Vision" btn="btn_in"></Boton>
+
               <Boton
                 To="/Carrito"
                 name="Carrito de Compras"
                 btn="btn_in"
               ></Boton>
             </div>
-             
-            <div className="Usuario" >Hola {nombre}</div>
+
+            <div className="Usuario">Hola {nombre}</div>
 
             <div className="Left">
               {/* <img
@@ -63,22 +62,20 @@ class NavBar extends Component {
                 width="50"
                 heigth="50"
               /> */}
-              
+
               <div>
                 <Link to="/Administracion">
                   <button className="admin">Administracion</button>
                 </Link>
-                
               </div>
-              
+
               <div>
-              <button className="cerrarS" onClick={() => this.CerrarSesion()}>Cerrar Sesion</button>
+                <button className="cerrarS" onClick={() => this.CerrarSesion()}>
+                  Cerrar Sesion
+                </button>
               </div>
-              
             </div>
-            
           </div>
-          
         </div>
       );
     }
