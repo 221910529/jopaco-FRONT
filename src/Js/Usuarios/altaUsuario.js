@@ -174,7 +174,7 @@ class AltaUsuarios extends Component {
                 <td>
                   <input
                     className="inputs"
-                    type="text"
+                    type="password"
                     name="Password"
                     onChange={this.handleChange}
                   />
@@ -193,10 +193,10 @@ class AltaUsuarios extends Component {
                     name="Tipo_Usuario"
                   >
                     <option value="0">selecciona un usuario</option>
-                    <option value="Administrador">Administrador</option>
-                    <option value="Usuario">Usuario</option>
-                    <option value="Usuario_Privilegiado">
-                      Usuario Privilegiado
+                    <option value="1">Administrador</option>
+                    <option value="2">Cliente</option>
+                    <option value="3">
+                      Proveedor
                     </option>
                   </select>
                 </td>

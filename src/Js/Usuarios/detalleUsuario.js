@@ -82,14 +82,20 @@ class detalleUsuarios extends React.Component {
       <td>{usuario.Foto}</td>
     </tr> */}
 
-          <Link
+         
+        </div>
+        <div className="formularioDU2">
+        <div>
+        <Link
             to={{
               pathname: "/Usuarios",
             }}
           >
-            <button>Regresar</button>
+            <button className="botonR">Regresar</button>
           </Link>
+          </div>
         </div></>
+       
       
     );
   }
