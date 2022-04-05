@@ -43,7 +43,7 @@ class Eliminarusuarios extends React.Component {
         alert(respuesta);
 
         setTimeout(function () {
-          window.location = "/VerUsuario";
+          window.location = "/Usuarios";
         }, 1000);
       });
   }

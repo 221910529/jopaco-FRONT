@@ -67,6 +67,7 @@ class ModificarServicios extends React.Component {
           Costo: this.state.Costo,
           Tiempo_Estimado: this.state.Tiempo_Estimado,
           Foto: this.state.Foto,
+          Negocio_Id: this.state.Negocio_Id,
         },
         {
           headers: {
@@ -92,6 +93,7 @@ class ModificarServicios extends React.Component {
           alert(error.response.data.errors.Costo);
           alert(error.response.data.errors.Tiempo_Estimado);
           alert(error.response.data.errors.Foto);
+          alert(error.response.data.errors.Negocio_Id);
         }
       });
   };
@@ -156,6 +158,17 @@ class ModificarServicios extends React.Component {
                       src={"http://127.0.0.1:8000/img/" + servicio.Foto}
                       width="50"
                       heigth="50"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ingrese el negocio relacionado</td>
+                  <td>
+                    <input
+                      type="text"
+                      name="Negocio_Id"
+                      onChange={this.handleChange}
+                      defaultValue={servicio.Negocio_Id}
                     />
                   </td>
                 </tr>

@@ -43,7 +43,7 @@ class EliminarSubservicios extends React.Component {
         alert(respuesta);
 
         setTimeout(function () {
-          window.location = "/Versubservicio";
+          window.location = "/VerSubservicio";
         }, 1000);
       });
   }
