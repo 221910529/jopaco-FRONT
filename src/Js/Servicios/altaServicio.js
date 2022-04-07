@@ -97,7 +97,7 @@ class altaServicios extends Component {
             <tbody>
               <tr>
                 <td className="trmargen">
-                  <h4>Ingrese el nombre</h4>
+                  <h4>Ingrese el nombre:</h4>
                 </td>
               </tr>
               <tr>
@@ -112,7 +112,7 @@ class altaServicios extends Component {
               </tr>
               <tr>
                 <td className="trmargen">
-                  <h4>Ingrese el costo estandar del servicio</h4>
+                  <h4>Ingrese el costo estandar del servicio:</h4>
                 </td>
               </tr>
               <tr>
@@ -143,7 +143,7 @@ class altaServicios extends Component {
               </tr>
               <tr>
                 <td className="trmargen">
-                  <h4>Cargue la imagen del usuarios</h4>
+                  <h4>Cargue la imagen del Servicio</h4>
                 </td>
               </tr>
               <tr>
