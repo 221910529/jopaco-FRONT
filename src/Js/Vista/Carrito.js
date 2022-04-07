@@ -75,12 +75,12 @@ class Carrito extends Component {
               casisub.map((sub) => {
                 if (sub.id == car.SubServicio_Id) {
                   arreglo.push(sub);
-                  console.log(arreglo);
                 }
               });
               this.setState({
                 newserv: arreglo,
               });
+              console.log(this.state.newserv);
               //crear un array;
             })
             .catch(function (error) {
@@ -105,7 +105,10 @@ class Carrito extends Component {
           }
         )
         .then((response) => {
-          console.log(response);
+          alert(response.data.success);
+          setTimeout(function () {
+            window.location = "/";
+          }, 1000);
         })
         .catch(function (error) {
           console.log(error);
@@ -139,11 +142,11 @@ class Carrito extends Component {
           )
         )}
 
-        <div>El total es:{total}</div>
+        <div className="margen"> El total es:{total}</div>
 
-        <div>
-          <a className="boton" onClick={() => this.crearVenta()}>
-            Comprar Todo el Carrito
+        <div className="margen">
+          <a onClick={() => this.crearVenta()}>
+            <button className="boton">Comprar Todo el Carrito</button>
           </a>
         </div>
       </div>

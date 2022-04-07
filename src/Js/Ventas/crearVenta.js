@@ -24,24 +24,16 @@ class Venta extends React.Component {
 
   componentDidMount() {
     axios
-      .get(
-        url,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      .get(url, {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-        {
-          responseType: "blob",
-        }
-      )
+      })
       .then((response) => {
-        const url = window.URL.createObjectURL(new Blob([response.data]));
         const link = document.createElement("a");
         const div = document.getElementById("contenedorVenta");
-        link.href = url;
+        link.href = "http://127.0.0.1:8000/excel";
         link.text = "Descarga el archivo";
-        link.setAttribute("download", "Ticket.xlsx");
         div.appendChild(link);
       })
       .catch((error) => {

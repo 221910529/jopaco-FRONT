@@ -38,7 +38,7 @@ class VerVentas extends React.Component {
       <div className="crud">
         <h1>Ver todos los ventas</h1>
         <br></br>
-        <Excel></Excel>
+        <a href="http://127.0.0.1:8000/excel">Descarga Excel</a>
         <br></br>
         <table className="table2">
           <thead>
