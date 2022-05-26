@@ -4,10 +4,8 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 import "../../Css/Tablas.css";
 
-let url = "http://127.0.0.1:8000/api/usuarios";
+let url = "http://127.0.0.1:8000/api/registrar";
 const cookies = new Cookies();
-
-const token = cookies.get("token");
 
 class AltaUsuarios extends Component {
   state = {
@@ -44,44 +42,38 @@ class AltaUsuarios extends Component {
   };
 
   RegistrarUsuario = async () => {
-    if (token == undefined) {
-      alert("Necesita Iniciar sesion para registrar un usuario");
-    } else {
-      const form = new FormData();
+    const form = new FormData();
 
-      form.append("Nombre", this.state.Nombre);
-      form.append("Apellido_Paterno", this.state.Apellido_Paterno);
-      form.append("Apellido_Materno", this.state.Apellido_Materno);
-      form.append("Fecha_Nacimiento", this.state.Fecha_Nacimiento);
-      form.append("Tipo_Usuario", this.state.Tipo_Usuario);
-      form.append("Email", this.state.Email);
-      form.append("Password", this.state.Password);
-      form.append("Foto", this.state.Foto);
+    form.append("Nombre", this.state.Nombre);
+    form.append("Apellido_Paterno", this.state.Apellido_Paterno);
+    form.append("Apellido_Materno", this.state.Apellido_Materno);
+    form.append("Fecha_Nacimiento", this.state.Fecha_Nacimiento);
+    form.append("Email", this.state.Email);
+    form.append("Password", this.state.Password);
+    form.append("Foto", this.state.Foto);
 
-      await axios
-        .post(url, form, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
-          },
-        })
-        .then((response) => {
-          console.log(response);
-          if (response.data.success != null) {
-            alert(response.data.success);
-          }
-          setTimeout(function () {
-            window.location = "/Usuarios";
-          }, 1000);
-        })
-        .catch(function (error) {
-          console.log(error);
-          if (error.response.data != null) {
-            alert(error.response.data.message);
-            console.log(error.response.data);
-          }
-        });
-    }
+    await axios
+      .post(url, form, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        if (response.data.success != null) {
+          alert(response.data.success);
+        }
+        // setTimeout(function () {
+        //   window.location = "/";
+        // }, 1000);
+      })
+      .catch(function (error) {
+        console.log(error);
+        if (error.response.data != null) {
+          alert(error.response.data.message);
+          console.log(error.response.data);
+        }
+      });
   };
   render() {
     return (
@@ -178,27 +170,6 @@ class AltaUsuarios extends Component {
                     name="Password"
                     onChange={this.handleChange}
                   />
-                </td>
-              </tr>
-              <tr>
-                <td className="trmargen">
-                  <h4>Ingrese el campo Tipo de Usuario</h4>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <select
-                    className="inputs"
-                    onChange={this.handleChange}
-                    name="Tipo_Usuario"
-                  >
-                    <option value="0">selecciona un usuario</option>
-                    <option value="1">Administrador</option>
-                    <option value="2">Cliente</option>
-                    <option value="3">
-                      Proveedor
-                    </option>
-                  </select>
                 </td>
               </tr>
               <tr>

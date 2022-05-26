@@ -3,6 +3,7 @@
   border: 2px solid #17a2b8;
   border-radius: 2px;
   background-color: #343a40;
+  padding: 3px;
 }
 
 .btn_w {
@@ -61,7 +62,6 @@ a:visited {
   display: flex;
   padding: 1%;
   justify-content: space-between;
-  
 }
 
 .Left div {
@@ -77,7 +77,7 @@ a:visited {
   justify-content: space-between;
 }
 
-.admin{
+.admin {
   min-width: 130px;
   height: 40px;
   color: #fff;
@@ -96,7 +96,7 @@ a:visited {
   color: rgba(23, 162, 184, 1);
 }
 
-.cerrarS{
+.cerrarS {
   min-width: 130px;
   height: 40px;
   color: #fff;
@@ -120,6 +120,6 @@ a:visited {
   background-color: #007bff; */
 }
 
-.nav .Usuario{
+.nav .Usuario {
   justify-content: center;
 }
