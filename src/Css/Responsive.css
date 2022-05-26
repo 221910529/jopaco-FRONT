@@ -1,0 +1,38 @@
+@media screen and (max-width: 600px) {
+  .Bienvenido {
+    font-size: 4rem;
+  }
+
+  .Left {
+    flex-direction: column;
+  }
+
+  .footer .social {
+    flex-wrap: wrap;
+  }
+
+  .footer .social a svg {
+    height: 60%;
+  }
+
+  .carousel .slider-wrapper p {
+    font-size: 1rem !important;
+  }
+
+  .btn_out {
+    height: 40px;
+  }
+
+  .formulario {
+    margin: 20px;
+    flex-direction: row !important;
+  }
+
+  .inputs {
+    width: 356px !important;
+  }
+
+  .card1 {
+    margin: 20px;
+  }
+}

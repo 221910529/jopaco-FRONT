@@ -1,5 +1,6 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "../Css/Inicio.css";
+import "../Css/Responsive.css";
 
 import NavBar from "./NavBar";
 import Login from "./Vista/Login";

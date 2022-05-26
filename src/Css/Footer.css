@@ -2,7 +2,8 @@
   width: 100%;
   height: 120px;
   background-color: #343a40;
-  position: relative;
+  position: sticky;
+  bottom: 0;
 }
 
 .footer .social {
@@ -17,9 +18,6 @@
 }
 
 .footer .copyright {
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
   text-align: center;
   color: white;
 }
