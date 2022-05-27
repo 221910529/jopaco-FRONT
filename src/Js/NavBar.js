@@ -9,11 +9,14 @@ const cookies = new Cookies();
 
 const nombre = cookies.get("nombre");
 
+const tipo = cookies.get("tipo");
+
 class NavBar extends Component {
   CerrarSesion = () => {
     cookies.remove("token", { path: "/" });
     cookies.remove("id", { path: "/" });
     cookies.remove("nombre", { path: "/" });
+    cookies.remove("tipo", { path: "/" });
     window.location.href = "./";
   };
 
@@ -38,7 +41,8 @@ class NavBar extends Component {
           </div>
         </div>
       );
-    } else {
+    }
+    if (cookies.get("token") != null && tipo != "Cliente") {
       return (
         <div>
           <div className="nav">
@@ -68,6 +72,42 @@ class NavBar extends Component {
                   <button className="admin">Administracion</button>
                 </Link>
               </div>
+
+              <div>
+                <button className="cerrarS" onClick={() => this.CerrarSesion()}>
+                  Cerrar Sesion
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    if (tipo == "Cliente") {
+      return (
+        <div>
+          <div className="nav">
+            <div className="Right">
+              <Boton To="/" name="Jopaco" btn="btn_in"></Boton>
+              <Logo />
+              <Boton To="/BuscarNegocio" name="Negocios" btn="btn_in"></Boton>
+
+              <Boton
+                To="/Carrito"
+                name="Carrito de Compras"
+                btn="btn_in"
+              ></Boton>
+            </div>
+
+            <div className="Usuario">Hola {nombre}</div>
+
+            <div className="Left">
+              {/* <img
+                src={"http://127.0.0.1:8000/img/" + usuario.Foto}
+                width="50"
+                heigth="50"
+              /> */}
 
               <div>
                 <button className="cerrarS" onClick={() => this.CerrarSesion()}>

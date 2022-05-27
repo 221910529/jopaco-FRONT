@@ -67,6 +67,7 @@ class AltaUsuarios extends Component {
           var token = response.data.token;
           var id = response.data.user.id;
           var nombre = response.data.user.Nombre;
+          var tipo = response.data.user.Tipo_Usuario;
           console.log(token);
           console.log(id);
           console.log(nombre);
@@ -74,6 +75,7 @@ class AltaUsuarios extends Component {
           cookies.set("token", token, { path: "/" });
           cookies.set("id", id, { path: "/" });
           cookies.set("nombre", nombre, { path: "/" });
+          cookies.set("tipo", tipo, { path: "/" });
 
           alert(
             "Bienvenido " +

@@ -34,6 +34,7 @@ class Login extends Component {
           var token = response.data.token;
           var id = response.data.user.id;
           var nombre = response.data.user.Nombre;
+          var tipo = response.data.user.Tipo_Usuario;
           console.log(token);
           console.log(id);
           console.log(nombre);
@@ -41,6 +42,7 @@ class Login extends Component {
           cookies.set("token", token, { path: "/" });
           cookies.set("id", id, { path: "/" });
           cookies.set("nombre", nombre, { path: "/" });
+          cookies.set("tipo", tipo, { path: "/" });
 
           alert(
             "Bienvenido " +
@@ -62,15 +64,19 @@ class Login extends Component {
     return (
       <div className="container">
         <div className="card1">
-          
           <table className="formulario1">
             <tbody>
               <tr>
-                <td><h2 className="trmargen">Direccion de correo de electronico</h2></td>
+                <td>
+                  <h2 className="trmargen">
+                    Direccion de correo de electronico
+                  </h2>
+                </td>
               </tr>
               <tr>
                 <td>
-                  <input className="inputs"
+                  <input
+                    className="inputs"
                     type="email"
                     //className="form-control"
                     name="Email"
@@ -79,11 +85,14 @@ class Login extends Component {
                 </td>
               </tr>
               <tr>
-                <td><h2 className="trmargen">Contraseña</h2></td>
+                <td>
+                  <h2 className="trmargen">Contraseña</h2>
+                </td>
               </tr>
               <tr>
                 <td>
-                  <input className="inputs"
+                  <input
+                    className="inputs"
                     type="password"
                     //className="form-control"
                     name="Password"
@@ -92,18 +101,17 @@ class Login extends Component {
                 </td>
               </tr>
               <tr>
-                <td>
-                  No compartas tu credencial, con nadie mas.
-                </td>
+                <td>No compartas tu credencial, con nadie mas.</td>
               </tr>
               <tr>
                 <td>
-                  <h2 className="trmargen">Recuerdame
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="exampleCheck1"
-                  ></input>
+                  <h2 className="trmargen">
+                    Recuerdame
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                      id="exampleCheck1"
+                    ></input>
                   </h2>
                 </td>
               </tr>
@@ -119,7 +127,6 @@ class Login extends Component {
               </tr>
             </tbody>
           </table>
-          
         </div>
       </div>
     );
