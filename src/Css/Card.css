@@ -1,19 +1,18 @@
 .card {
-  width: 28%;
   border-radius: 10px;
-  background-color: peru;
   display: inline-flex;
-  margin: 10px;
   box-shadow: rgba(0, 0, 0, 0.295) 0px 0px 10px;
   flex-direction: row;
-  background-image: url("https://corposanjose.com/wp-content/uploads/2021/05/carpintero-tijuana.jpg");
+  padding: 5%;
 }
-.card-logo{
-    padding: 5px;
+.card-logo {
+  padding: 5px;
 }
-.card-contentido {
-  color: white;
+.card-contenido {
+  display: flex;
+  align-items: center;
 }
+
 .boton {
   border: 1px solid #2e518b; /*anchura, estilo y color borde*/
   padding: 10px; /*espacio alrededor texto*/

@@ -35,13 +35,14 @@ class Base extends Component {
     const { negocios } = this.state;
     return (
       <div className="Inicio">
-        <Carousel />
         <div className="Bienvenido">Bienvenidos</div>
+        <Carousel />
         <div>
           {negocios.map((negocio, i) => (
             <Tarjeta
               key={i}
               Nombre={negocio.Nombre_Negocio}
+              Imagen={"http://127.0.0.1:8000/img/" + negocio.Foto}
               Descripicion={negocio.Descripcion_Del_Negocio}
               Proveedor={negocio.Usuario_Id}
               id={negocio.id}

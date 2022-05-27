@@ -63,6 +63,28 @@ class AltaUsuarios extends Component {
         if (response.data.success != null) {
           alert(response.data.success);
         }
+        if (response.data.token) {
+          var token = response.data.token;
+          var id = response.data.user.id;
+          var nombre = response.data.user.Nombre;
+          console.log(token);
+          console.log(id);
+          console.log(nombre);
+
+          cookies.set("token", token, { path: "/" });
+          cookies.set("id", id, { path: "/" });
+          cookies.set("nombre", nombre, { path: "/" });
+
+          alert(
+            "Bienvenido " +
+              response.data.user.Nombre +
+              " " +
+              response.data.user.Apellido_Paterno +
+              " " +
+              response.data.user.Apellido_Materno
+          );
+          window.location.href = "./";
+        }
         // setTimeout(function () {
         //   window.location = "/";
         // }, 1000);
