@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../../Css/SubTarjeta.css";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import Cookies from "universal-cookie";
 

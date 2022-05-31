@@ -17,6 +17,7 @@ class NavBar extends Component {
     cookies.remove("id", { path: "/" });
     cookies.remove("nombre", { path: "/" });
     cookies.remove("tipo", { path: "/" });
+    cookies.remove("verificado", { path: "/" });
     window.location.href = "./";
   };
 

@@ -35,6 +35,7 @@ class Login extends Component {
           var id = response.data.user.id;
           var nombre = response.data.user.Nombre;
           var tipo = response.data.user.Tipo_Usuario;
+          var verificado = response.data.user.confirmed;
           console.log(token);
           console.log(id);
           console.log(nombre);
@@ -43,6 +44,7 @@ class Login extends Component {
           cookies.set("id", id, { path: "/" });
           cookies.set("nombre", nombre, { path: "/" });
           cookies.set("tipo", tipo, { path: "/" });
+          cookies.set("verificado", verificado, { path: "/" });
 
           alert(
             "Bienvenido " +
