@@ -36,15 +36,18 @@ class Login extends Component {
           var nombre = response.data.user.Nombre;
           var tipo = response.data.user.Tipo_Usuario;
           var verificado = response.data.user.confirmed;
+          var foto = response.data.user.Foto;
           console.log(token);
           console.log(id);
           console.log(nombre);
+          console.log(tipo);
 
           cookies.set("token", token, { path: "/" });
           cookies.set("id", id, { path: "/" });
           cookies.set("nombre", nombre, { path: "/" });
           cookies.set("tipo", tipo, { path: "/" });
           cookies.set("verificado", verificado, { path: "/" });
+          cookies.set("Foto", foto, { path: "/" });
 
           alert(
             "Bienvenido " +
@@ -103,20 +106,13 @@ class Login extends Component {
                 </td>
               </tr>
               <tr>
-                <td>No compartas tu credencial, con nadie mas.</td>
-              </tr>
-              <tr>
                 <td>
-                  <h2 className="trmargen">
-                    Recuerdame
-                    <input
-                      type="checkbox"
-                      className="form-check-input"
-                      id="exampleCheck1"
-                    ></input>
-                  </h2>
+                  <h4 className="trmargen">
+                    No compartas tu credenciales, con nadie.
+                  </h4>
                 </td>
               </tr>
+
               <tr>
                 <td>
                   <button

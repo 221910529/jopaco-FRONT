@@ -39,9 +39,8 @@ a:visited {
 }
 
 .btn_in a:visited {
-  color: #007bff;
+  color: #17a2b8;
 }
-
 .btn_out a {
   color: #17a2b8;
 }
@@ -51,7 +50,13 @@ a:visited {
 }
 
 .Right {
-  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0% 2% 0% 2%;
+}
+.Right div {
+  padding: 1%;
 }
 
 .Right img {
@@ -62,11 +67,16 @@ a:visited {
   display: flex;
   padding: 1%;
   justify-content: space-between;
+
+  flex-direction: row;
 }
 
 .Left div {
-  flex-direction: row;
-  padding: 1%;
+  margin: 2%;
+}
+
+.Left div img {
+  border-radius: 50%;
 }
 
 .nav {
@@ -97,27 +107,13 @@ a:visited {
 }
 
 .cerrarS {
-  min-width: 130px;
   height: 40px;
   color: #fff;
-  padding: 5px 10px;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-  outline: none;
-  border-radius: 5px;
-  z-index: 0;
   background: #343a40;
-  overflow: hidden;
   border: 2px solid rgba(23, 162, 184, 1);
   color: rgba(23, 162, 184, 1);
-  /* color: aliceblue;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  border-radius: 8px;
-  font-size: 14px;
-  background-color: #007bff; */
 }
 
 .nav .Usuario {

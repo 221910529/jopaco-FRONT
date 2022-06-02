@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 
+import EmpresaImg from "../../empresa.jpg";
+
 import "../../Css/Card.css";
+import "../../Css/Base.css";
 
 import Carousel from "../Carousel";
 import Tarjeta from "../Card";
@@ -13,8 +16,11 @@ let url = "http://127.0.0.1:8000/api/negociosall";
 const cookies = new Cookies();
 
 const token = cookies.get("token");
-const verificado = cookies.get("verificado");
+let verificado = cookies.get("verificado");
 const nombre = cookies.get("nombre");
+const id = cookies.get("id");
+
+let url2 = "http://127.0.0.1:8000/api/list";
 
 console.log(verificado);
 
@@ -33,16 +39,30 @@ class Base extends Component {
           negocios: info,
         });
       });
+
+    axios
+      .post(url2, {
+        ID: id,
+      })
+      .then((response) => {
+        console.log(response);
+        let nuevo = response.data;
+        console.log(nuevo);
+        this.setState({
+          verificado: nuevo.confirmed,
+        });
+      });
   }
 
   render() {
     const { negocios } = this.state;
+    const { verificado } = this.state;
     if (verificado != null && verificado != 1) {
       return (
         <div className="Inicio">
           <Modal
             Titulo={"Hola " + nombre}
-            Contenido="Por favor Verifica tu correo"
+            Contenido="Por favor verifica tu correo"
           ></Modal>
           <div className="Bienvenido">Bienvenidos</div>
           <Carousel />
@@ -77,6 +97,45 @@ class Base extends Component {
                 id={negocio.id}
               ></Tarjeta>
             ))}
+          </div>
+
+          <div className="pafderecho">
+            <div>
+              <img src={EmpresaImg} className="imgresponsive"></img>
+            </div>
+            <div className="pad fondo">
+              <p>
+                Somos una empresa dedicada a la promocion de servicios cercanos
+                a tu comunidad
+              </p>
+            </div>
+          </div>
+
+          <div className="pad">
+            <div className="pad">
+              <h1> Misión </h1>
+            </div>
+            <div className="pad">
+              <p>
+                Buscamos fomentar, proveer, y servir a nuestro mundo, siendo una
+                empresa altamente productiva y plenamente humana. Lo más
+                importante para la empresa es su mundo de consumidores que ve
+                como jefes, y clientes que ve como socios.
+              </p>
+            </div>
+          </div>
+
+          <div className="pad">
+            <div className="pad">
+              <p>
+                Ser líder internacional en la búsqueda de servicios de calidad
+                dentro de la comunidad en donde se encuentran la mayoría de
+                estos servicios.
+              </p>
+            </div>
+            <div className="pad">
+              <h1> Vision </h1>
+            </div>
           </div>
         </div>
       );

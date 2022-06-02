@@ -51,6 +51,7 @@ export default function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+        <Route exact path="/Inicio" component={Base} />
         <Route exact path="/" component={Base} />
         <Route path="/Login" component={Login} />
 

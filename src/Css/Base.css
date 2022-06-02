@@ -1,0 +1,32 @@
+.pad {
+  padding: 2%;
+  display: flex;
+  align-items: center;
+}
+
+.pafderecho {
+  padding: 2% 0px 2% 0px;
+  display: flex;
+  align-items: center;
+}
+
+.imgresponsive {
+  width: 50vw;
+}
+
+.pad p {
+  font-size: large;
+}
+
+.pad img {
+  width: 50vw;
+}
+
+.fondo {
+  background-color: #b0c4d9;
+  box-shadow: -19px -10px 43px 5px rgba(0, 0, 0, 0.73);
+}
+
+.fondo p {
+  color: #485059;
+}
