@@ -4,8 +4,8 @@ import SubCard from "./SubExtra";
 import axios from "axios";
 import Cookies from "universal-cookie";
 
-let url = "http://127.0.0.1:8000/api/servicios/";
-let url2 = "http://127.0.0.1:8000/api/subservicios";
+let url = "https://back.jopaco.online/api/servicios/";
+let url2 = "https://back.jopaco.online/api/subservicios";
 const cookies = new Cookies();
 
 const token = cookies.get("token");
@@ -67,7 +67,7 @@ class VerServicio extends Component {
         <div className="column">
           <div className="contener">
             <img
-              src={"http://127.0.0.1:8000/img/" + servicios.Foto}
+              src={"https://back.jopaco.online/img/" + servicios.Foto}
               width="300"
               height="300"
               alt="Imagen"

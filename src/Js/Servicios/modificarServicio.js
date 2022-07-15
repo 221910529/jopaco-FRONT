@@ -5,7 +5,7 @@ import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
 
 //------ tener el url a mano
-let url = "http://127.0.0.1:8000/api/servicios/";
+let url = "https://back.jopaco.online/api/servicios/";
 const cookies = new Cookies();
 
 const token = cookies.get("token");
@@ -107,8 +107,8 @@ class ModificarServicios extends React.Component {
   };
 
   render() {
-    const { 
-      Nombre_Servicio, 
+    const {
+      Nombre_Servicio,
       Costo,
       Tiempo_Estimado,
       Foto,
@@ -164,14 +164,14 @@ class ModificarServicios extends React.Component {
                 <tr>
                   <td>Cargue la imagen del servicio</td>
                   <td>
-                  <input
+                    <input
                       type="file"
                       name="Foto"
                       //onChange={this.handleChange}
                       onChange={this.subirArchivos}
                     />
                     <img
-                      src={"http://127.0.0.1:8000/img/" + Foto}
+                      src={"https://back.jopaco.online/img/" + Foto}
                       width="50"
                       heigth="50"
                     />

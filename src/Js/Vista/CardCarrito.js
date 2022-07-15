@@ -4,7 +4,7 @@ import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-let url = "http://127.0.0.1:8000/api/carrito/";
+let url = "https://back.jopaco.online/api/carrito/";
 
 const cookies = new Cookies();
 

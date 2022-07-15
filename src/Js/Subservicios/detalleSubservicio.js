@@ -5,7 +5,7 @@ import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
 
 //------ tener el url a mano
-let url = "http://127.0.0.1:8000/api/subservicios/";
+let url = "https://back.jopaco.online/api/subservicios/";
 const cookies = new Cookies();
 
 const token = cookies.get("token");
@@ -36,54 +36,47 @@ class detallesubservicios extends React.Component {
   render() {
     const { subservicio } = this.state;
     return (
-
-      <><div className="Titulo">
-        <h1>Detalle Subservicio {subservicio.Nombre}</h1>
-      </div>
-      <div className="formularioDU">
-
+      <>
+        <div className="Titulo">
+          <h1>Detalle Subservicio {subservicio.Nombre}</h1>
+        </div>
+        <div className="formularioDU">
           <div className="Informacion">
-          <table className="tablaInfor">
-            <tbody>
-            <tr>
-              <td>Nombre del subservicio:</td>
-              <td>{subservicio.Nombre} </td>
-            </tr>
-            <tr>
-              <td>Descripcion:</td>
-              <td>{subservicio.Descripcion}</td>
-            </tr>
-            <tr>
-              <td>Calificacion:</td>
-              <td>{subservicio.Calificacion}</td>
-            </tr>
-            <tr>
-              <td>Precio:</td>
-              <td>{subservicio.Precio}</td>
-            </tr>
-            <tr>
-              <td>Servicio relacionado:</td>
-              <td>{subservicio.Servicio_Id}</td>
-            </tr>
-            </tbody>
-          </table>
-
+            <table className="tablaInfor">
+              <tbody>
+                <tr>
+                  <td>Nombre del subservicio:</td>
+                  <td>{subservicio.Nombre} </td>
+                </tr>
+                <tr>
+                  <td>Descripcion:</td>
+                  <td>{subservicio.Descripcion}</td>
+                </tr>
+                <tr>
+                  <td>Calificacion:</td>
+                  <td>{subservicio.Calificacion}</td>
+                </tr>
+                <tr>
+                  <td>Precio:</td>
+                  <td>{subservicio.Precio}</td>
+                </tr>
+                <tr>
+                  <td>Servicio relacionado:</td>
+                  <td>{subservicio.Servicio_Id}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
           <Link
-                to={{
-                  pathname: "/VerSubservicios",
-                }}
-              >
-                <button className="boton">Regresar</button>
-            </Link>
-          <div>
-          
-
-          </div>
-
-          
-        </div></>
-      
+            to={{
+              pathname: "/VerSubservicios",
+            }}
+          >
+            <button className="boton">Regresar</button>
+          </Link>
+          <div></div>
+        </div>
+      </>
     );
   }
 }

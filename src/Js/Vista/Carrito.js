@@ -5,11 +5,11 @@ import Cookies from "universal-cookie";
 import Card from "./CardCarrito";
 import { Link } from "react-router-dom";
 
-let url = "http://127.0.0.1:8000/api/carrito";
+let url = "https://back.jopaco.online/api/carrito";
 
-let url2 = "http://127.0.0.1:8000/api/subservicios";
+let url2 = "https://back.jopaco.online/api/subservicios";
 
-let url3 = "http://127.0.0.1:8000/api/ventas";
+let url3 = "https://back.jopaco.online/api/ventas";
 
 const cookies = new Cookies();
 

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import "../../Css/Tablas.css";
 import Excel from "./crearVenta";
 
-let url = "http://127.0.0.1:8000/api/ventas";
+let url = "https://back.jopaco.online/api/ventas";
 const cookies = new Cookies();
 const token = cookies.get("token");
 
@@ -38,7 +38,7 @@ class VerVentas extends React.Component {
       <div className="crud">
         <h1>Ver todos los ventas</h1>
         <br></br>
-        <a href="http://127.0.0.1:8000/excel">Descarga Excel</a>
+        <a href="https://back.jopaco.online/excel">Descarga Excel</a>
         <br></br>
         <table className="table2">
           <thead>

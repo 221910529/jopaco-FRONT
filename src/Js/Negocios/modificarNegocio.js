@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 //import "../../Css/Tablas.css";
 
 //------ tener el url a mano
-let url = "http://127.0.0.1:8000/api/negocios/";
+let url = "https://back.jopaco.online/api/negocios/";
 const cookies = new Cookies();
 
 const token = cookies.get("token");
@@ -104,14 +104,14 @@ class ModificarNegocios extends React.Component {
       .catch(function (error) {
         console.log(error);
         //if (error.response.data != null) {
-          // alert(error.response.data.message);
-          // alert(error.response.data.errors.Nombre_Negocio);
-          // alert(error.response.data.errors.Direccion);
-          // alert(error.response.data.errors.Horario_Servicio);
-          // alert(error.response.data.errors.Dias_Servicio);
-          // alert(error.response.data.errors.Descripcion_Del_Negocio);
-          // alert(error.response.data.errors.Usuario_Id);
-          // alert(error.response.data.errors.Foto);
+        // alert(error.response.data.message);
+        // alert(error.response.data.errors.Nombre_Negocio);
+        // alert(error.response.data.errors.Direccion);
+        // alert(error.response.data.errors.Horario_Servicio);
+        // alert(error.response.data.errors.Dias_Servicio);
+        // alert(error.response.data.errors.Descripcion_Del_Negocio);
+        // alert(error.response.data.errors.Usuario_Id);
+        // alert(error.response.data.errors.Foto);
         //}
       });
   };
@@ -140,7 +140,7 @@ class ModificarNegocios extends React.Component {
                 <tr>
                   <td>Ingrese el nombre del negocio</td>
                 </tr>
-                <tr>  
+                <tr>
                   <td>
                     <input
                       type="text"
@@ -153,7 +153,7 @@ class ModificarNegocios extends React.Component {
                 <tr>
                   <td>Ingrese la dirección del establecimiento</td>
                 </tr>
-                <tr>   
+                <tr>
                   <td>
                     {" "}
                     <input
@@ -167,7 +167,7 @@ class ModificarNegocios extends React.Component {
                 <tr>
                   <td>Ingrese el horario de servicio</td>
                 </tr>
-                <tr>   
+                <tr>
                   <td>
                     <input
                       type="text"
@@ -181,7 +181,7 @@ class ModificarNegocios extends React.Component {
                 <tr>
                   <td>Ingrese los días de servicio</td>
                 </tr>
-                <tr> 
+                <tr>
                   <td>
                     <input
                       type="text"
@@ -195,7 +195,7 @@ class ModificarNegocios extends React.Component {
                 <tr>
                   <td>Ingrese la descripción del negocio</td>
                 </tr>
-                <tr>   
+                <tr>
                   <td>
                     <input
                       type="text"
@@ -208,7 +208,7 @@ class ModificarNegocios extends React.Component {
                 <tr>
                   <td>Ingrese el usuario asociado</td>
                 </tr>
-                <tr>   
+                <tr>
                   <td>
                     <input
                       type="number"
@@ -219,23 +219,22 @@ class ModificarNegocios extends React.Component {
                   </td>
                 </tr>
 
-
                 <tr>
                   <td>Ingrese la imagen del negocio</td>
                 </tr>
-                <tr> 
+                <tr>
                   <td>
                     <input
-                        type="file"
-                        name="Foto"
-                        //onChange={this.handleChange}
-                        onChange={this.subirArchivos}
-                      />
-                      <img
-                        src={"http://127.0.0.1:8000/img/" + Foto}
-                        width="50"
-                        heigth="50"
-                      />
+                      type="file"
+                      name="Foto"
+                      //onChange={this.handleChange}
+                      onChange={this.subirArchivos}
+                    />
+                    <img
+                      src={"https://back.jopaco.online/img/" + Foto}
+                      width="50"
+                      heigth="50"
+                    />
                   </td>
                 </tr>
               </tbody>
@@ -250,5 +249,3 @@ class ModificarNegocios extends React.Component {
 }
 
 export default ModificarNegocios;
-
-

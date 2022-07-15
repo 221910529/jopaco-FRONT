@@ -9,7 +9,7 @@ class Card extends Component {
         <div className="subtarjeta">
           <div>
             <img
-              src={"http://127.0.0.1:8000/img/" + this.props.Foto}
+              src={"https://back.jopaco.online/img/" + this.props.Foto}
               alt="Imagen Negocio"
               width="80"
               height="80"

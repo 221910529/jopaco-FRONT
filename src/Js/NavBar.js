@@ -79,7 +79,7 @@ class NavBar extends Component {
 
             <div className="Left">
               <img
-                src={"http://127.0.0.1:8000/img/" + Foto}
+                src={"https://back.jopaco.online/img/" + Foto}
                 width="50"
                 heigth="50"
                 alt="Foto no encontrada"
@@ -128,7 +128,7 @@ class NavBar extends Component {
             <div className="Left">
               <div>
                 <img
-                  src={"http://127.0.0.1:8000/img/" + Foto}
+                  src={"https://back.jopaco.online/img/" + Foto}
                   width="50"
                   heigth="50"
                   alt="Foto no encontrada"

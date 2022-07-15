@@ -4,8 +4,8 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 import SubCard from "./SubCard";
 
-let url = "http://127.0.0.1:8000/api/negocios/";
-let url2 = "http://127.0.0.1:8000/api/servicios";
+let url = "https://back.jopaco.online/api/negocios/";
+let url2 = "https://back.jopaco.online/api/servicios";
 const cookies = new Cookies();
 
 const token = cookies.get("token");
@@ -65,20 +65,19 @@ class VerNegocio extends Component {
     const { negocios } = this.state;
     const { newserv } = this.state;
     return (
-      <><div className="centrado">
-        <h1>Negocio: {negocios.Nombre_Negocio}</h1>
-      </div>
-      <div className="margen">
+      <>
+        <div className="centrado">
+          <h1>Negocio: {negocios.Nombre_Negocio}</h1>
+        </div>
+        <div className="margen">
           <div className="column">
             <div className="contener">
               <img
-                src={"http://127.0.0.1:8000/img/" + negocios.Foto}
+                src={"https://back.jopaco.online/img/" + negocios.Foto}
                 width="300"
                 height="300"
                 alt="Imagen"
               ></img>
-
-              
             </div>
             <div className="fila">
               <div className="text-centrar">
@@ -127,7 +126,8 @@ class VerNegocio extends Component {
               ></SubCard>
             ))}
           </div>
-        </div></>
+        </div>
+      </>
     );
   }
 }

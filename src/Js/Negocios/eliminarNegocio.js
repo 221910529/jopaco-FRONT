@@ -4,9 +4,8 @@ import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
 import "../../Css/Tablas.css";
 
-
 //------ tener el url a mano
-let url = "http://127.0.0.1:8000/api/negocios/";
+let url = "https://back.jopaco.online/api/negocios/";
 const cookies = new Cookies();
 
 const token = cookies.get("token");

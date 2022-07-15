@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "../../Css/Tablas.css";
 
 //------ tener el url a mano
-let url = "http://127.0.0.1:8000/api/usuarios/";
+let url = "https://back.jopaco.online/api/usuarios/";
 const cookies = new Cookies();
 
 const token = cookies.get("token");
@@ -60,7 +60,10 @@ class Eliminarusuarios extends React.Component {
             <tbody>
               <tr>
                 <td>Nombre de usuario</td>
-                <td>{usuario.Apellido_Paterno} {usuario.Apellido_Materno} {usuario.Nombre}</td>
+                <td>
+                  {usuario.Apellido_Paterno} {usuario.Apellido_Materno}{" "}
+                  {usuario.Nombre}
+                </td>
               </tr>
               <tr>
                 <td>Fecha de nacimiento</td>

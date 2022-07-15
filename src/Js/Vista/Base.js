@@ -12,7 +12,7 @@ import Modal from "../Modal/Modal";
 import axios from "axios";
 import Cookies from "universal-cookie";
 
-let url = "http://127.0.0.1:8000/api/negociosall";
+let url = "https://back.jopaco.online/api/negociosall";
 const cookies = new Cookies();
 
 const token = cookies.get("token");
@@ -20,7 +20,7 @@ let verificado = cookies.get("verificado");
 const nombre = cookies.get("nombre");
 const id = cookies.get("id");
 
-let url2 = "http://127.0.0.1:8000/api/list";
+let url2 = "https://back.jopaco.online/api/list";
 
 console.log(verificado);
 
@@ -71,7 +71,7 @@ class Base extends Component {
               <Tarjeta
                 key={i}
                 Nombre={negocio.Nombre_Negocio}
-                Imagen={"http://127.0.0.1:8000/img/" + negocio.Foto}
+                Imagen={"https://back.jopaco.online/img/" + negocio.Foto}
                 Descripicion={negocio.Descripcion_Del_Negocio}
                 Proveedor={negocio.Usuario_Id}
                 id={negocio.id}
@@ -91,7 +91,7 @@ class Base extends Component {
               <Tarjeta
                 key={i}
                 Nombre={negocio.Nombre_Negocio}
-                Imagen={"http://127.0.0.1:8000/img/" + negocio.Foto}
+                Imagen={"https://back.jopaco.online/img/" + negocio.Foto}
                 Descripicion={negocio.Descripcion_Del_Negocio}
                 Proveedor={negocio.Usuario_Id}
                 id={negocio.id}

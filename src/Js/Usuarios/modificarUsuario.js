@@ -5,7 +5,7 @@ import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
 
 //------ tener el url a mano
-let url = "http://127.0.0.1:8000/api/usuarios/";
+let url = "https://back.jopaco.online/api/usuarios/";
 const cookies = new Cookies();
 
 const token = cookies.get("token");
@@ -200,9 +200,7 @@ class ModificarUsuarios extends React.Component {
                             Administrador
                           </option>
                           <option value="2">Cliente</option>
-                          <option value="3">
-                            Proveedor
-                          </option>
+                          <option value="3">Proveedor</option>
                         </>
                       )}
                       {Tipo_Usuario == "Usuario" && (
@@ -264,7 +262,7 @@ class ModificarUsuarios extends React.Component {
                       onChange={this.subirArchivos}
                     />
                     <img
-                      src={"http://127.0.0.1:8000/img/" + Foto}
+                      src={"https://back.jopaco.online/img/" + Foto}
                       width="50"
                       heigth="50"
                     />

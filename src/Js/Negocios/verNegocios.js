@@ -4,9 +4,9 @@ import React from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
-import "../../Css/Tablas.css"
+import "../../Css/Tablas.css";
 
-let url = "http://127.0.0.1:8000/api/negocios";
+let url = "https://back.jopaco.online/api/negocios";
 const cookies = new Cookies();
 const token = cookies.get("token");
 
@@ -72,7 +72,7 @@ class VerNegocios extends React.Component {
 
                 <td>
                   <img
-                    src={"http://127.0.0.1:8000/img/" + negocio.Foto}
+                    src={"https://back.jopaco.online/img/" + negocio.Foto}
                     width="80"
                     heigth="80"
                   />
@@ -84,7 +84,7 @@ class VerNegocios extends React.Component {
                       state: { id: negocio.id },
                     }}
                   >
-                    <button className = "buttontables1">Ver detalle</button>
+                    <button className="buttontables1">Ver detalle</button>
                   </Link>
                 </td>
                 <td>
@@ -94,7 +94,7 @@ class VerNegocios extends React.Component {
                       state: { id: negocio.id },
                     }}
                   >
-                    <button className = "buttontables3">Modificar</button>
+                    <button className="buttontables3">Modificar</button>
                   </Link>
                 </td>
                 <td>
@@ -104,7 +104,9 @@ class VerNegocios extends React.Component {
                       state: { id: negocio.id },
                     }}
                   >
-                    <button  className = "buttontables2" onClick={this.confirm}>Eliminar</button>
+                    <button className="buttontables2" onClick={this.confirm}>
+                      Eliminar
+                    </button>
                   </Link>
                 </td>
               </tr>

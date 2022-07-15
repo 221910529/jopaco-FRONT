@@ -5,7 +5,7 @@ import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
 
 //------ tener el url a mano
-let url = "http://127.0.0.1:8000/api/subservicios/";
+let url = "https://back.jopaco.online/api/subservicios/";
 const cookies = new Cookies();
 
 const token = cookies.get("token");
@@ -158,7 +158,7 @@ class ModificarSubservicios extends React.Component {
                     />
                   </td>
                 </tr>
-                
+
                 <tr>
                   <td>Ingrese subservicio</td>
                   <td>
